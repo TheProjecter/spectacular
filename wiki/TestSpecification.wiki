@@ -1,0 +1,15 @@
+= Test Specification =
+
+Some business rules here
+
+
+= Use Cases =
+
+== Use Case: Logging In ==
+
+|| User Flow: Logging in ||
+|| *User Action* || *Expectation* || *Comment* ||
+|| User navigates to home page || User sees home page ||
+|| User requests login page || User sees login page requesting credentials ||
+|| User enters credentials into login page and clicks login button || User sees customized home page ||
+
