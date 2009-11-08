@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="Maven">
+    <bannerLeft>
+        <name>Spectacular</name>
+        <src>http://maven.apache.org/images/apache-maven-project.png</src>
+        <href>http://maven.apache.org/</href>
+    </bannerLeft>
+    <bannerRight>
+        <src>http://maven.apache.org/images/maven-small.gif</src>
+    </bannerRight>
+    <body>
+
+        <menu name="Spectacular 1.0">
+            <item name="Quick-Start Guide" href="quickstart_guide.html"/>
+            <item name="Writing test specifications" href="writing_test_specifications.html" />
+            <item name="Writing test fixtures" href="writing_test_fixtures.html" />
+            <item name="Executable Use Cases" href="executable_use_cases.html" />
+            <item name="Road Map" href="roadmap.html"/>
+        </menu>
+
+        <menu ref="reports"/>
+
+    </body>
+</project>

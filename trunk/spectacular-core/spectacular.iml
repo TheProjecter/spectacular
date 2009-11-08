@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module relativePaths="true" MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_5" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/target/classes" />
+    <output-test url="file://$MODULE_DIR$/target/test-classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/integration-test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/integration-test/resource" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/resource" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="Maven: org.springframework:org.springframework.context:2.5.6.SEC01" level="project" />
+    <orderEntry type="library" exported="" name="Maven: org.aopalliance:com.springsource.org.aopalliance:1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="Maven: org.apache.commons:com.springsource.org.apache.commons.logging:1.1.1" level="project" />
+    <orderEntry type="library" exported="" name="Maven: org.springframework:org.springframework.aop:2.5.6.SEC01" level="project" />
+    <orderEntry type="library" exported="" name="Maven: org.springframework:org.springframework.beans:2.5.6.SEC01" level="project" />
+    <orderEntry type="library" exported="" name="Maven: org.springframework:org.springframework.core:2.5.6.SEC01" level="project" />
+    <orderEntry type="library" exported="" name="Maven: commons-cli:commons-cli:1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.junit:com.springsource.org.junit:4.7.0" level="project" />
+    <orderEntry type="library" name="Maven: org.mortbay.jetty:jetty:6.1.9" level="project" />
+    <orderEntry type="library" name="Maven: org.mortbay.jetty:jetty-util:6.1.9" level="project" />
+    <orderEntry type="library" name="Maven: org.mortbay.jetty:servlet-api-2.5:6.1.9" level="project" />
+    <orderEntry type="library" name="Maven: org.mortbay.jetty:jetty-embedded:6.1.9" level="project" />
+    <orderEntry type="library" name="Maven: javax.servlet.jsp:jsp-api:2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.mortbay.jetty:jsp-2.1-glassfish:9.1.1.B60.25.p2" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jdt:core:3.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.mortbay.jetty:jsp-api-2.1-glassfish:9.1.1.B60.25.p2" level="project" />
+    <orderEntry type="library" name="Maven: ant:ant:1.6.5" level="project" />
+    <orderEntry type="library" name="Maven: org.mockito:com.springsource.org.mockito:1.6.0" level="project" />
+    <orderEntry type="library" name="Maven: org.objenesis:com.springsource.org.objenesis:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.hamcrest:com.springsource.org.hamcrest.core:1.1.0" level="project" />
+    <orderEntry type="library" exported="" name="Maven: com.c2.fit:fit:1.1" level="project" />
+    <orderEntry type="library" exported="" name="Maven: junit:junit:3.8.1" level="project" />
+    <orderEntry type="library" exported="" name="Maven: org.jbehave:jbehave-core:2.2" level="project" />
+    <orderEntry type="library" exported="" name="Maven: junit:junit-dep:4.4" level="project" />
+    <orderEntry type="library" exported="" name="Maven: org.hamcrest:hamcrest-all:1.1" level="project" />
+    <orderEntry type="library" exported="" name="Maven: org.apache.log4j:com.springsource.org.apache.log4j:1.2.15" level="project" />
+    <orderEntry type="library" exported="" name="Maven: org.htmlparser:com.springsource.org.htmlparser:1.6.0" level="project" />
+  </component>
+</module>
+

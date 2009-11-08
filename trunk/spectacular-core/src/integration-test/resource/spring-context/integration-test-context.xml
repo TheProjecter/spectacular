@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+    <bean id="documentReader" class="minderupt.spectacular.reader.resource.SpringResourceBasedDocumentReader">
+
+    </bean>
+
+    <bean id="artifactExtractor" class="minderupt.spectacular.parser.html.HTMLTableArtifactExtractor">
+        
+    </bean>
+
+    <!-- Decisioners -->
+    <bean id="bddJbehaveDecisioner" class="minderupt.spectacular.decisioner.bdd.JBehaveBDDKeywordDecisioner" />
+    <bean id="eucHeaderValueDecisioner" class="minderupt.spectacular.decisioner.euc.EUCHeaderValueDecisioner" />
+    <bean id="eucTableStructureDecisioner" class="minderupt.spectacular.decisioner.euc.EUCTableStructureDecisioner" />
+    <bean id="fitHeaderClassIsFixtureDecisioner" class="minderupt.spectacular.decisioner.fit.FITHeaderClassIsFixtureDecisioner" />
+
+    <bean id="decisionerAgent" class="minderupt.spectacular.decisioner.ChainedDecisionerAgent">
+        <property name="decisioners">
+            <list>
+                <ref bean="bddJbehaveDecisioner" />
+                <ref bean="eucHeaderValueDecisioner" />
+                <ref bean="eucTableStructureDecisioner" />
+                <ref bean="fitHeaderClassIsFixtureDecisioner" />
+            </list>
+        </property>
+    </bean>
+
+    <!-- executors -->
+    <bean id="bddExecutor" class="minderupt.spectacular.executor.bdd.JBehaveArtifactExecutor" />
+    <bean id="fitExecutor" class="minderupt.spectacular.executor.fit.FITArtifactExecutor" />
+    <bean id="eucExecutor" class="minderupt.spectacular.executor.euc.EUCArtifactExecutor"/>
+
+    <bean id="artifactExecutorAgent" class="minderupt.spectacular.executor.agent.LinearArtifactExecutorAgent">
+        <property name="executors">
+            <map>
+                <entry key="1" value-ref="bddExecutor" />
+                <entry key="2" value-ref="fitExecutor" />
+                <entry key="3" value-ref="eucExecutor" />
+            </map>
+        </property>
+
+    </bean>
+
+
+    <!-- report builders & writers -->
+    <bean id="bddReportBuilder" class="minderupt.spectacular.reporting.html.bdd.JBehaveArtifactReportBuilderHTML" />
+    <bean id="fitReportBuilder" class="minderupt.spectacular.reporting.html.fit.FITArtifactReportBuilderHTML" />
+    <bean id="eucReportBuilder" class="minderupt.spectacular.reporting.html.euc.EUCArtifactReportBuilderHTML" />
+    
+    <bean id="reportBuilder" class="minderupt.spectacular.reporting.html.HTMLReportBuilder">
+        <property name="reportBuilders">
+            <map>
+                <entry key="1" value-ref="bddReportBuilder" />
+                <entry key="2" value-ref="fitReportBuilder" />
+                <entry key="3" value-ref="eucReportBuilder" />
+            </map>
+        </property>
+    </bean>
+
+    <bean id="reportWriter" class="minderupt.spectacular.reporting.html.FileReportWriter">
+        <property name="basePath" value="." />
+    </bean>
+
+
+
+
+    <bean id="spine" class="minderupt.spectacular.spine.ComponoSpine">
+        <property name="artifactExecutorAgent" ref="artifactExecutorAgent" />
+        <property name="artifactExtractor" ref="artifactExtractor" />
+        <property name="decisionerAgent" ref="decisionerAgent" />
+        <property name="documentReader" ref="documentReader" />
+        <property name="reportBuilder" ref="reportBuilder" />
+        <property name="reportWriter" ref="reportWriter" />
+        <!-- more -->
+    </bean>
+
+
+</beans>
