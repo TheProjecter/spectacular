@@ -1,4 +1,4 @@
-#summary Documentation for Spectacular
+#summary All of the Documentation for Spectacular
 #labels Featured
 
 ==Using Spectacular==
