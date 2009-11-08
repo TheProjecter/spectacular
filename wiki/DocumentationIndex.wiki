@@ -1,4 +1,4 @@
 #labels Featured
   * [Introduction]
-  * [Quick-Start Guide]
+  * [QuickStartGuide Quick-Start Guide]
   * [WritingTestSpecs Writing Test Specs]
