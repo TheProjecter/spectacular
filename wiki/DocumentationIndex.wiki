@@ -1,4 +1,5 @@
 #labels Featured
   * Introduction to Spectacular
+  * [Blog]
   * Installation
   * Writing a Spec
