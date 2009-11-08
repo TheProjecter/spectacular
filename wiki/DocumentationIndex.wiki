@@ -1,6 +1,3 @@
 #labels Featured
-  * Introduction to Spectacular
-  * [Blog]
-  * [FeatureDevelopmentActivity]
-  * Installation
-  * Writing a Spec
+  * Introduction
+  * [http://spectacular.minderupt.com/ Spectacular Project Reports]
