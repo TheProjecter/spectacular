@@ -1,4 +1,6 @@
+#summary Documentation for Spectacular
 #labels Featured
+
 ==Using Spectacular==
   * [Introduction]
   * [QuickStartGuide Quick-Start Guide]
