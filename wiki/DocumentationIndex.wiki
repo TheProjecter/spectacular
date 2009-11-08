@@ -24,3 +24,15 @@
     * [ExtendReporters Writing New Report Generators and Writer]
     * [SpineWiring Wiring Together A New Spine]
   * [UpcomingFeatures Upcoming Features and Submitting New Ones]
+
+----
+
+  * [http://spectacular.minderupt.com/project-info.html Project Build Reports]
+    * [http://spectacular.minderupt.com/integration.html Continuous Integration]
+    * [http://spectacular.minderupt.com/license.html License]
+    * [http://spectacular.minderupt.com/cobertura/index.html Unit Test Coverage]
+    * [http://spectacular.minderupt.com/surefire-report.html Unit Test Results]
+    * [http://spectacular.minderupt.com/cpd.html Duplicate Code Report]
+    * [http://spectacular.minderupt.com/jdepend-report.html JDepend Code Metrics]
+    * [http://spectacular.minderupt.com/pmd.html PMD Code Quality Report]
+    * [http://spectacular.minderupt.com/apidocs/index.html API / Javadocs]
