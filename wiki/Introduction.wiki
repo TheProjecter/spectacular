@@ -1,14 +1,7 @@
-#summary One-sentence summary of this page.
+#summary An introduction to Spectacular
 
 =What is Spectacular?=
 
-Spectacular is an [http://www.slideshare.net/nashjain/acceptance-test-driven-development-350264 Acceptance Test Driven Development] (ATDD) /
-    [http://dannorth.net/introducing-bdd Behavior Driven Development] (BDD) tool that aggregates
-    several different types of testing frameworks into 1, and adds the capability to write fully Executable Use Cases (EUC).
+Spectacular is an [http://www.slideshare.net/nashjain/acceptance-test-driven-development-350264 Acceptance Test Driven Development] (ATDD) / [http://dannorth.net/introducing-bdd Behavior Driven Development] (BDD) tool that aggregates several different types of testing frameworks into 1, and adds the capability to write fully Executable Use Cases (EUC).
 
-    The idea is that a Business Analyst (BA), Quality Assurance engineer (QA), or Developer can write a spec in any way
-    they feel comfortable with, including diagrams and business rules if necessary.  They can write tests in the form
-    of Executable Use Cases, BDD-style tests ([http://wiki.github.com/aslakhellesoy/cucumber/gherkin Gherkin/Given-When-Then] scenarios),
-    and/or [http://fit.c2.com/wiki.cgi?IntroductionToFit FIT]-style tests all within
-    the same document.  The tool will run through the document, "detect" test cases, execute them, and print out the
-    results in the same format as it was input.
+The idea is that a Business Analyst (BA), Quality Assurance engineer (QA), or Developer can write a spec in any way they feel comfortable with, including diagrams and business rules if necessary.  They can write tests in the form of Executable Use Cases, BDD-style tests ([http://wiki.github.com/aslakhellesoy/cucumber/gherkin Gherkin/Given-When-Then] scenarios), and/or [http://fit.c2.com/wiki.cgi?IntroductionToFit FIT]-style tests all within the same document.  The tool will run through the document, "detect" test cases, execute them, and print out the results in the same format as it was input.
