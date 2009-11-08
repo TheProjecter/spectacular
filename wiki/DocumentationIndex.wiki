@@ -27,7 +27,8 @@
 
 ----
 
-  * [http://spectacular.minderupt.com/project-info.html Project Build Reports]
+  * [http://spectacular.minderupt.com/project-info.html Project Info]
+  * [http://spectacular.minderupt.com/project-reports.html Project Build Reports]
     * [http://spectacular.minderupt.com/integration.html Continuous Integration]
     * [http://spectacular.minderupt.com/license.html License]
     * [http://spectacular.minderupt.com/cobertura/index.html Unit Test Coverage]
