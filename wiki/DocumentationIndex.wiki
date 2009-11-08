@@ -1,4 +1,5 @@
 #labels Featured
+==Using Spectacular==
   * [Introduction]
   * [QuickStartGuide Quick-Start Guide]
   * [WritingTestSpecs Writing Test Specs]
@@ -14,6 +15,7 @@
 
 ----
 
+==Extending Spectacular==
   * [ExtendSpectacular Extend Spectacular]
     * [Architecture Spectacular's High-Level Architecture]
     * [ExtensionProcess Process for extending Spectacular]
@@ -27,6 +29,7 @@
 
 ----
 
+==Spectacular Build==
   * [http://spectacular.minderupt.com/project-info.html Project Info]
   * [http://spectacular.minderupt.com/project-reports.html Project Build Reports]
     * [http://spectacular.minderupt.com/integration.html Continuous Integration]
