@@ -1,3 +1,2 @@
 #labels Featured
   * [Introduction]
-  * [http://spectacular.minderupt.com/ Spectacular Project Reports] (IN PROGRESS)
