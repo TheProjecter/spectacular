@@ -24,7 +24,7 @@ Optional (but recommended), set your path to include Spectacular's BIN directory
     * export SPECTACULAR_HOME=/Path/To/Spectacular/Install/Directory
     * export PATH=$PATH:$SPECTACULAR_HOME/bin
 
-=Step 4:  Write a Specification
+=Step 4:  Write a Specification=
 
 You can write a specification in any HTML WYSIWYG editor, or even in MS Word.  If you choose to write it in MS Word, be sure to save the document as HTML for the time being (still working on a Word 2007 parser - Microsoft is a pain in the ass).
 
