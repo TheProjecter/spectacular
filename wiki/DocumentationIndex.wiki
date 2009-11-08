@@ -1,6 +1,6 @@
 #labels Featured
   * Introduction to Spectacular
   * [Blog]
-  * [Feature Development Activity]
+  * [FeatureDevelopmentActivity]
   * Installation
   * Writing a Spec
