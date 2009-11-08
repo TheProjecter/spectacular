@@ -28,6 +28,24 @@ Optional (but recommended), set your path to include Spectacular's BIN directory
 
 You can write a specification in any HTML WYSIWYG editor, or even in MS Word.  If you choose to write it in MS Word, be sure to save the document as HTML for the time being (still working on a Word 2007 parser - Microsoft is a pain in the ass).
 
-For more details on writing your spec, see
+For more details on writing your spec, see the section on [WritingTestSpecs Writing Test Specs].
 
-=Step 5:  Write 
+=Step 5:  Write Test Fixtures=
+
+Next, you'll need to write some test fixtures to connect your test spec to the System Under Test.  Personally, I prefer to write true User Acceptance Tests that drive a browser to execute the GUI by using tools such as [http://seleniumhq.org/ Selenium].  YMMV.
+
+=Step 6:  Write Your Implementation Code=
+
+Unless you've already written your implementation code - and if you did, you are naughty naughty NAUGHTY for not writing your tests first! :) - go ahead and do so now, using your new specifications as a guide for what is considered "Done"
+
+=Step 7:  Run Spectacular=
+
+Run Spectacular against your new code!
+
+(insert how to execute the tool here)
+
+(include command-line options)
+
+=Step 8:  View Results=
+
+(insert viewing results here)
