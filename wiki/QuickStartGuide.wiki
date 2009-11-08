@@ -1,1 +1,33 @@
 #summary Get started quickly with using Spectacular
+
+=Step 1:  Download Spectacular=
+
+You can download Spectacular from the [http://code.google.com/p/spectacular/downloads/list Google Code Downloads] tab.  Download the distribution appropriate for your platform.
+
+=Step 2:  Install Spectacular=
+
+In the future, I may decide to write some kind of installer specific to each platform.  But until then, simply download the distribution and unpack/unzip to some directory in your filesystem.  Suggested locations include:
+
+  # For Windows OS:  C:\Program Files\Spectacular-XXX
+  # For Mac OSX:  /Users/YourUserName/Applications/Spectacular-XXX
+  # For Linux/Unix: /opt/Spectacular-XXX
+
+Replace "XXX" with the most recent version.
+
+=Step 3:  Setup Paths=
+
+Optional (but recommended), set your path to include Spectacular's BIN directory so that you can directly execute Spectacular from any location on your system.  You can do this in various ways depending on your OS:
+
+  # For Windows OS: Go to Start -> Control Panel -> System -> Advanced
+    * I would suggest creating a %SPECTACULAR_HOME% variable and point to wherever you installed Spectacular in step 2.  Then add to the PATH variable %SPECTACULAR_HOME%\bin
+  # For Mac OSX, Linux, Unix:  Edit your user's .bash_profile and add the following:
+    * export SPECTACULAR_HOME=/Path/To/Spectacular/Install/Directory
+    * export PATH=$PATH:$SPECTACULAR_HOME/bin
+
+=Step 4:  Write a Specification
+
+You can write a specification in any HTML WYSIWYG editor, or even in MS Word.  If you choose to write it in MS Word, be sure to save the document as HTML for the time being (still working on a Word 2007 parser - Microsoft is a pain in the ass).
+
+For more details on writing your spec, see
+
+=Step 5:  Write 
