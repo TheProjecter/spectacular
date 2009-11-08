@@ -11,7 +11,7 @@
 
 
 
-    <bean id="spine" class="minderupt.spectacular.spine.ComponoSpine">
+    <bean id="spine" class="minderupt.spectacular.spine.SpectacularSpine">
         <property name="documentReader" ref="filesystemDocumentReader" />
     </bean>
 
