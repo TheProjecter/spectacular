@@ -127,19 +127,6 @@
 
             </plugin>
 
-
-            <!--
-                        <plugin>
-                            <groupId>org.codehaus.mojo</groupId>
-                            <artifactId>tomcat-maven-plugin</artifactId>
-                            <version>1.0-beta-1</version>
-                            <configuration>
-                                <warFile>C:\Documents and Settings\dowlinmi\Desktop\Internet Downloads\pebble-2.4rc\pebble.war</warFile>
-                            </configuration>
-                        </plugin>
-            -->
-
-
         </plugins>
     </build>
 
@@ -178,20 +165,6 @@
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>2.5</version>
             </plugin>
-
-            <!--
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jxr-plugin</artifactId>
-            </plugin>
-            -->
-            <!--
-            <plugin>
-                <groupId>net.sf.xradar</groupId>
-                <artifactId>maven-xradar-plugin</artifactId>
-                <version>1.2.1-RC1</version>
-            </plugin>
-            -->
 
         </plugins>
     </reporting>
@@ -266,7 +239,7 @@
         <developer>
             <id>michael</id>
             <name>Michael Dowling</name>
-            <email>spectacular.michael@minderupt.com</email>
+            <email>michael.dowling@minderupt.com</email>
             <url>http://blog.minderupt.com/</url>
             <organization>Minderupt Services</organization>
             <organizationUrl>http://www.minderupt.com/</organizationUrl>
@@ -285,21 +258,21 @@
     <mailingLists>
         <mailingList>
             <name>Spectacular Users List</name>
-            <subscribe>spectacular-users-subscribe@googlegroups.com</subscribe>
-            <unsubscribe>spectacular-users-unsubscribe@googlegroups.com</unsubscribe>
+            <subscribe>http://groups.google.com/group/spectacular-users/subscribe</subscribe>
+            <unsubscribe>http://groups.google.com/group/spectacular-users/subscribe</unsubscribe>
             <post>spectacular-users@googlegroups.com</post>
             <archive>http://groups.google.com/group/spectacular-users</archive>
         </mailingList>
         <mailingList>
             <name>Spectacular Developers List</name>
-            <subscribe>spectacular-dev-subscribe@googlegroups.com</subscribe>
-            <unsubscribe>spectacular-dev-unsubscribe@googlegroups.com</unsubscribe>
+            <subscribe>http://groups.google.com/group/spectacular-dev/subscribe</subscribe>
+            <unsubscribe>http://groups.google.com/group/spectacular-dev/subscribe</unsubscribe>
             <post>spectacular-dev@googlegroups.com</post>
             <archive>http://groups.google.com/group/spectacular-dev</archive>
         </mailingList>
     </mailingLists>
     <scm>
-        <connection>scm:svn:http://127.0.0.1/svn/my-project</connection>
+        <connection>scm:svn:https://spectacular.googlecode.com/svn/trunk/</connection>
         <developerConnection>scm:svn:https://spectacular.googlecode.com/svn/trunk/</developerConnection>
         <tag>HEAD</tag>
         <url>http://code.google.com/p/spectacular/source/browse/</url>
