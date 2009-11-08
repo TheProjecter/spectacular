@@ -26,9 +26,9 @@ import java.util.List;
  * Time: 6:36:21 PM
  * To change this template use File | Settings | File Templates.
  */
-public class ComponoSpine {
+public class SpectacularSpine {
 
-    private static Logger LOGGER = Logger.getLogger(ComponoSpine.class);
+    private static Logger LOGGER = Logger.getLogger(SpectacularSpine.class);
 
     // location and name of spec
     private String specificationLocation;

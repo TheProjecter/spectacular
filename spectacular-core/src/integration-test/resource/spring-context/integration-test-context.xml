@@ -69,7 +69,7 @@
 
 
 
-    <bean id="spine" class="minderupt.spectacular.spine.ComponoSpine">
+    <bean id="spine" class="minderupt.spectacular.spine.SpectacularSpine">
         <property name="artifactExecutorAgent" ref="artifactExecutorAgent" />
         <property name="artifactExtractor" ref="artifactExtractor" />
         <property name="decisionerAgent" ref="decisionerAgent" />

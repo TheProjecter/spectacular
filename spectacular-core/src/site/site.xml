@@ -11,11 +11,7 @@
     <body>
 
         <menu name="Spectacular 1.0">
-            <item name="Quick-Start Guide" href="quickstart_guide.html"/>
-            <item name="Writing test specifications" href="writing_test_specifications.html" />
-            <item name="Writing test fixtures" href="writing_test_fixtures.html" />
-            <item name="Executable Use Cases" href="executable_use_cases.html" />
-            <item name="Road Map" href="roadmap.html"/>
+            
         </menu>
 
         <menu ref="reports"/>

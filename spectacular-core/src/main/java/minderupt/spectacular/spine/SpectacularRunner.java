@@ -13,9 +13,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * Time: 12:04:18 PM
  * To change this template use File | Settings | File Templates.
  */
-public class ComponoRunner {
+public class SpectacularRunner {
 
-    private static Logger LOGGER = Logger.getLogger(ComponoRunner.class);
+    private static Logger LOGGER = Logger.getLogger(SpectacularRunner.class);
 
 
     public static void main(String[] args) {
@@ -39,7 +39,7 @@ public class ComponoRunner {
 
         // load spring, set args
         ApplicationContext appContext = configureSpine();
-        ComponoSpine spine = (ComponoSpine) appContext.getBean("spine");
+        SpectacularSpine spine = (SpectacularSpine) appContext.getBean("spine");
         spine.setGlobalOptions(globalOptions);
         spine.run();
 
