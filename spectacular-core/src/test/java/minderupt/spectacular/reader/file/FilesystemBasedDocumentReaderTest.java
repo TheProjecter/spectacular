@@ -16,7 +16,7 @@ import java.io.File;
  */
 public class FilesystemBasedDocumentReaderTest {
 
-    private String baseResourceDir = "src/test/resource";
+    private String baseResourceDir = "src/test/resources";
 
 
     @Before
