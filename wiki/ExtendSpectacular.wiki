@@ -1,5 +1,7 @@
 #summary Extending Spectacular
 
+[Architecture Spectacular's High-Level Architecture] | [ExtensionProcess Process for extending Spectacular] | [ExtendReaders Writing New Spec Readers and Fetchers] | [ExtendParsers Writing New Spec Parsers] | [ExtendDecisioners Writing Decisioners] | [ExtendExecutors Writing New Executors] | [ExtendReporters Writing New Report Generators and Writer] | [SpineWiring Wiring Together A New Spine]
+
 = Introduction =
 
 Add your content here.
