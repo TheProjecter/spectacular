@@ -44,3 +44,13 @@ Many organizations will tend to document requirements and tests in their own spe
 =Example Full Requirements for an Activity=
 
 Below is an example document that describes a single Activity/Use Case, supported by a Use-Case Flow and multiple stories with story tests.  
+
+(I used Powerpoint to draw the pictures - don't hate me)
+
+----
+
+=Activity:  Log Into System=
+
+==Web Flow Storyboard==
+
+http://spectacular.minderupt.com/images/WebFlowLoginActivity.png
