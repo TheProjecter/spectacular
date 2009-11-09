@@ -4,11 +4,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
- * User: michaeldowling
- * Date: Oct 11, 2009
- * Time: 12:51:02 PM
- * To change this template use File | Settings | File Templates.
+ * A document is a collection of Artifacts and all the other stuff used to support
+ * the artifacts.  I.E. Your Requirements
  */
 public class Document {
 

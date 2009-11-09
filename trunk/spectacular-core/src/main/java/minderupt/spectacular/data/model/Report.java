@@ -1,11 +1,7 @@
 package minderupt.spectacular.data.model;
 
 /**
- * Created by IntelliJ IDEA.
- * User: michaeldowling
- * Date: Oct 21, 2009
- * Time: 11:40:29 AM
- * To change this template use File | Settings | File Templates.
+ * The full test results report
  */
 public class Report {
 

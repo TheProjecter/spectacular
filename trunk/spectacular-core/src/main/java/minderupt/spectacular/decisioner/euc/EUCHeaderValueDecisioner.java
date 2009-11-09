@@ -7,11 +7,9 @@ import minderupt.spectacular.decisioner.Decisioner;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
- * User: michaeldowling
- * Date: Oct 16, 2009
- * Time: 4:41:44 PM
- * To change this template use File | Settings | File Templates.
+ * Looks for particular words in the table header (i.e. flow, user action) which would
+ * indicate that this is an executable use case.
+ * 
  */
 public class EUCHeaderValueDecisioner implements Decisioner {
 

@@ -7,11 +7,8 @@ import minderupt.spectacular.decisioner.Decisioner;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
- * User: dowlinmi
- * Date: Oct 20, 2009
- * Time: 10:15:48 AM
- * To change this template use File | Settings | File Templates.
+ * Looks for common keywords in the data cell i.e. Given/When/Then
+ *
  */
 public class JBehaveBDDKeywordDecisioner implements Decisioner {
 
@@ -31,7 +28,7 @@ public class JBehaveBDDKeywordDecisioner implements Decisioner {
         decision.setWeight(weight);
 
 
-        return decision;  //To change body of implemented methods use File | Settings | File Templates.
+        return decision;  
     }
 
   

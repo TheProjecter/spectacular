@@ -1,11 +1,10 @@
 package minderupt.spectacular.data.model;
 
 /**
- * Created by IntelliJ IDEA.
- * User: dowlinmi
- * Date: Oct 28, 2009
- * Time: 12:24:02 PM
- * To change this template use File | Settings | File Templates.
+ * Many of the artifacts within Spectacular are stored in some kind of
+ * multi-dimensional array representing a table.  This interface helps to make
+ * some of these data structures easier to code against.
+ * 
  */
 public interface TabularContentAccessor<T> {
 

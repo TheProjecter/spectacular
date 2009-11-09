@@ -7,11 +7,9 @@ import minderupt.spectacular.decisioner.Decisioner;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
- * User: michaeldowling
- * Date: Oct 16, 2009
- * Time: 4:15:26 PM
- * To change this template use File | Settings | File Templates.
+ * If the table is larger than 1 row and more than 2 columns, this might actually
+ * by an Executable Use Case.  The vote weight is relatively small however.
+ * 
  */
 public class EUCTableStructureDecisioner implements Decisioner {
 
