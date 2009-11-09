@@ -8,6 +8,12 @@ JBehave is [http://jbehave.org/development/team/ written and maintained] by Thou
 
 =Details=
 
+Writing text fixtures for JBehave under Spectacular isn't really very different than with JBehave alone.  Actually, it's a little bit less work because you don't need to create a `org.jbehave.scenario.JUnitScenario` or equivalent.
+
+Just create an annotated `org.jbehave.scenario.Steps` concrete class:
+
+
+
 
 
 
