@@ -56,8 +56,6 @@ Design
 
 
 
+How to run:
 
-TO-DO
-
-    EUC table parsing:  allow for table header values "User action, expectation" below actual header
-    
+Spectacular[.bat/.sh] -eucBasePackage some.base.package -config /some/spring/file.xml -specLocation /some/location
