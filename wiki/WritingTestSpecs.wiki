@@ -79,6 +79,7 @@ http://spectacular.minderupt.com/images/WebFlowLoginActivity.png
 <table border="1">
 <tr><td>minderupt.sample.bdd.steps.LoginSteps</td></tr>
 <tr><td>
+{{{
 Scenario: Log in a story writer
   
    Given a user with a username of "StoryWriter" exists
@@ -86,6 +87,9 @@ Scenario: Log in a story writer
    When the user logs in with a username of "StoryWriter" and a password of "swpwd123"
    Then the user is logged in
      And the user sees a list of published stories
+}}}
 </td></tr>
 
 </table>
+
+  This is an example of a BDD-style Gherkin/Given-When-Then test.  See [WritingBDDTests Writing BDD Tests] for more details
