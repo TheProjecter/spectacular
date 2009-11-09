@@ -54,3 +54,12 @@ Below is an example document that describes a single Activity/Use Case, supporte
 ==Web Flow Storyboard==
 
 http://spectacular.minderupt.com/images/WebFlowLoginActivity.png
+
+==Use Case==
+
+|| Primary Flow:  Logging into system ||
+|| *User Activity* || *Expectation* || *Comments* ||
+|| User navigates to the system home page || User sees the home page || ||
+|| User clicks link to log-in to system || User is presented with a login page requesting credentials || ||
+|| User enters credentials and submits form || System logs in user and displays a list of stories published || Assuming user exists and is active ||
+
