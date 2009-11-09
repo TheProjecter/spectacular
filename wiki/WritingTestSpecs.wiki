@@ -1,0 +1,6 @@
+#summary How to write test specs for Spectacular
+
+= Introduction =
+
+The whole idea behind Spectacular is that you can write your requirements specifications in whatever format you and your team are comfortable with, while allowing for certain _artifacts_ in your specification to be executable; that is, those _artifacts_ will execute _test fixtures_ which in turn test your software.
+
