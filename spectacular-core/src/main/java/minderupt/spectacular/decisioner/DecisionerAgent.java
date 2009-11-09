@@ -3,11 +3,10 @@ package minderupt.spectacular.decisioner;
 import minderupt.spectacular.data.model.Document;
 
 /**
- * Created by IntelliJ IDEA.
- * User: michaeldowling
- * Date: Oct 16, 2009
- * Time: 2:32:14 PM
- * To change this template use File | Settings | File Templates.
+ * A decisioner agent acts as the front-man to the Spine and coordinates
+ * all the activity and logic around what kind of artifacts have been
+ * found in the document.
+ * 
  */
 public interface DecisionerAgent {
 

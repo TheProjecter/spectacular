@@ -6,11 +6,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
- * User: michaeldowling
- * Date: Oct 11, 2009
- * Time: 5:16:00 PM
- * To change this template use File | Settings | File Templates.
+ * An Artifact is a container for tests, stored internally as a
+ * table structure with an optional header value
+ * 
  */
 public class Artifact implements TabularContentAccessor<String> {
 

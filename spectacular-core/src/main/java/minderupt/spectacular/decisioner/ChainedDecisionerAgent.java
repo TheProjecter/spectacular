@@ -11,11 +11,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by IntelliJ IDEA.
- * User: michaeldowling
- * Date: Oct 16, 2009
- * Time: 2:34:16 PM
- * To change this template use File | Settings | File Templates.
+ * A decisioner agent that chains together multiple Decisioners and then makes a decision based on
+ * who gets the most votes.
  */
 public class ChainedDecisionerAgent implements DecisionerAgent {
 

@@ -8,11 +8,9 @@ import fit.Fixture;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
- * User: michaeldowling
- * Date: Nov 7, 2009
- * Time: 3:38:20 PM
- * To change this template use File | Settings | File Templates.
+ * If the header value of this table is a classname and the classname is
+ * of type fit.Fixture, this is definitely a FIT test.
+ *
  */
 public class FITHeaderClassIsFixtureDecisioner implements Decisioner {
 

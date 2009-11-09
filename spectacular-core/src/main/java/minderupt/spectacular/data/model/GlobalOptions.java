@@ -4,11 +4,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
- * User: michaeldowling
- * Date: Nov 6, 2009
- * Time: 8:08:47 AM
- * To change this template use File | Settings | File Templates.
+ * Passed in to most Spectacular modules and who's data is set mainly by
+ * command-line parameters.
  */
 public class GlobalOptions {
 

@@ -4,11 +4,11 @@ import minderupt.spectacular.data.model.Artifact;
 import minderupt.spectacular.data.model.Decision;
 
 /**
- * Created by IntelliJ IDEA.
- * User: michaeldowling
- * Date: Oct 16, 2009
- * Time: 2:30:19 PM
- * To change this template use File | Settings | File Templates.
+ * Implement this interface if you want to add logic to see what kind of
+ * artifact was passed in.  It asks the question "what kind of artifact is this?" and
+ * expects an answer of "I think this artifact is of type X and I'm willing to place
+ * Y weight behind that decision."
+ * 
  */
 public interface Decisioner {
 

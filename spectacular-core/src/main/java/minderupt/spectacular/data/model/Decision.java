@@ -1,11 +1,8 @@
 package minderupt.spectacular.data.model;
 
 /**
- * Created by IntelliJ IDEA.
- * User: dowlinmi
- * Date: Oct 20, 2009
- * Time: 8:01:13 AM
- * To change this template use File | Settings | File Templates.
+ * Decision encapsulates the decision made by a Decisioner as to whether
+ * an artifact should be executed by a particular Executor
  */
 public class Decision {
 
