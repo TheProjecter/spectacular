@@ -77,7 +77,7 @@ http://spectacular.minderupt.com/images/WebFlowLoginActivity.png
 
 
 <table border="1">
-<tr><td>minderupt.sample.bdd.steps.LoginSteps</td</tr>
+<tr><td>minderupt.sample.bdd.steps.LoginSteps</td></tr>
 <tr><td>
 Scenario: Log in a story writer
   
