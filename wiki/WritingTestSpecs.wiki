@@ -10,3 +10,37 @@ Agile development has brought a whole new level of extreme productivity to devel
 
 One problem I always had with User Stories was using them in a bigger context - the system itself.  Also, how does one organize User Stories under "Epics" and "Themes?"  
 
+The way I now elicit requirements from my teams is to hold a _Persona and Story Mapping Workshop_, a technique heavily borrowed from Dave Hussman and Jeff Patton.  The idea is to have a team brainstorm the users of the system (the "_Personas_") and describe each of the high-level actions those users will perform (the "_Activities_").  Activities are fairly analogous to Use Cases; in fact, that how I treat them with my Agile teams (though, much more lightweight than the traditional types).
+
+For example, an Activity might be described as such (for a members-only blog site) for a Persona called "Story Writer":
+
+  * Log into system
+  * Create a new user
+  * Post a story
+
+Simple, right?  What does logging into the system entail?  What does it look like in terms of a web-flow?  These are all details that really should be documented (remember: think lightweight!).  Also, there are many permutations of an Activity in most cases.  Take the first couple off our list and split them into _User Stories_:
+
+  * Log into System
+    * As a story writer I want to log in so I can manage my content
+    * As a story writer I want to log in and remember my credentials so I don't have to enter them each time
+    * As a story writer if I enter my credentials incorrectly I should see an error page asking me to try again.
+
+  * Create a new user
+    * As a new user I want to register myself so that I can start reviewing stories
+    * As a registered user I want to request story-writing privileges so I can start writing stories.
+
+5 stories, all split from 2 activities.  
+
+=Describing Activities and User Stories=
+
+Activities and User Stories are usually described in the form of _tests_ by well-functioning Agile teams.  In my experience, I find tests to be a fantastic way to describe requirements, but it's not always enough.  For web applications with some kind of flow, I like to be able to draw out some simple web flow maps and possibly a bullet-list of business rules that support the activity or user story, in addition to tests.  And, I want them all in one place.  
+
+Enter:  Spectacular.
+
+=Many types of tests, many styles of documentation=
+
+Many organizations will tend to document requirements and tests in their own special way.  Making matters more complicated, each team has its own preferred "testing framework."  However, I find that not 1 testing framework satisfies all my needs for requirements.  All of the testing frameworks I have used are awesome in their own way, but none satisfies me 100%.  So, I want to use them *all*.  :)
+
+=Example Full Requirements for an Activity=
+
+Below is an example document that describes a single Activity/Use Case, supported by a Use-Case Flow and multiple stories with story tests.  
