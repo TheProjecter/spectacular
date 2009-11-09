@@ -20,7 +20,7 @@ public class SpineIntegrationTest {
     @Test
     public void testBasicIntegrationWithUseCasesOnly() throws Exception {
 
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext(new String[] {"spring-context/integration-test-context.xml"});
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext(new String[] {"default-spring-context/integration-test-context.xml"});
         SpectacularSpine spine = (SpectacularSpine) applicationContext.getBean("spine");
         Assert.assertNotNull(spine);
 

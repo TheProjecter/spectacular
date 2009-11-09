@@ -28,7 +28,7 @@ public class FilesystemBasedDocumentReaderTest {
 
         // if we're in the top-level dir...
         if(inTopLevel(filenameList)) {
-            this.baseResourceDir = "spectacular-core/src/test/resource";
+            this.baseResourceDir = "spectacular-core/src/test/resources";
         } 
 
 
