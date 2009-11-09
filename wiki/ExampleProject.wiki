@@ -1,5 +1,8 @@
 #summary An example project using Spectacular for Acceptance Testing
 
+[ExampleSpec Example Specification] | [ExampleFixtures Example Fixtures] | [ExampleRun Example Test Execution and Report]
+
+
 = Introduction =
 
 Add your content here.
