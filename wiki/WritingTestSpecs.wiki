@@ -63,3 +63,27 @@ http://spectacular.minderupt.com/images/WebFlowLoginActivity.png
 || User clicks link to log-in to system || User is presented with a login page requesting credentials || ||
 || User enters credentials and submits form || System logs in user and displays a list of stories published || Assuming user exists and is active ||
 
+  This is an example of an Executable Use Case.  See [WritingExecutableUseCases] for more details.
+
+==User Stories==
+
+
+===As a story writer I want to log in so I can manage my content===
+
+  * Business Rules
+    * Story Writers should see a list of published stories upon logging in
+    * Story Writers should have the option to manage their stories on their first screen
+    * Logging in should require a username and password
+
+
+|| minderupt.sample.bdd.steps.LoginSteps||
+|| {{{
+Scenario: Log in a story writer
+  
+   Given a user with a username of "StoryWriter" exists
+     And a user with a username of "StoryWriter" has a password of "swpwd123"
+   When the user logs in with a username of "StoryWriter" and a password of "swpwd123"
+   Then the user is logged in
+     And the user sees a list of published stories
+
+   }}}||
