@@ -14,7 +14,6 @@
     <!-- Decisioners -->
     <bean id="bddJbehaveDecisioner" class="minderupt.spectacular.decisioner.bdd.JBehaveBDDKeywordDecisioner" />
     <bean id="eucHeaderValueDecisioner" class="minderupt.spectacular.decisioner.euc.EUCHeaderValueDecisioner" />
-    <bean id="eucTableStructureDecisioner" class="minderupt.spectacular.decisioner.euc.EUCTableStructureDecisioner" />
     <bean id="fitHeaderClassIsFixtureDecisioner" class="minderupt.spectacular.decisioner.fit.FITHeaderClassIsFixtureDecisioner" />
 
     <bean id="decisionerAgent" class="minderupt.spectacular.decisioner.ChainedDecisionerAgent">
@@ -22,7 +21,6 @@
             <list>
                 <ref bean="bddJbehaveDecisioner" />
                 <ref bean="eucHeaderValueDecisioner" />
-                <ref bean="eucTableStructureDecisioner" />
                 <ref bean="fitHeaderClassIsFixtureDecisioner" />
             </list>
         </property>
