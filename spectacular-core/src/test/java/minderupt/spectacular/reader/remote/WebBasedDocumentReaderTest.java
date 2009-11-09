@@ -14,7 +14,7 @@ import minderupt.spectacular.reader.resource.SpringResourceBasedDocumentReader;
  */
 public class WebBasedDocumentReaderTest {
 
-    @Test
+    /*@Test
     public void testLoadFileFromExternalSite() throws Exception {
 
         WebBasedDocumentReader docReader = new WebBasedDocumentReader();
@@ -22,6 +22,6 @@ public class WebBasedDocumentReaderTest {
         assertNotNull(fileContents);
         assertEquals("<html><body>HELLOTEST</body></html>", fileContents);
 
-    }
+    }*/
 
 }
