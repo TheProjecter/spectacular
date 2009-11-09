@@ -5,6 +5,7 @@
   * [Introduction]
   * [QuickStartGuide Quick-Start Guide]
   * [WritingTestSpecs Writing Test Specs]
+    * [WritingTestsBasicRules Basic Rules for Writing Spectacular Tests]
     * [WritingExecutableUseCases Writing Executable Use Cases]
     * [WritingBDDTests Writing BDD Tests (Gherkin)]
     * [WritingFITTests Writing FIT Tests]
