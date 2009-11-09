@@ -41,8 +41,17 @@ public class ExampleStepClass extends Steps {
 }}}
 
 
-
 =Restrictions=
+
+  * While you are free, of course, to use the `org.jbehave.scenario.JUnitScenario` Scenario class during JUnit testing, you cannot use your own Scenario class while your tests run in Spectacular.  We customize the Configuration and Scenario runners for JBehave.  Possibly in the future we'll try to make this more flexible but for now this is a restriction.
+  * Per the documentation on writing JBehave tests, you need to specify the Step class in the header of your JBehave table.  
+  * Right now, you can only specify a single Step class to hold your fixtures.  Working on a way to use more than 1, though I'm not even sure if that's a best practice for JBehave in general.
+
+
 
 
 =Reference Material=
+
+  * [http://jbehave.org JBehave]
+  * [http://dannorth.net/introducing-bdd Introducing Behaviour Driven Development]
+  * [http://cukes.info/ Cucumber] (Ruby implementation for writing Given-When-Then tests - hoping to support at some point in the future)
