@@ -20,7 +20,7 @@ import java.io.File;
  */
 public class HTMLTableArtifactExtractorTest {
 
-    private String baseResourceDir = "src/test/resource";
+    private String baseResourceDir = "src/test/resources";
 
 
     @Before
