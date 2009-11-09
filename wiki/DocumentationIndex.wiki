@@ -33,8 +33,10 @@
 ----
 
 ==Example==
-  * Example Project Here
-    * Various Artifacts Here
+  * [ExampleProject Example Project]
+    * [ExampleSpec Example Specification]
+    * [ExampleFixtures Example Fixtures]
+    * [ExampleRun Example Test Execution and Report]
 
 ----
 
