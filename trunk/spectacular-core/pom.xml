@@ -85,6 +85,13 @@
 
     <!-- Build settings -->
     <build>
+
+        <resources>
+            <resource>
+                <directory>src/main/resource</directory>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -109,6 +116,7 @@
                 </configuration>
             </plugin>
 
+            <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -126,6 +134,35 @@
                 </executions>
 
             </plugin>
+            -->
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>appassembler-maven-plugin</artifactId>
+                <version>1.0</version>
+
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>assemble</goal>
+                        </goals>
+                        <configuration>
+
+                        </configuration>
+                    </execution>
+                </executions>
+
+                <configuration>
+                    <programs>
+                        <program>
+                            <mainClass>minderupt.spectacular.spine.SpectacularRunner</mainClass>
+                            <name>Spectacular</name>
+                        </program>
+                    </programs>
+                </configuration>
+            </plugin>
+
 
         </plugins>
     </build>
