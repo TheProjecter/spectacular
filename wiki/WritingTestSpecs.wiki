@@ -4,3 +4,9 @@
 
 The whole idea behind Spectacular is that you can write your requirements specifications in whatever format you and your team are comfortable with, while allowing for certain _artifacts_ in your specification to be executable; that is, those _artifacts_ will execute _test fixtures_ which in turn test your software.
 
+=Agile Specifications:  Activities and User Stories=
+
+Agile development has brought a whole new level of extreme productivity to development teams who practice it.  One practice that I really like is of creating _User Stories_ as the basis for requirements.  
+
+One problem I always had with User Stories was using them in a bigger context - the system itself.  Also, how does one organize User Stories under "Epics" and "Themes?"  
+
