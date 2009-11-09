@@ -96,3 +96,36 @@ Scenario: Log in a story writer
 </table>
 
   This is an example of a BDD-style Gherkin/Given-When-Then test.  See [WritingBDDTests Writing BDD Tests] for more details
+
+=Activity:  Create a new user=
+
+==User Stories==
+
+===As a new user I want to register myself so that I can start reviewing stories===
+
+  * Business Rules
+    * Users must enter a:
+      # First Name
+      # Last Name
+      # Desired Login Name
+      # Password at least 4 characters in length
+      
+|| minderupt.sample.fixtures.NewUserColumnFixture ||
+|| First Name || Last Name || Login Name || Password || create() ||
+|| Michael || Dowling || michaeldowling || noway || true ||
+|| Someone || Else || someonelse || yesway || true ||
+|| Steve || Jobs || stevejobs || 123 || false ||
+|| Bill || Gates || || 12345 || false ||
+|| Brad || || bradpitt || nomorebabies || false ||
+
+  This is an example of a FIT test.  See [WritingFITTests Writing FIT Tests] for more details.
+
+----
+
+=My Point And My Premise=
+
+See how a combination of many different types of tests and many styles of documentation can help support requirements?  Most importantly, because each of these types of tests are _executable_, you are killing 3 birds with 1 stone:
+
+  * Your requirements are documented and used directly to test your system
+  * Your system tests are documented and tied directly to your requirements
+  * The test fixtures which tie the test cases to the system under test act as a "requirements matrix" that is necessary to fulfill audit obligations.
