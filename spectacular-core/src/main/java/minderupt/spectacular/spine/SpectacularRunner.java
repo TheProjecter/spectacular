@@ -23,14 +23,22 @@ public class SpectacularRunner {
         // Options
         Options options = new Options();
         options.addOption("eucBasePackage", true, "Base Package for Executable Use Case fixtures.");
+        options.addOption("config", false, "Beans file that configures Spectacular and wires the spine together");
 
         CommandLineParser cmdLineParse = new PosixParser();
         GlobalOptions globalOptions = new GlobalOptions();
+        String springContextFile = "classpath:default-spring-context/*.xml";
 
         try {
             CommandLine cmdLine = cmdLineParse.parse(options, args);
             String basePackages = cmdLine.getOptionValue("eucBasePackage");
+
+            if(cmdLine.hasOption("config")) {
+                springContextFile = cmdLine.getOptionValue("config");
+            }
+
             globalOptions.addEUCBasePackage(basePackages);
+
         } catch (ParseException e) {
             LOGGER.fatal("Unable to parse command line arguments:  ", e);
             return;
@@ -38,7 +46,7 @@ public class SpectacularRunner {
 
 
         // load spring, set args
-        ApplicationContext appContext = configureSpine();
+        ApplicationContext appContext = configureSpine(springContextFile);
         SpectacularSpine spine = (SpectacularSpine) appContext.getBean("spine");
         spine.setGlobalOptions(globalOptions);
         spine.run();
@@ -48,9 +56,9 @@ public class SpectacularRunner {
     }
 
 
-    public static ApplicationContext configureSpine() {
+    public static ApplicationContext configureSpine(String springContext) {
 
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext(new String[] {"/spring-context/*.xml"});
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext(new String[] {springContext});
         return(applicationContext);
         
 
