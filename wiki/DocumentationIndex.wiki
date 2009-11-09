@@ -31,6 +31,12 @@
 
 ----
 
+==Example==
+  * Example Project Here
+    * Various Artifacts Here
+
+----
+
 ==Spectacular Build==
   * [http://spectacular.minderupt.com/project-info.html Project Info]
   * [http://spectacular.minderupt.com/project-reports.html Project Build Reports]
