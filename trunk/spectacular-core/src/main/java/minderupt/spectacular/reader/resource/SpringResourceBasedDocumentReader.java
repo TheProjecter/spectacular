@@ -33,7 +33,7 @@ public class SpringResourceBasedDocumentReader implements DocumentReader {
             // do we need to take out classpath?
             String cleanLocation = removeTag(location);
             fileResource = new ClassPathResource(cleanLocation);
-        } else if(location.indexOf("http:") == 0 || location.indexOf("https:") == 0) {
+        } else if(location.indexOf("file:") == 0) {
             // url resource!
             try {
                 fileResource = new UrlResource(location);
