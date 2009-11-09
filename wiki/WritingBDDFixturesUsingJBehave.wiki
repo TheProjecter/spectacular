@@ -1,4 +1,5 @@
 #summary Behavior Driven Development with JBehave
+#labels jbehave,bdd
 
 = Introduction =
 
@@ -12,8 +13,32 @@ Writing text fixtures for JBehave under Spectacular isn't really very different 
 
 Just create an annotated `org.jbehave.scenario.Steps` concrete class:
 
+{{{
+
+public class ExampleStepClass extends Steps {
+
+    private static Logger LOGGER = Logger.getLogger(ExampleStepClass.class);
+
+    @Given("some kind of setup")
+    public void givenSomeKindOfSetup() {
+        LOGGER.info("givenSomeKindOfSetup()"); 
+    }
+
+    @When("some kind of action")
+    public void givenSomeKindOfAction() {
+        LOGGER.info("givenSomeKindOfAction()"); 
+    }
+
+    @Then("some kind of assertion")
+    public void givenSomeKindOfAssertion() {
+        LOGGER.info("givenSomeKindOfAssertion()"); 
+    }
+
+    
+}
 
 
+}}}
 
 
 
