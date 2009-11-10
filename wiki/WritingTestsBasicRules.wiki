@@ -8,4 +8,10 @@ So, when you're writing your document and you are ready to write portions of it 
 
 =What kind of test is it?=
 
-After cataloging each of the tables, Spectacular then runs through them all and tries to determine if the table contains an executable test, and if so, it tries to decide on what type of test the table contains.  In Spectacular-speak, this process is called "decisioning" and many types of "decisioners" vote on what type of test the table is.  Most of the time they don't know and they _Abstain_ and some decisioners know for sure.  More details on decisioners can be found in the ExtendingSpectacular section.
+After cataloging each of the tables, Spectacular then runs through them all and tries to determine if the table contains an executable test, and if so, it tries to decide on what type of test the table contains.  In Spectacular-speak, this process is called "decisioning" and many types of "decisioners" vote on what type of test the table is.  Most of the time they don't know and they _Abstain_ and some decisioners know for sure (more details on decisioners can be found in the ExtendSpectacular section); each type of test has its own rules and format for the author to follow - click below on the format for each test Spectacular currently supports.  
+
+
+    * [WritingExecutableUseCases Writing Executable Use Cases]
+    * [WritingBDDTests Writing BDD Tests (Gherkin)]
+    * [WritingFITTests Writing FIT Tests]
+
