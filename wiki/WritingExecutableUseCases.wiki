@@ -26,4 +26,4 @@ In order for your Executable Use Case artifact to be recognized, it must contain
 
 =Noteworthy Commentary=
 
-  * Use Cases are meant to provide context and to describe a user flow for a user/persona/role through the system.  This could encompass multiple _user stories_ or one.  As a general rule, I find use cases to be overweight for a user story and instead opt to use them to describe what Agilists call "Epics" or "Themes".  Details in the use case are _User Stories_ and I use more fine-grained tests (BDD, FIT) to describe those.
+  * Use Cases are [http://alistair.cockburn.us/Use+case+writing+guidelines meant to provide context and to describe a user flow] for a user/persona/role through the system.  This could encompass multiple _user stories_ or one.  As a general rule, I find use cases to be overweight for a user story and instead opt to use them to describe what Agilists call "Epics" or "Themes".  Details in the use case are _User Stories_ and I use more fine-grained tests ([WritingBDDTests BDD], [WritingFITTests FIT]) to describe those.
