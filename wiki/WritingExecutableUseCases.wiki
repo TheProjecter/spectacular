@@ -4,6 +4,14 @@
 
 *This is a well-formed Executable Use Case table:*
 
+|| Primary Flow: Logging In ||
+|| *User Action* || *Expectation* || *Comment* ||
+|| User navigates to home page || User sees home page with an option to log in || ||
+|| User clicks link to log in || User is presented with a page requesting login credentials || ||
+|| User enters credentials and submits form || User is logged in and is shown a page with a list of published articles || ||
+
+
+
 
 
 
