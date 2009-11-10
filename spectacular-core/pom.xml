@@ -154,6 +154,7 @@
                 </executions>
 
                 <configuration>
+                    <environmentSetupFileName>additionalCPElements</environmentSetupFileName>
                     <programs>
                         <program>
                             <mainClass>minderupt.spectacular.spine.SpectacularRunner</mainClass>
@@ -162,6 +163,31 @@
                     </programs>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.4.1</version>
+                <executions>
+                    <execution>
+                        <id>copy-assembler-resources</id>
+                        <!-- here the phase you need -->
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/appassembler/bin</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/resource/bin</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
