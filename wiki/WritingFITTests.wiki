@@ -5,7 +5,7 @@
 *This is a well-formed FIT table:*
 
 || minderupt.sample.fixtures.NewUserColumnFixture ||
-|| First Name || Last Name || Login Name || Password || create() ||
+|| *First Name* || *Last Name* || *Login Name* || *Password* || *create()* ||
 || Michael || Dowling || michaeldowling || noway || true ||
 || Someone || Else || someonelse || yesway || true ||
 || Steve || Jobs || stevejobs || 123 || false ||
