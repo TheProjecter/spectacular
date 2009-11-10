@@ -1,8 +1,11 @@
 #summary The format of an Executable Use Case
 
-= Introduction =
+=Sample=
 
-Add your content here.
+*This is a well-formed Executable Use Case table:*
+
+
+
 
 
 = Details =
