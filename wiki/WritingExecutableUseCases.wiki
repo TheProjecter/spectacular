@@ -22,3 +22,8 @@ In order for your Executable Use Case artifact to be recognized, it must contain
   * The second row in the table needs to have at least 2 columns, with the first having a header of "User Action" (or similar language) and the second header as "Expectation".  There can be other headers as well - they are ignored by Spectacular.
   * The rest of the rows contain your Use Case.  Again, any columns after the first two are ignored and can be used as you see fit.
   * Text formatting (i.e. _italic_, *bold*) is ignored and can be used to emphasize
+
+
+=Noteworthy Commentary=
+
+  * Use Cases are meant to provide context and to describe a user flow for a user/persona/role through the system.  This could encompass multiple _user stories_ or one.  As a general rule, I find use cases to be overweight for a user story and instead opt to use them to describe what Agilists call "Epics" or "Themes".  Details in the use case are _User Stories_ and I use more fine-grained tests (BDD, FIT) to describe those.
