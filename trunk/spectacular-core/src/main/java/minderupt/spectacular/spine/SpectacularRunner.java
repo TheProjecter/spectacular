@@ -5,6 +5,8 @@ import org.apache.commons.cli.*;
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
+import org.springframework.core.io.FileSystemResource;
 
 /**
  * Created by IntelliJ IDEA.
@@ -62,7 +64,13 @@ public class SpectacularRunner {
 
     public static ApplicationContext configureSpine(String springContext) {
 
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext(new String[] {springContext});
+        ApplicationContext applicationContext = null;
+
+        if(springContext.indexOf("classpath:") == 0){
+            applicationContext = new ClassPathXmlApplicationContext(new String[] {springContext});
+        } else {
+            applicationContext = new FileSystemXmlApplicationContext(springContext);
+        }
         return(applicationContext);
         
 
