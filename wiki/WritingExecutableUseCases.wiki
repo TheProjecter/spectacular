@@ -10,15 +10,15 @@
 || User clicks link to log in || User is presented with a page requesting login credentials || ||
 || User enters credentials and submits form || User is logged in and is shown a page with a list of published articles || ||
 
+This is a fairly well-established format for writing use cases.  Spectacular will support other Use Case artifacts such as Pre- and Post-Conditions, and possibly Use Case Outlines in the future.  
 
 
+=Required Elements=
 
+In order for your Executable Use Case artifact to be recognized, it must contain the following elements:
 
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+  * Must be in a table
+  * The first row in the table needs to have the word "Flow" in it, i.e. "Primary Flow:", "Alternate Flow:", "User Flow:", etc.
+  * The second row in the table needs to have at least 2 columns, with the first having a header of "User Action" (or similar language) and the second header as "Expectation".  There can be other headers as well - they are ignored by Spectacular.
+  * The rest of the rows contain your Use Case.  Again, any columns after the first two are ignored and can be used as you see fit.
+  * Text formatting (i.e. _italic_, *bold*) is ignored and can be used to emphasize
