@@ -71,7 +71,7 @@
         <property name="artifactExecutorAgent" ref="artifactExecutorAgent"/>
         <property name="artifactExtractor" ref="artifactExtractor"/>
         <property name="decisionerAgent" ref="decisionerAgent"/>
-        <property name="documentReader" ref="fileDocumentReader"/>
+        <property name="documentReader" ref="httpDocumentReader"/>
         <property name="reportBuilder" ref="reportBuilder"/>
         <property name="reportWriter" ref="reportWriter"/>
         <!-- more -->

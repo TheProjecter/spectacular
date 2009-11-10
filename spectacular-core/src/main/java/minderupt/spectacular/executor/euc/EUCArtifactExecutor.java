@@ -87,6 +87,7 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
 
                 // stop when pending!
                 tableUtil.putContent(rownum, 0, flow + " (PENDING)", tabularResults);
+                if(expectation != null) tableUtil.putContent(rownum, 1, expectation + " (NOT PERFORMED)", tabularResults);
 
                 // mark the rest as "not performed"
                 rownum++;
