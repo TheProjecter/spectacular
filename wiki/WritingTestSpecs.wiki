@@ -131,4 +131,4 @@ See how a combination of many different types of tests and many styles of docume
   * Your system tests are documented and tied directly to your requirements
   * The test fixtures which tie the test cases to the system under test act as a "requirements matrix" that is necessary to fulfill audit obligations.
 
-Spectacular will read your document which can contain 1 or more of any type of tests, execute them, then write out a report with results.  All within 1 tool (encompassing several others for you).
+Spectacular will read your document which can contain 1 or more of any type of tests, execute them, then write out a report with results.  All within 1 tool (encapsulating  several others for you).
