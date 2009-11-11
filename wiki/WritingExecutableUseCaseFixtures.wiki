@@ -54,7 +54,8 @@ public class SampleEUCFlows {
 
 *Couple things to take note:*
 
-  * If you want your class methods to be searched when walking through a Use Case, annotate the class with {{{ @EUC }}}
+  * If you want your class methods to be searched when walking through a Use Case, annotate the class with `@EUC` (a marker annotation)
+  * For each Flow step in the use case, annotate a method with `@Flow` with the value being some kind of expression
 
 
 =Restrictions=
