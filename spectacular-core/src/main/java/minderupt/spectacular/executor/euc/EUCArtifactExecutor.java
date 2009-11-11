@@ -165,7 +165,7 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
         // does method expect a context var for the first arg?
         Method method = exec.getExecutableMethod();
         Class[] paramTypes = method.getParameterTypes();
-        if(paramTypes.length > 0 && paramTypes[0].getName().equals("minderupt.spectacular.executor.spectacular.Context")) {
+        if(paramTypes.length > 0 && paramTypes[0].getName().equals("minderupt.spectacular.executor.euc.Context")) {
             invokeArgs.add(context);
         }
 
