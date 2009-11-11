@@ -1,13 +1,25 @@
 #summary With specs in hand and fixture code written, let's run it!
 
-= Introduction =
+= From the Command Line =
 
-Add your content here.
+*First, put your test fixture (and any related/required libs) in Spectacular's classpath:*
 
+For Windows:
+`> set CLASSPATH_PREFIX=c:\path\to\your\libs.jar`
 
-= Details =
+For Linux/Unix/Mac OS:
+`> export CLASSPATH_PREFIX=/path/to/your/libs.jar`
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+*Then, run Spectacular with a few key command-line options:*
+
+`> Spectacular -eucBasePackage some.sample.package -specLocation file:path/to/spec.html`
+
+(you did remember to follow the install instructions in the [blah Guide] right?)
+
+Available command line options:
+
+|| *Command-Line Option* || *Required?* || *Explanation* ||
+|| -eucBasePackage _package name_ || No || If you have any executable use cases, this is the parent package that contains all your fixture code ||
+|| -specLocation _path to spec_ || Yes || Location of your spec, using classpath:, file:, or http:/https:||
+|| -config _path to config_ || No || Location of an alternate Spring wiring config file ||
+
