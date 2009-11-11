@@ -14,7 +14,7 @@ For Linux/Unix/Mac OS:
 
 `> Spectacular -eucBasePackage some.sample.package -specLocation file:path/to/spec.html`
 
-(you did remember to follow the install instructions in the [blah Guide] right?)
+(you did remember to follow the install instructions in the QuickStartGuide right?)
 
 Available command line options:
 
@@ -22,4 +22,3 @@ Available command line options:
 || -eucBasePackage _package name_ || No || If you have any executable use cases, this is the parent package that contains all your fixture code ||
 || -specLocation _path to spec_ || Yes || Location of your spec, using classpath:, file:, or http:/https:||
 || -config _path to config_ || No || Location of an alternate Spring wiring config file ||
-
