@@ -42,9 +42,18 @@ Unless you've already written your implementation code - and if you did, you are
 
 Run Spectacular against your new code!
 
-(insert how to execute the tool here)
+`> Spectacular -eucBasePackage some.base.pkg -specLocation file:/path/to/spec`
 
-(include command-line options)
+|| Other command-line arguments: ||
+|| -config _path_ || Path to a separate config file ||
+|| -eucBasePackage _package_ || Base package name to seach for @EUC annotations ||
+|| -specLocation _path_ || Path to the specification (file:, http:, https:) ||
+
+
+
+
+
+
 
 =Step 8:  View Results=
 
