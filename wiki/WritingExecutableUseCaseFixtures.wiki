@@ -102,7 +102,7 @@ Example of an unmatched step:
 || *User Action* || *Expectation* || *Comments* ||
 || User navigates to home page (SUCCESS)|| User sees home page with articles (SUCCESS)|| ||
 || User clicks "login" link (PENDING)|| User sees login page requesting credentials (NOT PERFORMED)|| ||
-|| User enters credentials and submits form (NOT PERFORMED)|| User sees personalized page with articles (NOT PERFORMED)|| Alternative Flow: Logging In With Bad Credentials (NOT PERFORMED)|| ||
+|| User enters credentials and submits form (NOT PERFORMED)|| User sees personalized page with articles (NOT PERFORMED)|| Alternative Flow: Logging In With Bad Credentials || ||
 
 
 Example of an error during an expectation:
@@ -111,7 +111,7 @@ Example of an error during an expectation:
 || *User Action* || *Expectation* || *Comments* ||
 || User navigates to home page (SUCCESS)|| User sees home page with articles (SUCCESS)|| ||
 || User clicks "login" link (SUCCESS)|| User sees login page requesting credentials (FAILURE) minderupt.sample.bdd.SomeException: User did not see login page as expected || ||
-|| User enters credentials and submits form (NOT PERFORMED)|| User sees personalized page with articles (NOT PERFORMED)|| Alternative Flow: Logging In With Bad Credentials (NOT PERFORMED)|| ||
+|| User enters credentials and submits form (NOT PERFORMED)|| User sees personalized page with articles (NOT PERFORMED)|| Alternative Flow: Logging In With Bad Credentials || ||
 
 
 Possible result values include:
