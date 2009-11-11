@@ -55,7 +55,7 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
 
     }
 
-
+    // THIS METHOD REQUIRES REFACTORING
     public ArtifactExecutionResults executeArtifact(final GlobalOptions globalOptions, Artifact artifact) {
 
         // set base packages based on global options
