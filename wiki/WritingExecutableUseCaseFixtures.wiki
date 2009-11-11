@@ -17,30 +17,34 @@ Writing Executable Use Cases under Spectacular isn't really very different than 
 || User clicks "login" link || User sees login page requesting credentials || ||
 || User enters credentials and submits form || User sees personalized page with articles || Alternative Flow: Logging In With Bad Credentials ||
 
+Spectacular will parse the table and read the first two columns from left to right in each row below the headers, starting with `User navigates to home page`, then to `User sees home page with articles`, and so on.  Each step (called "Flow" and "Expectation") is searched for in annotated code.  When it finds a match, it executes that code and passes in any parameters, if applicable.
 
+For the above example, you may define a class such as the following:
 
-Just create an annotated `org.jbehave.scenario.Steps` concrete class:
 
 {{{
 
-public class ExampleStepClass extends Steps {
+package minderupt.sample.euc;
 
-    private static Logger LOGGER = Logger.getLogger(ExampleStepClass.class);
+import minderupt.spectacular.executor.euc.Context;
 
-    @Given("some kind of setup")
-    public void givenSomeKindOfSetup() {
-        LOGGER.info("givenSomeKindOfSetup()"); 
+@EUC
+public class SampleEUCFlows {
+
+    @Flow("User navigates to home page")
+    public void userNavigatesToHomePage() {
+    
+        // do something useful, like drive a browser
+
     }
 
-    @When("some kind of action")
-    public void givenSomeKindOfAction() {
-        LOGGER.info("givenSomeKindOfAction()"); 
+    @Expectation("User sees home page with articles")
+    public void userSeesPageWithArticles(Context context) {
+        
+       // Assert user sees 
+
     }
 
-    @Then("some kind of assertion")
-    public void givenSomeKindOfAssertion() {
-        LOGGER.info("givenSomeKindOfAssertion()"); 
-    }
 
     
 }
