@@ -126,11 +126,11 @@ Possible result values include:
 
 =Restrictions=
 
-
+  * Not so much a restriction but a warning:  Executable Use Cases are the newest type of automated acceptance test framework out there that I know of; consequently, there may be issues or usability issues.  If you encounter any, please file a bug in the issue list or (even better) submit a patch or new idea for making it better!  :)
 
 
 =Reference Material=
 
   * [http://jbehave.org JBehave]
   * [http://dannorth.net/introducing-bdd Introducing Behaviour Driven Development]
-  * [http://cukes.info/ Cucumber] (Ruby implementation for writing Given-When-Then tests - hoping to support at some point in the future)
+  * [http://alistair.cockburn.us/Use+cases Use Cases by Alistair Cockburn]
