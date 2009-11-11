@@ -40,6 +40,9 @@ public class EUCArtifactExecutorTest {
         ArtifactExecutionResults results = executor.executeArtifact(new GlobalOptions(), a);
         assertNotNull(results);
         assertEquals("User does something basic (SUCCESS)", results.get(1, 0));
+        assertEquals("User executes some test button (SUCCESS)", results.get(2, 0));
+
+
 
 
     }
