@@ -1,0 +1,65 @@
+#summary How to Write Executable Use Case Fixtures
+
+= Introduction =
+
+Spectacular has an engine for parsing a table composed of user action and expectations and finding methods with `Annotations` that match those actions and expectations.  This concept it based on the same behavior in the JBehave library.
+
+Rather than be restricted to keywords such as Given/When/Then, you can use the english language to whatever limit you choose, in the format of traditional Use Cases.
+
+
+=Details=
+
+Writing Executable Use Cases under Spectacular isn't really very different than with JBehave.  Given a traditional use case table:
+
+|| User Flow:  Logging In ||
+|| *User Action* || *Expectation* || *Comments* ||
+|| User navigates to home page || User sees home page with articles || ||
+|| User clicks "login" link || User sees login page requesting credentials || ||
+|| User enters credentials and submits form || User sees personalized page with articles || Alternative Flow: Logging In With Bad Credentials ||
+
+
+
+Just create an annotated `org.jbehave.scenario.Steps` concrete class:
+
+{{{
+
+public class ExampleStepClass extends Steps {
+
+    private static Logger LOGGER = Logger.getLogger(ExampleStepClass.class);
+
+    @Given("some kind of setup")
+    public void givenSomeKindOfSetup() {
+        LOGGER.info("givenSomeKindOfSetup()"); 
+    }
+
+    @When("some kind of action")
+    public void givenSomeKindOfAction() {
+        LOGGER.info("givenSomeKindOfAction()"); 
+    }
+
+    @Then("some kind of assertion")
+    public void givenSomeKindOfAssertion() {
+        LOGGER.info("givenSomeKindOfAssertion()"); 
+    }
+
+    
+}
+
+
+}}}
+
+
+=Restrictions=
+
+  * While you are free, of course, to use the `org.jbehave.scenario.JUnitScenario` Scenario class during JUnit testing, you cannot use your own Scenario class while your tests run in Spectacular.  We customize the Configuration and Scenario runners for JBehave.  Possibly in the future we'll try to make this more flexible but for now this is a restriction.
+  * Per the documentation on writing JBehave tests, you need to specify the Step class in the header of your JBehave table.  
+  * Right now, you can only specify a single Step class to hold your fixtures.  Working on a way to use more than 1, though I'm not even sure if that's a best practice for JBehave in general.
+
+
+
+
+=Reference Material=
+
+  * [http://jbehave.org JBehave]
+  * [http://dannorth.net/introducing-bdd Introducing Behaviour Driven Development]
+  * [http://cukes.info/ Cucumber] (Ruby implementation for writing Given-When-Then tests - hoping to support at some point in the future)
