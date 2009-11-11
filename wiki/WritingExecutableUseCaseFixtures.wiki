@@ -55,14 +55,76 @@ public class SampleEUCFlows {
 *Couple things to take note:*
 
   * If you want your class methods to be searched when walking through a Use Case, annotate the class with `@EUC` (a marker annotation)
-  * For each Flow step in the use case, annotate a method with `@Flow` with the value being some kind of expression
+  * For each Flow step in the use case, annotate a method with `@Flow` with the value being some kind of expression that matches a flow step in your use case
+  * For each Expectation step in the use case, annotate a method with `@Expectation` with the value being some kind of expression that matches an expectation step in your use case
+  * If your @Flow/@Expectation either encounters an error or an expectation is not met, throw a checked or runtime exception - the exception and the value will be printed out in the test results
+
+If you want to pull a value from the use case, you can enter a substitution variable in the @Flow/@Expectation annotation, like this:
+
+|| User clicks "login" link || User sees login page requesting credentials || ||
+
+{{{
+
+    @Flow("User clicks \"${linkName}\" link")
+    public void userClicksLink(String linkName) {
+        // value of String linkName will be "login" (without quotes)
+    }
+
+}}}
+
+Maintaining state within the class is *not* advisable, as there are no guarantees that the class which is instantiated for one step will be the same class used to execute the next step.  Also, as your tests grow in size, it would be good practice to separate your flow methods into like classes.  To pass state from one method to another, define a method with a `minderupt.spectacular.executor.euc.Context` object as the first parameter, followed by any other expected variables, like this:
+
+|| User clicks "login" link || User sees login page requesting credentials || ||
+
+{{{
+
+    @Expectation("User sees ${pageName} page requesting credentials")
+    public void userClicksLink(Context context, String linkName) {
+
+        String someState = (String) context.get("someStateVar");
+        // value of String linkName will be "login" (without quotes)
+        // do something useful
+        
+        context.put("someOtherState", someVar);
+
+    }
+
+}}}
+
+Common patterns are to pass around a Selenium variable in the Context.
+
+If flow steps in the use case cannot be matched to any @Flow/@Expectation annotated method, or if the method encounters and error and throws an Exception, the rest of the Use Case will not be executed.
+
+Example of an unmatched step:
+
+
+|| User Flow:  Logging In ||
+|| *User Action* || *Expectation* || *Comments* ||
+|| User navigates to home page (SUCCESS)|| User sees home page with articles (SUCCESS)|| ||
+|| User clicks "login" link (PENDING)|| User sees login page requesting credentials (NOT PERFORMED)|| ||
+|| User enters credentials and submits form (NOT PERFORMED)|| User sees personalized page with articles (NOT PERFORMED)|| Alternative Flow: Logging In With Bad Credentials (NOT PERFORMED)|| ||
+
+
+Example of an error during an expectation:
+
+|| User Flow:  Logging In ||
+|| *User Action* || *Expectation* || *Comments* ||
+|| User navigates to home page (SUCCESS)|| User sees home page with articles (SUCCESS)|| ||
+|| User clicks "login" link (SUCCESS)|| User sees login page requesting credentials (FAILURE) minderupt.sample.bdd.SomeException: User did not see login page as expected || ||
+|| User enters credentials and submits form (NOT PERFORMED)|| User sees personalized page with articles (NOT PERFORMED)|| Alternative Flow: Logging In With Bad Credentials (NOT PERFORMED)|| ||
+
+
+Possible result values include:
+
+|| *Result Value* || *Definition* ||
+|| (SUCCESS) || The use case flow/expectation was successful, no errors ||
+|| (PENDING) || No matching flow/expectation executable method was found, rest of use case ignored ||
+|| (FAILURE) || Method threw an exception during this step, rest of use case ignored ||
+|| (NOT PERFORMED) || Each step after a (PENDING) or (FAILURE) is ignored and labeled accordingly ||
+
 
 
 =Restrictions=
-
-  * While you are free, of course, to use the `org.jbehave.scenario.JUnitScenario` Scenario class during JUnit testing, you cannot use your own Scenario class while your tests run in Spectacular.  We customize the Configuration and Scenario runners for JBehave.  Possibly in the future we'll try to make this more flexible but for now this is a restriction.
-  * Per the documentation on writing JBehave tests, you need to specify the Step class in the header of your JBehave table.  
-  * Right now, you can only specify a single Step class to hold your fixtures.  Working on a way to use more than 1, though I'm not even sure if that's a best practice for JBehave in general.
 
 
 
