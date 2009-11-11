@@ -2,12 +2,6 @@
 
 = Introduction =
 
-Add your content here.
+Each of the separate test artifacts you write to document your requirements requires a _Fixture_, or glue code that Spectacular will call when it encounters an executable artifact.  Behind the scenes, Spectacular tries to decide what type of artifact it is and what kind of glue call to try and call.
 
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Most of Spectacular (except for Executable Use Cases, which is written by the author of Spectacular) is made up of work others in the Agile community have already done; it simply allows users the full freedom to use one or all of the frameworks out there in order to properly specify their system and test it.  No need to reinvent the wheels that other smart people have already done!
