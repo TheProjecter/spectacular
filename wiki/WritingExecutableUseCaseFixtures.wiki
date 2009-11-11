@@ -41,7 +41,7 @@ public class SampleEUCFlows {
     @Expectation("User sees home page with articles")
     public void userSeesPageWithArticles(Context context) {
         
-       // Assert user sees 
+       // Assert user sees page with articles
 
     }
 
@@ -51,6 +51,10 @@ public class SampleEUCFlows {
 
 
 }}}
+
+*Couple things to take note:*
+
+  * If you want your class methods to be searched when walking through a Use Case, annotate the class with {{{ @EUC }}}
 
 
 =Restrictions=
