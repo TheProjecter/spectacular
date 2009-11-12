@@ -2,15 +2,12 @@
 <project name="Maven">
     <bannerLeft>
         <name>Spectacular</name>
-        <src>http://maven.apache.org/images/apache-maven-project.png</src>
-        <href>http://maven.apache.org/</href>
     </bannerLeft>
     <bannerRight>
-        <src>http://maven.apache.org/images/maven-small.gif</src>
     </bannerRight>
     <body>
 
-        <menu name="Spectacular 1.0">
+        <menu name="Spectacular">
             
         </menu>
 
