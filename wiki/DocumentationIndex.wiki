@@ -40,3 +40,4 @@
     * [http://spectacular.minderupt.com/jdepend-report.html JDepend Code Metrics]
     * [http://spectacular.minderupt.com/pmd.html PMD Code Quality Report]
     * [http://spectacular.minderupt.com/apidocs/index.html API / Javadocs]
+  * [FrequentlyAskedQuestions Spectacular FAQ]
