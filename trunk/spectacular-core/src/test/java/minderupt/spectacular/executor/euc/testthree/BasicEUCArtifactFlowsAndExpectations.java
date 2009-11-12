@@ -2,6 +2,7 @@ package minderupt.spectacular.executor.euc.testthree;
 
 import minderupt.spectacular.executor.euc.annotation.EUC;
 import minderupt.spectacular.executor.euc.annotation.Flow;
+import minderupt.spectacular.executor.euc.annotation.Expectation;
 import minderupt.spectacular.executor.euc.Context;
 
 /**
@@ -29,6 +30,11 @@ public class BasicEUCArtifactFlowsAndExpectations {
         System.out.println("****************** CONTEXT:  " + context);
         context.put("MICHAEL", "Dowling");
 
+    }
+
+    @Expectation("User sees a basic view")
+    public void userSeesBasicView() {
+        System.out.println("****************** userSeesBasicView");
     }
 
 

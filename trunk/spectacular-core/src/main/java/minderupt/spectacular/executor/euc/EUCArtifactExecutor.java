@@ -55,7 +55,7 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
 
     }
 
-    // THIS METHOD REQUIRES REFACTORING
+
     public ArtifactExecutionResults executeArtifact(final GlobalOptions globalOptions, Artifact artifact) {
 
         // set base packages based on global options
@@ -72,83 +72,95 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
         // lives between steps
         Context context = new Context();
 
-        // go through artifact table
-        int rownum = 1;
-        String flow = artifact.get(rownum, 0);
-        String expectation = artifact.get(rownum, 1);
-        while (flow != null) {
 
+        /**** NEW Flow:  Go through artifact table, execute each */
+        for(int currentRow = 1 ; currentRow < artifact.getRowCount() ; currentRow++) {
 
-            // look for executables
-            PatternExecutablePair flowPair = this.stepIndex.findFlowExecutable(flow);
-            PatternExecutablePair expectPair = this.stepIndex.findExpectationExecutable(expectation);
+            if(LOGGER.isInfoEnabled()) LOGGER.info("Current Row:  " + currentRow);
+            for(int currentColumn = 0 ; currentColumn < 2 ; currentColumn++) {
 
-            if (flowPair == null) {
+                if(LOGGER.isInfoEnabled()) LOGGER.info("Current Column:  " + currentColumn);
+                String step = artifact.get(currentRow, currentColumn);
 
-                // stop when pending!
-                tableUtil.putContent(rownum, 0, flow + " (PENDING)", tabularResults);
-                if(expectation != null) tableUtil.putContent(rownum, 1, expectation + " (NOT PERFORMED)", tabularResults);
+                // nothing in step, move ahead
+                if(step == null)
+                    continue;
 
-                // mark the rest as "not performed"
-                rownum++;
-                while(rownum <= artifact.getRowCount()) {
+                PatternExecutablePair pair = findExecutable(step);
+                if(pair == null) {
 
-                    String flowNotPerformed = artifact.get(rownum, 0);
-                    String expectNotPerformed = artifact.get(rownum, 1);
-                    if(flowNotPerformed != null) tableUtil.putContent(rownum, 0, flowNotPerformed + " (NOT PERFORMED)", tabularResults);
-                    if(expectNotPerformed != null) tableUtil.putContent(rownum, 1, expectNotPerformed + " (NOT PERFORMED)", tabularResults);
+                    // not found.  mark as pending and the rest as NOT PERFORMED
+                    results.setPass(false);
+                    results.put(currentRow, currentColumn, step + " (PENDING)");
+                    markFutureStepsNotPerformed(results, currentRow, currentColumn);
 
-                    rownum++;
+                    return(results);
 
                 }
-
-                results.setTabularResults(tabularResults);
-                results.setPass(false);
-                return (results);
-
-            }
-
-            // invoke!
-            try {
-                invoke(flow, flowPair, context);
-                // passed
-                tableUtil.putContent(rownum, 0, flow + " (SUCCESS)", tabularResults);
-            } catch (Exception e) {
-                if(LOGGER.isInfoEnabled()) LOGGER.info("Exception during step invoke.", e);
-                tableUtil.putContent(rownum, 0, flow + " (FAIL)" + e, tabularResults);
-                results.setPass(false);
-            }
-
-            //**  now do the expectation
-            if(expectPair != null) {
 
                 try {
-                    invoke(expectation, expectPair, context);
-                    // passed
-                    tableUtil.putContent(rownum, 1, expectation + " (SUCCESS)", tabularResults);
+                    invoke(step,  pair,  context);
+                    results.put(currentRow, currentColumn, step + " (SUCCESS)");
                 } catch(Exception e) {
-                    if(LOGGER.isInfoEnabled()) LOGGER.info("Exception during expectation invoke.", e);
-                    tableUtil.putContent(rownum, 1, flow + " (FAIL)" + e, tabularResults);
+
+                    // error during invoke.  mark as failure and rest as NOT PERFORMED
                     results.setPass(false);
+                    results.put(currentRow, currentColumn, step + " (FAIL)");
+                    markFutureStepsNotPerformed(results, currentRow, currentColumn);
+
+                    return(results);
+
                 }
+
 
             }
 
-
-
-            // increment rownum
-            rownum++;
-
-            // get next flow/expectation
-            flow = artifact.get(rownum, 0);
-            expectation = artifact.get(rownum, 1);
-            
         }
 
-        results.setTabularResults(tabularResults);
-        return results;
+        // are we here?
+        results.setPass(true);
+        return(results);
+
+        
+    }
+
+    private void markFutureStepsNotPerformed(ArtifactExecutionResults results, int currentRow, int currentColumn) {
+
+        if(currentColumn == 1) {
+            // go to the next row
+            currentRow++;
+            currentColumn = 0;
+        } else {
+            currentColumn++;
+        }
+
+        while(currentRow < results.getOriginalArtifact().getRowCount()) {
+
+            results.put(currentRow, currentColumn, results.getOriginalArtifact().get(currentRow, currentColumn) + " (NOT PERFORMED)");
+            if(currentColumn == 1) {
+                currentRow++;
+                currentColumn = 0;
+            } else {
+                currentColumn++;
+            }
+
+
+        }
+
 
     }
+
+    private PatternExecutablePair findExecutable(String step) {
+
+        PatternExecutablePair pair = this.stepIndex.findFlowExecutable(step);
+        if(pair == null) {
+            pair = this.stepIndex.findExpectationExecutable(step);
+        }
+
+        return(pair);
+        
+    }
+
 
     private void invoke(String specText, PatternExecutablePair execPair, Context context) throws Exception {
 
