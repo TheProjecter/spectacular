@@ -105,7 +105,7 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
 
                     // error during invoke.  mark as failure and rest as NOT PERFORMED
                     results.setPass(false);
-                    results.put(currentRow, currentColumn, step + " (FAIL)");
+                    results.put(currentRow, currentColumn, step + " (FAIL) " + e);
                     markFutureStepsNotPerformed(results, currentRow, currentColumn);
 
                     return(results);

@@ -166,6 +166,9 @@ public class HTMLTableArtifactExtractor implements ArtifactExtractor {
         cleanData = cleanData.replaceAll("“", "\"");
         cleanData = cleanData.replaceAll("”", "\"");
 
+        // replace HTML escaping
+        cleanData = cleanData.replaceAll("&quot;", "\"");
+
 
 
         return(cleanData);
