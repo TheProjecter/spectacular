@@ -16,9 +16,6 @@
   * [ExecutingTheSpec Executing The Specification]
   * [ReportingResults View The Results Of The Tests]
 
-----
-
-==Extending Spectacular==
   * [ExtendSpectacular Extend Spectacular]
     * [Architecture Spectacular's High-Level Architecture]
     * [ExtensionProcess Process for extending Spectacular]
