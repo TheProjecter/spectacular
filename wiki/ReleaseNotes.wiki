@@ -1,0 +1,27 @@
+#summary Release Notes
+#labels Featured
+
+=Release Notes for 0.9.1-beta (2009-Nov-11)=
+
+==New Features/Stories=
+
+  * [http://www.pivotaltracker.com/story/show/1678557 Create executable for Windows]
+  * [http://www.pivotaltracker.com/story/show/1670758 Pull tests from Wiki page]
+  * [http://www.pivotaltracker.com/story/show/1668653 Create HTML Report]
+
+
+==Defects Fixed==
+
+  * ID 2 - Passing config as parameter doesn't work correctly for file-based configs
+  * ID 3 - Skipped expectation for pending step in EUC
+  * ID 5 - Steps after failed step are still executing
+
+==Other Items==
+
+  * ID 6 - EUC Executor must be refactored
+
+
+=Release Notes for 0.9-beta (2009-Nov-07)=
+
+  * Initial Community Release
+
