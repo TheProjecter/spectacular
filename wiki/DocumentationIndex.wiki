@@ -3,6 +3,7 @@
 
 ==Using Spectacular==
   * [Introduction]
+  * [ReleaseNotes Release Notes]
   * [QuickStartGuide Quick-Start Guide]
   * [WritingTestSpecs Writing Test Specs]
     * [WritingTestsBasicRules Basic Rules for Writing Spectacular Tests]
@@ -25,18 +26,10 @@
     * [ExtendReporters Writing New Report Generators and Writer]
     * [SpineWiring Wiring Together A New Spine]
   * [UpcomingFeatures Upcoming Features and Submitting New Ones]
-
-----
-
-==Example==
   * [ExampleProject Example Project]
     * [ExampleSpec Example Specification]
     * [ExampleFixtures Example Fixtures]
     * [ExampleRun Example Test Execution and Report]
-
-----
-
-==Spectacular Build==
   * [http://spectacular.minderupt.com/project-info.html Project Info]
   * [http://spectacular.minderupt.com/project-reports.html Project Build Reports]
     * [http://spectacular.minderupt.com/integration.html Continuous Integration]
