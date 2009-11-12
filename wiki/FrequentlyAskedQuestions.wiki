@@ -13,4 +13,6 @@ As Spectacular grows past its 1.0 release, I hope to get a LOT of community feed
 = What is Spectacular? =
 
 
-= How do I use Spectacular?
+= How do I use Spectacular?=
+
+== does this work in TOC? ==
