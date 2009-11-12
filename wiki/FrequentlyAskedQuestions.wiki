@@ -1,0 +1,16 @@
+#summary Frequently Asked Questions
+
+
+
+
+= Introduction =
+
+As Spectacular grows past its 1.0 release, I hope to get a LOT of community feedback to improve the software.  As common questions come in, I will add them here.
+
+
+= FAQ =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
