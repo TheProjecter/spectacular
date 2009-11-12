@@ -40,9 +40,33 @@ public class EUCArtifactExecutorTest {
         ArtifactExecutionResults results = executor.executeArtifact(new GlobalOptions(), a);
         assertNotNull(results);
         assertEquals("User does something basic (SUCCESS)", results.get(1, 0));
+        assertEquals("User sees a basic view (SUCCESS)", results.get(1, 1));
         assertEquals("User executes some test button (SUCCESS)", results.get(2, 0));
+        assertEquals("User finds himself executed (PENDING)", results.get(2, 1));
 
 
+    }
+
+
+
+    @Test
+    public void testExecuteBasicEUCArtifactAndNotPerformedResults() throws Exception {
+
+        List<String> basePackage = new LinkedList<String>();
+        basePackage.add("minderupt.spectacular.executor.euc.testthree");
+
+        EUCArtifactExecutor executor = new EUCArtifactExecutor();
+        executor.setBasePackages(basePackage);
+
+        Artifact a = setupBasicEUCArtifact();
+        a.put(1,1, "User sees something that I don't have implemented");
+
+        ArtifactExecutionResults results = executor.executeArtifact(new GlobalOptions(), a);
+        assertNotNull(results);
+        assertEquals("User does something basic (SUCCESS)", results.get(1, 0));
+        assertEquals("User sees something that I don't have implemented (PENDING)", results.get(1, 1));
+        assertEquals("User executes some test button (NOT PERFORMED)", results.get(2, 0));
+        assertEquals("User finds himself executed (NOT PERFORMED)", results.get(2, 1));
 
 
     }
