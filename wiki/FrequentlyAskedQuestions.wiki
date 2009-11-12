@@ -1,6 +1,6 @@
 #summary Frequently Asked Questions
 
-
+<wiki:toc max_depth="1" />
 
 
 = Introduction =
@@ -10,7 +10,7 @@ As Spectacular grows past its 1.0 release, I hope to get a LOT of community feed
 
 = FAQ =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+= What is Spectacular? =
+
+
+= How do I use Spectacular?
