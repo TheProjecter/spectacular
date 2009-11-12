@@ -5,7 +5,7 @@
     <groupId>minderupt</groupId>
     <artifactId>spectacular</artifactId>
     <packaging>jar</packaging>
-    <version>0.9-beta</version>
+    <version>0.9.2-beta</version>
 
 
     <!-- Dependencies -->
