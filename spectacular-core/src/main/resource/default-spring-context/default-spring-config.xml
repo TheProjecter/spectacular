@@ -52,7 +52,7 @@
     <bean id="fitReportBuilder" class="minderupt.spectacular.reporting.html.fit.FITArtifactReportBuilderHTML"/>
     <bean id="eucReportBuilder" class="minderupt.spectacular.reporting.html.euc.EUCArtifactReportBuilderHTML"/>
 
-    <bean id="reportBuilder" class="minderupt.spectacular.reporting.html.HTMLReportBuilder">
+    <bean id="reportBuilder" class="minderupt.spectacular.reporting.html.CompleteHTMLReportBuilder">
         <property name="reportBuilders">
             <map>
                 <entry key="BDD" value-ref="bddReportBuilder"/>
