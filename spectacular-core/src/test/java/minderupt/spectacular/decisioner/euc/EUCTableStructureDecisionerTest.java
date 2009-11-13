@@ -4,6 +4,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import minderupt.spectacular.data.model.Artifact;
 import minderupt.spectacular.data.model.Decision;
+import minderupt.spectacular.data.model.ArtifactType;
 import minderupt.spectacular.decisioner.AbstractDecisionerTest;
 
 /**
@@ -22,7 +23,7 @@ public class EUCTableStructureDecisionerTest extends AbstractDecisionerTest {
         Artifact artifact = createTwoColumnMultilineTable();
         Decision vote = decisioner.decision(artifact);
 
-        assertEquals(Artifact.EUC, vote.getVote());
+        assertEquals(ArtifactType.EUC, vote.getVote());
 
 
     }

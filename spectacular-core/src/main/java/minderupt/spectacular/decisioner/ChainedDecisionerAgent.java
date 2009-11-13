@@ -3,6 +3,7 @@ package minderupt.spectacular.decisioner;
 import minderupt.spectacular.data.model.Artifact;
 import minderupt.spectacular.data.model.Decision;
 import minderupt.spectacular.data.model.Document;
+import minderupt.spectacular.data.model.ArtifactType;
 import org.apache.log4j.Logger;
 
 import java.util.HashMap;
@@ -35,18 +36,18 @@ public class ChainedDecisionerAgent implements DecisionerAgent {
         for(Artifact artifact : artifactList) {
 
             // hold the votes
-            Map<Integer, Integer> typeVotes = new HashMap<Integer, Integer>();
+            Map<ArtifactType, Integer> typeVotes = new HashMap<ArtifactType, Integer>();
 
             // for each decisioner, pass in an artifact
             for(Decisioner decisioner : this.decisioners) {
 
                 Decision vote = decisioner.decision(artifact);
 
-                if(vote.getVote() == Artifact.ABSTAIN)
+                if(vote.getVote().equals(ArtifactType.ABSTAIN))
                     continue;
 
-                if(typeVotes.get(vote) != null) {
-                    int count = typeVotes.get(vote);
+                if(typeVotes.get(vote.getVote()) != null) {
+                    int count = typeVotes.get(vote.getVote());
                     count += vote.getWeight();
                     typeVotes.put(vote.getVote(), count);
                 } else {
@@ -58,9 +59,9 @@ public class ChainedDecisionerAgent implements DecisionerAgent {
 
             // who got the most votes?
             int highCount = 0;
-            int highType = Artifact.UNKNOWN;
+            ArtifactType highType = ArtifactType.UNKNOWN;
 
-            for(int type : typeVotes.keySet()) {
+            for(ArtifactType type : typeVotes.keySet()) {
 
                 if(typeVotes.get(type) > highCount) {
                     highType = type;

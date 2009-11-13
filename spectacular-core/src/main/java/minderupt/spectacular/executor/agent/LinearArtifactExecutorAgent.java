@@ -2,6 +2,7 @@ package minderupt.spectacular.executor.agent;
 
 import minderupt.spectacular.data.model.Artifact;
 import minderupt.spectacular.data.model.GlobalOptions;
+import minderupt.spectacular.data.model.ArtifactType;
 import minderupt.spectacular.executor.ArtifactExecutionResults;
 import minderupt.spectacular.executor.ArtifactExecutor;
 import minderupt.spectacular.executor.ArtifactExecutorAgent;
@@ -22,10 +23,10 @@ import java.util.Map;
 public class LinearArtifactExecutorAgent implements ArtifactExecutorAgent {
 
     private static Logger LOGGER = Logger.getLogger(LinearArtifactExecutorAgent.class);
-    private Map<Integer, ArtifactExecutor> artifactExecutors;
+    private Map<ArtifactType, ArtifactExecutor> artifactExecutors;
 
     public LinearArtifactExecutorAgent() {
-        this.artifactExecutors = new HashMap<Integer, ArtifactExecutor>();
+        this.artifactExecutors = new HashMap<ArtifactType, ArtifactExecutor>();
     }
 
 
@@ -64,7 +65,7 @@ public class LinearArtifactExecutorAgent implements ArtifactExecutorAgent {
 
     }
 
-    public void setExecutors(Map<Integer, ArtifactExecutor> executors) {
+    public void setExecutors(Map<ArtifactType, ArtifactExecutor> executors) {
 
         this.artifactExecutors.putAll(executors);
 

@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import minderupt.spectacular.data.model.Artifact;
 import minderupt.spectacular.data.model.Decision;
+import minderupt.spectacular.data.model.ArtifactType;
 
 import java.util.List;
 import java.util.LinkedList;
@@ -43,7 +44,7 @@ public class JBehaveBDDKeywordDecisionerTest {
 
         Decision decision = decisioner.decision(artifact);
         assertNotNull(decision);
-        assertEquals(Artifact.BDD,  decision.getVote());
+        assertEquals(ArtifactType.BDD,  decision.getVote());
         assertEquals(3, decision.getWeight());
 
 

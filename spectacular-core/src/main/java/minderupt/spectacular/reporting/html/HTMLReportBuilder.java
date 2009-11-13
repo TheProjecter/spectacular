@@ -2,6 +2,7 @@ package minderupt.spectacular.reporting.html;
 
 import minderupt.spectacular.data.model.Document;
 import minderupt.spectacular.data.model.Report;
+import minderupt.spectacular.data.model.ArtifactType;
 import minderupt.spectacular.executor.ArtifactExecutionResults;
 import minderupt.spectacular.reporting.ReportBuilder;
 import minderupt.spectacular.reporting.ArtifactReportBuilder;
@@ -22,11 +23,11 @@ import org.apache.log4j.Logger;
 public class HTMLReportBuilder implements ReportBuilder {
 
     private static Logger LOGGER = Logger.getLogger(HTMLReportBuilder.class);
-    private Map<Integer, ArtifactReportBuilder> reportBuilders;
+    private Map<ArtifactType, ArtifactReportBuilder> reportBuilders;
 
 
     public HTMLReportBuilder() {
-        this.reportBuilders = new HashMap<Integer, ArtifactReportBuilder>();
+        this.reportBuilders = new HashMap<ArtifactType, ArtifactReportBuilder>();
     }
 
 
@@ -39,7 +40,7 @@ public class HTMLReportBuilder implements ReportBuilder {
         for(ArtifactExecutionResults result : results) {
 
             // get the report builder for this artifact type
-            int artifactType = result.getOriginalArtifact().getArtifactType();
+            ArtifactType artifactType = result.getOriginalArtifact().getArtifactType();
             if(LOGGER.isInfoEnabled()) LOGGER.info("Getting report builder for artifact type = " + artifactType);
             ArtifactReportBuilder builder = this.reportBuilders.get(artifactType);
             if(builder == null) {
@@ -67,11 +68,11 @@ public class HTMLReportBuilder implements ReportBuilder {
         
     }
 
-    public Map<Integer, ArtifactReportBuilder> getReportBuilders() {
+    public Map<ArtifactType, ArtifactReportBuilder> getReportBuilders() {
         return reportBuilders;
     }
 
-    public void setReportBuilders(Map<Integer, ArtifactReportBuilder> reportBuilders) {
+    public void setReportBuilders(Map<ArtifactType, ArtifactReportBuilder> reportBuilders) {
         this.reportBuilders = reportBuilders;
     }
 }

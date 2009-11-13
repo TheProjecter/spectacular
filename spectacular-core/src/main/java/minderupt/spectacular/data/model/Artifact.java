@@ -12,15 +12,7 @@ import java.util.List;
  */
 public class Artifact implements TabularContentAccessor<String> {
 
-    //! This really needs to be refactored into an enum...
-    public static final int ABSTAIN = -1;
-    public static final int UNKNOWN = 0;
-    public static final int BDD = 1;
-    public static final int FIT = 2;
-    public static final int EUC = 3;
-
-    // i really should be using java5 enums here.  why did I not do that?
-    private int artifactType = Artifact.UNKNOWN;
+    private ArtifactType artifactType = ArtifactType.UNKNOWN;
 
     private String rawArtifact;
     private List<String> headers;
@@ -74,11 +66,11 @@ public class Artifact implements TabularContentAccessor<String> {
         return(this.tableContent);
     }
 
-    public void setArtifactType(int t) {
+    public void setArtifactType(ArtifactType t) {
         this.artifactType = t;
     }
 
-    public int getArtifactType() {
+    public ArtifactType getArtifactType() {
         return(this.artifactType);
     }
 

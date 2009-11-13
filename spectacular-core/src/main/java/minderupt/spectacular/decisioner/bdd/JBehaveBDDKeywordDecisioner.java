@@ -2,6 +2,7 @@ package minderupt.spectacular.decisioner.bdd;
 
 import minderupt.spectacular.data.model.Artifact;
 import minderupt.spectacular.data.model.Decision;
+import minderupt.spectacular.data.model.ArtifactType;
 import minderupt.spectacular.decisioner.Decisioner;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public class JBehaveBDDKeywordDecisioner implements Decisioner {
         if(text.indexOf("When") >= 0) weight++;
         if(text.indexOf("Then") >= 0) weight++;
 
-        decision.setVote(Artifact.BDD);
+        decision.setVote(ArtifactType.BDD);
         decision.setWeight(weight);
 
 

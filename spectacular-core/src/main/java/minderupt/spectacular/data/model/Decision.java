@@ -6,29 +6,29 @@ package minderupt.spectacular.data.model;
  */
 public class Decision {
 
-    private int vote;
+    private ArtifactType vote;
     private int weight;
 
     public Decision() {
-        this.vote = Artifact.UNKNOWN;
+        this.vote = ArtifactType.UNKNOWN;
         this.weight = 1;
     }
 
-    public Decision(int voteType) {
+    public Decision(ArtifactType voteType) {
         this.vote = voteType;
         this.weight = 1;
     }
 
-    public Decision(int voteType, int weight) {
+    public Decision(ArtifactType voteType, int weight) {
         this.vote = voteType;
         this.weight = weight;
     }
 
-    public int getVote() {
+    public ArtifactType getVote() {
         return vote;
     }
 
-    public void setVote(int vote) {
+    public void setVote(ArtifactType vote) {
         this.vote = vote;
     }
 

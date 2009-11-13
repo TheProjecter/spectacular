@@ -16,6 +16,7 @@ import minderupt.spectacular.executor.ArtifactExecutor;
 import minderupt.spectacular.executor.ArtifactExecutionResults;
 import minderupt.spectacular.data.model.Artifact;
 import minderupt.spectacular.data.model.GlobalOptions;
+import minderupt.spectacular.data.model.ArtifactType;
 
 /**
  * Created by IntelliJ IDEA.
@@ -40,12 +41,12 @@ public class LinearArtifactExecutorAgentTest {
 
 
         // set up executors
-        Map<Integer, ArtifactExecutor> executors = new HashMap<Integer, ArtifactExecutor>();
-        executors.put(Artifact.EUC, mockExecutor);
+        Map<ArtifactType, ArtifactExecutor> executors = new HashMap<ArtifactType, ArtifactExecutor>();
+        executors.put(ArtifactType.EUC, mockExecutor);
         agent.setExecutors(executors);
 
         Artifact a = new Artifact();
-        a.setArtifactType(Artifact.EUC);
+        a.setArtifactType(ArtifactType.EUC);
         List<Artifact> artifactList = new LinkedList<Artifact>();
         artifactList.add(a);
 
@@ -68,12 +69,12 @@ public class LinearArtifactExecutorAgentTest {
 
 
         // set up executors
-        Map<Integer, ArtifactExecutor> executors = new HashMap<Integer, ArtifactExecutor>();
-        executors.put(Artifact.EUC, mockExecutor);
+        Map<ArtifactType, ArtifactExecutor> executors = new HashMap<ArtifactType, ArtifactExecutor>();
+        executors.put(ArtifactType.EUC, mockExecutor);
         agent.setExecutors(executors);
 
         Artifact a = new Artifact();
-        a.setArtifactType(Artifact.EUC);
+        a.setArtifactType(ArtifactType.EUC);
         List<Artifact> artifactList = new LinkedList<Artifact>();
         artifactList.add(a);
 
