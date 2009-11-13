@@ -38,9 +38,9 @@
     <bean id="artifactExecutorAgent" class="minderupt.spectacular.executor.agent.LinearArtifactExecutorAgent">
         <property name="executors">
             <map>
-                <entry key="1" value-ref="bddExecutor"/>
-                <entry key="2" value-ref="fitExecutor"/>
-                <entry key="3" value-ref="eucExecutor"/>
+                <entry key="BDD" value-ref="bddExecutor"/>
+                <entry key="FIT" value-ref="fitExecutor"/>
+                <entry key="EUC" value-ref="eucExecutor"/>
             </map>
         </property>
 
@@ -55,9 +55,9 @@
     <bean id="reportBuilder" class="minderupt.spectacular.reporting.html.HTMLReportBuilder">
         <property name="reportBuilders">
             <map>
-                <entry key="1" value-ref="bddReportBuilder"/>
-                <entry key="2" value-ref="fitReportBuilder"/>
-                <entry key="3" value-ref="eucReportBuilder"/>
+                <entry key="BDD" value-ref="bddReportBuilder"/>
+                <entry key="FIT" value-ref="fitReportBuilder"/>
+                <entry key="EUC" value-ref="eucReportBuilder"/>
             </map>
         </property>
     </bean>

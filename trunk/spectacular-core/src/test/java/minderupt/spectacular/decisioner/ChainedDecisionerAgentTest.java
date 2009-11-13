@@ -6,6 +6,7 @@ import static org.mockito.Mockito.*;
 import minderupt.spectacular.data.model.Document;
 import minderupt.spectacular.data.model.Artifact;
 import minderupt.spectacular.data.model.Decision;
+import minderupt.spectacular.data.model.ArtifactType;
 
 import java.util.List;
 
@@ -32,11 +33,11 @@ public class ChainedDecisionerAgentTest {
         }
 
         Decisioner d1 = mock(Decisioner.class);
-        when(d1.decision((Artifact)anyObject())).thenReturn(new Decision(Artifact.EUC, 5));
+        when(d1.decision((Artifact)anyObject())).thenReturn(new Decision(ArtifactType.EUC, 5));
         agent.addDecisioner(d1);
 
         Decisioner d2 = mock(Decisioner.class);
-        when(d2.decision((Artifact)anyObject())).thenReturn(new Decision(Artifact.EUC, 5));
+        when(d2.decision((Artifact)anyObject())).thenReturn(new Decision(ArtifactType.EUC, 5));
         agent.addDecisioner(d2);
 
         document = agent.decide(document);
@@ -48,7 +49,7 @@ public class ChainedDecisionerAgentTest {
 
         for(Artifact a : artifactList) {
             assertNotNull(a);
-            assertEquals(Artifact.EUC, a.getArtifactType());
+            assertEquals(ArtifactType.EUC, a.getArtifactType());
         }
 
 
@@ -69,15 +70,15 @@ public class ChainedDecisionerAgentTest {
         }
 
         Decisioner d1 = mock(Decisioner.class);
-        when(d1.decision((Artifact)anyObject())).thenReturn(new Decision(Artifact.EUC, 5));
+        when(d1.decision((Artifact)anyObject())).thenReturn(new Decision(ArtifactType.EUC, 5));
         agent.addDecisioner(d1);
 
         Decisioner d2 = mock(Decisioner.class);
-        when(d2.decision((Artifact)anyObject())).thenReturn(new Decision(Artifact.EUC));
+        when(d2.decision((Artifact)anyObject())).thenReturn(new Decision(ArtifactType.EUC));
         agent.addDecisioner(d2);
 
         Decisioner d3 = mock(Decisioner.class);
-        when(d3.decision((Artifact)anyObject())).thenReturn(new Decision(Artifact.BDD, 2));
+        when(d3.decision((Artifact)anyObject())).thenReturn(new Decision(ArtifactType.BDD, 2));
         agent.addDecisioner(d3);
 
         document = agent.decide(document);

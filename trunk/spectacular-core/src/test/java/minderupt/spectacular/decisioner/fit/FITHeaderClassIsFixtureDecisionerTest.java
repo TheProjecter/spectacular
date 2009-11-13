@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertEquals;
 import minderupt.spectacular.data.model.Artifact;
 import minderupt.spectacular.data.model.Decision;
+import minderupt.spectacular.data.model.ArtifactType;
 
 import java.util.List;
 import java.util.LinkedList;
@@ -33,7 +34,7 @@ public class FITHeaderClassIsFixtureDecisionerTest {
         Decision decision = decisioner.decision(artifact);
 
         assertNotNull(decision);
-        assertEquals(Artifact.FIT, decision.getVote());
+        assertEquals(ArtifactType.FIT, decision.getVote());
 
 
     }

@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertEquals;
 import minderupt.spectacular.data.model.Artifact;
 import minderupt.spectacular.data.model.GlobalOptions;
+import minderupt.spectacular.data.model.ArtifactType;
 import minderupt.spectacular.executor.ArtifactExecutionResults;
 
 import java.util.List;
@@ -85,7 +86,7 @@ public class EUCArtifactExecutorTest {
         artifact.put(2, 0, "User executes some test button");
         artifact.put(2, 1, "User finds himself executed");
 
-        artifact.setArtifactType(Artifact.EUC);
+        artifact.setArtifactType(ArtifactType.EUC);
 
         return(artifact);
 

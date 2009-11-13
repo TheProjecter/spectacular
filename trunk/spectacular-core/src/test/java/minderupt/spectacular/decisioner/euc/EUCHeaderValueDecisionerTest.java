@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import minderupt.spectacular.data.model.Artifact;
 import minderupt.spectacular.data.model.Decision;
+import minderupt.spectacular.data.model.ArtifactType;
 
 import java.util.List;
 import java.util.LinkedList;
@@ -29,7 +30,7 @@ public class EUCHeaderValueDecisionerTest {
         artifact.setHeaders(headers);
 
         Decision vote = decisioner.decision(artifact);
-        assertEquals(Artifact.EUC, vote.getVote());
+        assertEquals(ArtifactType.EUC, vote.getVote());
 
 
     }

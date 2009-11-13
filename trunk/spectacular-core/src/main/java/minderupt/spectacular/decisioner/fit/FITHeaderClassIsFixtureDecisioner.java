@@ -3,6 +3,7 @@ package minderupt.spectacular.decisioner.fit;
 import minderupt.spectacular.decisioner.Decisioner;
 import minderupt.spectacular.data.model.Decision;
 import minderupt.spectacular.data.model.Artifact;
+import minderupt.spectacular.data.model.ArtifactType;
 import fit.Fixture;
 
 import java.util.List;
@@ -20,10 +21,10 @@ public class FITHeaderClassIsFixtureDecisioner implements Decisioner {
 
         // check header (first row, first column) for class name
         List<String> header = artifact.getHeaders();
-        if(header == null) return(new Decision(Artifact.ABSTAIN));
+        if(header == null) return(new Decision(ArtifactType.ABSTAIN));
 
         String className = header.get(0);
-        if(className == null) return(new Decision(Artifact.ABSTAIN));
+        if(className == null) return(new Decision(ArtifactType.ABSTAIN));
 
         // instantiate the class by name
         Object fixture = null;
@@ -31,12 +32,12 @@ public class FITHeaderClassIsFixtureDecisioner implements Decisioner {
         try {
             fixture = Class.forName(className).newInstance();
         } catch (Exception e) {
-            decision.setVote(Artifact.ABSTAIN);
+            decision.setVote(ArtifactType.ABSTAIN);
             return(decision);
         }
 
         if(fixture instanceof Fixture) {
-            decision.setVote(Artifact.FIT);
+            decision.setVote(ArtifactType.FIT);
             decision.setWeight(5);
         }
 
