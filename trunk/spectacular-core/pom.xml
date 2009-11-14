@@ -22,6 +22,11 @@
             <version>1.2</version>
         </dependency>
         <dependency>
+            <groupId>org.jruby</groupId>
+            <artifactId>jruby-complete</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.junit</groupId>
             <artifactId>com.springsource.org.junit</artifactId>
             <version>4.7.0</version>
@@ -278,9 +283,15 @@
             <url>http://people.apache.org/repo/m2-snapshot-repository/</url>
         </repository>
         <repository>
-            <id>codehaus.repo.remote</id>
+            <id>codehaus.repo.remote.plugin</id>
             <name>Codehaus Repository</name>
             <url>http://repository.codehaus.org/org/codehaus/mojo/</url>
+        </repository>
+
+        <repository>
+            <id>codehaus.repo.remote</id>
+            <name>Codehaus Repository</name>
+            <url>http://repository.codehaus.org/</url>
         </repository>
 
         <repository>
