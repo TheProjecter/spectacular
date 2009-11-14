@@ -1,6 +1,4 @@
 #summary Upcoming features...
 
-|| *Feature* || *Backlog Status* || *Details* ||
-|| Support other test frameworks || In progress, each tool its own backlog item || See: http://bit.ly/AgileTestTools ||
-
+=See [http://www.pivotaltracker.com/projects/38811 Pivotal Tracker]=
 
