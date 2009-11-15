@@ -1,0 +1,9 @@
+
+To create Maven Repository Artifact:
+
+1.  mvn source:jar javadoc:jar repository:bundle-create
+2.  scp spectacular-(module)-(version)-bundle.jar (username)@minderupt.com:~/maven2-dist
+3.  ssh to minderupt.com
+4.  jar xvf spectacular-(module)-(version)-bundle.jar
+5.  move all artifacts to maven directory for version
+6.  edit maven-metadata.xml to include new version
