@@ -19,6 +19,7 @@
   * ID 2 - Passing config as parameter doesn't work correctly for file-based configs
   * ID 3 - Skipped expectation for pending step in EUC
   * ID 5 - Steps after failed step are still executing
+  * ID 7 - Change Maven POM groupId and artifactId
 
 ==Other Items==
 
