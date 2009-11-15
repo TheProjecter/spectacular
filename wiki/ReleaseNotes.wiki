@@ -1,7 +1,7 @@
 #summary Release Notes
 #labels Featured
 
-=Release Notes for 0.9.1-beta (2009-Nov-11)=
+=Release Notes for 0.9.2-beta (2009-Nov-15)=
 
 ==New Features/Stories=
 
@@ -24,4 +24,3 @@
 =Release Notes for 0.9-beta (2009-Nov-07)=
 
   * Initial Community Release
-
