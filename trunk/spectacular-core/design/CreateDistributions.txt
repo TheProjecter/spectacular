@@ -1,0 +1,3 @@
+1. export MAVEN_OPTS=-Xmx1024m
+2. mvn clean site verify assembly:assembly
+3. upload to google code
