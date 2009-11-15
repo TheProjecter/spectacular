@@ -8,6 +8,10 @@
   * [http://www.pivotaltracker.com/story/show/1678557 Create executable for Windows]
   * [http://www.pivotaltracker.com/story/show/1670758 Pull tests from Wiki page]
   * [http://www.pivotaltracker.com/story/show/1668653 Create HTML Report]
+  * [http://www.pivotaltracker.com/story/show/1709811 Standardize Spectacular POM]
+  * [http://www.pivotaltracker.com/story/show/1672451 Use Java ENUMS rather then Integers for artifact types]
+  * [http://www.pivotaltracker.com/story/show/1672517 Add spectacular to the Maven repository at minderupt.com]
+  * [http://www.pivotaltracker.com/story/show/1728468 Create automated release assembly]
 
 
 ==Defects Fixed==
