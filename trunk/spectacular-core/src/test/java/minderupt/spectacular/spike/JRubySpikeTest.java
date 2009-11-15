@@ -2,6 +2,7 @@ package minderupt.spectacular.spike;
 
 import org.junit.Test;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertEquals;
 
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptEngine;
@@ -26,7 +27,13 @@ public class JRubySpikeTest {
 
         FileReader script = new FileReader("src/test/ruby/JRubySpike.rb");
         ScriptContext vars = engine.getContext();
+
+        vars.setAttribute("yourmom", "yourmomma", ScriptContext.ENGINE_SCOPE);
         engine.eval(script, vars);
+        String what = (String) engine.getContext().getAttribute("what");
+
+        assertNotNull(what);
+        assertEquals("OMG WHAT", what);
 
         
 
