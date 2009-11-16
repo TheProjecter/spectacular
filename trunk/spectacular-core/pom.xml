@@ -95,6 +95,9 @@
             <resource>
                 <directory>src/main/resource</directory>
             </resource>
+            <resource>
+                <directory>src/main/ruby</directory>
+            </resource>
         </resources>
 
         <plugins>
