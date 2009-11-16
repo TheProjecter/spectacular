@@ -7,3 +7,7 @@ To create Maven Repository Artifact:
 4.  jar xvf spectacular-(module)-(version)-bundle.jar
 5.  move all artifacts to maven directory for version
 6.  edit maven-metadata.xml to include new version
+7.  GEN CHECKSUM:  md5sum maven-metadata.xml > maven-metadata.xml.md5
+8.  GEN CHECKSUM:  sha1sum maven-metadata.xml >maven-metadata.xml.sha1
+9.  GEN CHECKSUM for artifacts!  md5sum (artifact) >(artifact).md5
+                                 sha1sum (artifact) >(artifact).sha1
