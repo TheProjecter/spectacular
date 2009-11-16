@@ -1,3 +1,3 @@
 
-@what = "OMG WHAT"
-puts yourmom
+$what = "OMG WHAT"
+puts $yourmom
