@@ -6,11 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Created by IntelliJ IDEA.
- * User: michaeldowling
- * Date: Oct 22, 2009
- * Time: 9:57:20 AM
- * To change this template use File | Settings | File Templates.
+ * Marks a method to execute for "Expectation" steps
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
