@@ -7,6 +7,7 @@ import static org.junit.Assert.assertEquals;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptEngine;
 import javax.script.ScriptContext;
+import javax.script.Invocable;
 import java.io.FileReader;
 
 /**
@@ -35,7 +36,26 @@ public class JRubySpikeTest {
         assertNotNull(what);
         assertEquals("OMG WHAT", what);
 
-        
+    }
+
+
+    @Test
+    public void testJRubyCallbackToJavaObject() throws Exception {
+
+        ScriptEngineManager manager = new ScriptEngineManager();
+        ScriptEngine engine = manager.getEngineByName("jruby");
+        assertNotNull(engine);
+
+        FileReader script = new FileReader("src/test/ruby/JRubyCallback.rb");
+
+        Object stepLoader = engine.eval(script);
+
+        // set reference to self
+        SampleIndexer indexer = new SampleIndexer();
+        Invocable invoke = (Invocable) engine;
+        invoke.invokeMethod(stepLoader, "setJavaCallback", indexer);
+        invoke.invokeMethod(stepLoader, "loadSteps", "src/test/ruby/JRubyUserScriptCallback.rb");
+
 
     }
 

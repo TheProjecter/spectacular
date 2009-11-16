@@ -42,7 +42,16 @@ public class SpectacularRunner {
                 springContextFile = cmdLine.getOptionValue("config");
             }
 
-            globalOptions.addEUCBasePackage(basePackages);
+            String[] basePackageList = null;
+            if(basePackages.indexOf(",") > 0) {
+                basePackageList = basePackages.split(",");
+            } else {
+                basePackageList = new String[1];
+                basePackageList[0] = basePackages;
+            }
+
+            for(String pkg : basePackageList)
+                globalOptions.addEUCBasePackage(pkg);
 
         } catch (ParseException e) {
             LOGGER.fatal("Unable to parse command line arguments:  ", e);
