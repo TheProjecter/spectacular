@@ -29,7 +29,7 @@ public class ScriptIndexerTest {
         ScriptIndexer indexer = new ScriptIndexer();
         indexer.indexScripts(scriptList, flowMap, expectationMap);
 
-        // assertTrue(flowMap.size() > 0);
+        assertTrue(flowMap.size() == 1);
 
 
     }
