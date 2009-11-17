@@ -75,8 +75,13 @@ public class ScriptIndexer {
                 LOGGER.error("Unable to load steps for script:  " + script, e);
             }
 
-
         }
+
+        Map<String, Object> flowBlocks = callback.getFlowBlocks();
+        Map<String, Object> expectationBlocks = callback.getFlowBlocks();
+
+        // do flows first
+        
 
         
         

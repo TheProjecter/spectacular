@@ -52,7 +52,7 @@ public class AnnotationIndexer {
                             Flow flow = (Flow) ann;
                             Pattern flowPattern = PatternUtils.convertToPattern(flow.value());
                             Object instance = clazz.newInstance();
-                            Executable exec = new Executable(method, instance);
+                            JavaClassExecutable exec = new JavaClassExecutable(method, instance);
 
                             flowMap.put(flowPattern, exec);
 
@@ -61,7 +61,7 @@ public class AnnotationIndexer {
                             Expectation exp = (Expectation) ann;
                             Pattern expectPattern = PatternUtils.convertToPattern(exp.value());
                             Object instance = clazz.newInstance();
-                            Executable exec = new Executable(method, instance);
+                            JavaClassExecutable exec = new JavaClassExecutable(method, instance);
 
                             expectationMap.put(expectPattern, exec);
 

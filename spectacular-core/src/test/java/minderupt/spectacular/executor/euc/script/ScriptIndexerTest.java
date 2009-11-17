@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.regex.Pattern;
 
 import minderupt.spectacular.executor.euc.Executable;
+import minderupt.spectacular.executor.euc.JavaClassExecutable;
 
 
 public class ScriptIndexerTest {
