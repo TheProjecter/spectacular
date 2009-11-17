@@ -6,11 +6,7 @@ import minderupt.spectacular.data.model.GlobalOptions;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
- * User: michaeldowling
- * Date: Oct 21, 2009
- * Time: 9:17:29 AM
- * To change this template use File | Settings | File Templates.
+ *
  */
 public interface ArtifactExecutorAgent {
 

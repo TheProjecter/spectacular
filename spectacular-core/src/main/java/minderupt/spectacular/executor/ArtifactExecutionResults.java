@@ -8,11 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
- * User: michaeldowling
- * Date: Oct 16, 2009
- * Time: 5:32:05 PM
- * To change this template use File | Settings | File Templates.
+ *
  */
 public class ArtifactExecutionResults implements TabularContentAccessor<String> {
 

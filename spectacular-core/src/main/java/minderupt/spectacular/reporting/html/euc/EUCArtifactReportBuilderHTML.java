@@ -4,11 +4,7 @@ import minderupt.spectacular.reporting.ArtifactReportBuilder;
 import minderupt.spectacular.executor.ArtifactExecutionResults;
 
 /**
- * Created by IntelliJ IDEA.
- * User: michaeldowling
- * Date: Nov 7, 2009
- * Time: 1:15:43 PM
- * To change this template use File | Settings | File Templates.
+ *
  */
 public class EUCArtifactReportBuilderHTML implements ArtifactReportBuilder {
 

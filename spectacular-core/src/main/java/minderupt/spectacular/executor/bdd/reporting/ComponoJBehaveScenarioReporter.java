@@ -5,11 +5,7 @@ import org.jbehave.scenario.definition.Blurb;
 import org.jbehave.scenario.reporters.ScenarioReporter;
 
 /**
- * Created by IntelliJ IDEA.
- * User: dowlinmi
- * Date: Oct 28, 2009
- * Time: 8:36:35 AM
- * To change this template use File | Settings | File Templates.
+ *
  */
 public class ComponoJBehaveScenarioReporter implements ScenarioReporter {
 

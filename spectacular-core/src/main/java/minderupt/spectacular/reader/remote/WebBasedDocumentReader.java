@@ -9,11 +9,7 @@ import org.springframework.core.io.UrlResource;
 import org.apache.log4j.Logger;
 
 /**
- * Created by IntelliJ IDEA.
- * User: michaeldowling
- * Date: Nov 8, 2009
- * Time: 10:11:40 PM
- * To change this template use File | Settings | File Templates.
+ *
  */
 public class WebBasedDocumentReader implements DocumentReader {
 

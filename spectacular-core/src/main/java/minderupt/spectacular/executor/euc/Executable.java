@@ -3,11 +3,7 @@ package minderupt.spectacular.executor.euc;
 import java.lang.reflect.Method;
 
 /**
- * Created by IntelliJ IDEA.
- * User: dowlinmi
- * Date: Oct 27, 2009
- * Time: 7:14:53 AM
- * To change this template use File | Settings | File Templates.
+ *
  */
 public class Executable {
 

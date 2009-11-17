@@ -8,11 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 /**
- * Created by IntelliJ IDEA.
- * User: michaeldowling
- * Date: Oct 9, 2009
- * Time: 12:40:26 PM
- * To change this template use File | Settings | File Templates.
+ *
  */
 public class FilesystemBasedDocumentReader implements DocumentReader {
 

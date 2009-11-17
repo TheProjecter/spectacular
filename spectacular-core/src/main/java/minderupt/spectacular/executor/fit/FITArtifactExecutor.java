@@ -13,11 +13,7 @@ import java.io.StringWriter;
 import java.text.ParseException;
 
 /**
- * Created by IntelliJ IDEA.
- * User: dowlinmi
- * Date: Oct 20, 2009
- * Time: 9:03:16 AM
- * To change this template use File | Settings | File Templates.
+ *
  */
 public class FITArtifactExecutor implements ArtifactExecutor {
 
