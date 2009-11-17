@@ -3,37 +3,18 @@ package minderupt.spectacular.executor.euc;
 import java.lang.reflect.Method;
 
 /**
- *
+ * Created by IntelliJ IDEA.
+ * User: dowlinmi
+ * Date: Nov 17, 2009
+ * Time: 11:22:25 AM
+ * To change this template use File | Settings | File Templates.
  */
-public class Executable {
+public interface Executable {
+    Method getExecutableMethod();
 
-    private Method executableMethod;
-    private Object executableObject;
+    void setExecutableMethod(Method executableMethod);
 
-    public Executable() {
+    Object getExecutableObject();
 
-    }
-
-    public Executable(Method m, Object o) {
-        this.executableMethod = m;
-        this.executableObject = o;
-    }
-
-    public Method getExecutableMethod() {
-        return executableMethod;
-    }
-
-    public void setExecutableMethod(Method executableMethod) {
-        this.executableMethod = executableMethod;
-    }
-
-    public Object getExecutableObject() {
-        return executableObject;
-    }
-
-    public void setExecutableObject(Object executableObject) {
-        this.executableObject = executableObject;
-    }
-
-    
+    void setExecutableObject(Object executableObject);
 }

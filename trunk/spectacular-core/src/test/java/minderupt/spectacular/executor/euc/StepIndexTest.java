@@ -22,10 +22,10 @@ public class StepIndexTest {
 
         HashMap<Pattern, Executable> flowMap = new HashMap<Pattern, Executable>();
         Pattern pattern = Pattern.compile("This is a (.*?) matched step.");
-        flowMap.put(pattern, new Executable());
+        flowMap.put(pattern, new JavaClassExecutable());
         for(int i = 0 ; i < 100 ; i++) {
             Pattern somePattern = Pattern.compile("Not even close to a (.*?) match " + i);
-            flowMap.put(somePattern, new Executable());
+            flowMap.put(somePattern, new JavaClassExecutable());
         }
 
         stepIndex.addToFlowIndex(flowMap);
