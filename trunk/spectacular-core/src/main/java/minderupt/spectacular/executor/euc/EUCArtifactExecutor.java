@@ -17,11 +17,7 @@ import java.util.regex.Pattern;
 
 
 /**
- * Created by IntelliJ IDEA.
- * User: michaeldowling
- * Date: Oct 22, 2009
- * Time: 9:02:05 AM
- * To change this template use File | Settings | File Templates.
+ *
  */
 public class EUCArtifactExecutor implements ArtifactExecutor {
 

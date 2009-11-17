@@ -14,11 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by IntelliJ IDEA.
- * User: michaeldowling
- * Date: Oct 21, 2009
- * Time: 9:19:57 AM
- * To change this template use File | Settings | File Templates.
+ *
  */
 public class LinearArtifactExecutorAgent implements ArtifactExecutorAgent {
 

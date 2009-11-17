@@ -13,11 +13,7 @@ import java.io.FileReader;
 import java.net.MalformedURLException;
 
 /**
- * Created by IntelliJ IDEA.
- * User: dowlinmi
- * Date: Oct 30, 2009
- * Time: 11:40:15 AM
- * To change this template use File | Settings | File Templates.
+ *
  */
 public class SpringResourceBasedDocumentReader implements DocumentReader {
 

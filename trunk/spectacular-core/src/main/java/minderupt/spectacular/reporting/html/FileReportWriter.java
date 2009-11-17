@@ -9,11 +9,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 
 /**
- * Created by IntelliJ IDEA.
- * User: michaeldowling
- * Date: Nov 8, 2009
- * Time: 11:16:36 AM
- * To change this template use File | Settings | File Templates.
+ *
  */
 public class FileReportWriter implements ReportWriter {
 

@@ -16,11 +16,7 @@ import org.jbehave.scenario.steps.CandidateSteps;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
- * User: dowlinmi
- * Date: Oct 20, 2009
- * Time: 11:49:24 AM
- * To change this template use File | Settings | File Templates.
+ *
  */
 public class JBehaveArtifactExecutor implements ArtifactExecutor {
 

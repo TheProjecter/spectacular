@@ -4,11 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
- * User: dowlinmi
- * Date: Oct 28, 2009
- * Time: 12:25:58 PM
- * To change this template use File | Settings | File Templates.
+ *
  */
 public class TableContentUtil<T> {
 

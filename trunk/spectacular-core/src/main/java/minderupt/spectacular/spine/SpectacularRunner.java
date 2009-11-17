@@ -9,11 +9,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.core.io.FileSystemResource;
 
 /**
- * Created by IntelliJ IDEA.
- * User: dowlinmi
- * Date: Oct 20, 2009
- * Time: 12:04:18 PM
- * To change this template use File | Settings | File Templates.
+ *
  */
 public class SpectacularRunner {
 

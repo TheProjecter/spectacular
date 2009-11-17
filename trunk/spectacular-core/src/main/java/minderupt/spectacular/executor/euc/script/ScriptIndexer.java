@@ -4,26 +4,27 @@ import org.apache.log4j.Logger;
 
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptEngine;
+import javax.script.Invocable;
 import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
 import java.io.InputStream;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+import minderupt.spectacular.executor.euc.Executable;
+
 /**
- * Created by IntelliJ IDEA.
- * User: dowlinmi
- * Date: Nov 16, 2009
- * Time: 11:00:05 AM
- * To change this template use File | Settings | File Templates.
+ *
  */
 public class ScriptIndexer {
 
 
-    private static final String RUBY_SCRIPT_STEP_LOADER = "";
+    private static final String RUBY_SCRIPT_STEP_LOADER = "Spectacular/StepLoader.rb";
     private static Logger LOGGER = Logger.getLogger(ScriptIndexer.class);
 
 
-    public void indexScripts(List<String> scriptList) {
+    public void indexScripts(List<String> scriptList, Map<Pattern, Executable> flowMap, Map<Pattern, Executable> expectationMap) {
 
         String stepLoaderScript = null;
         try {
@@ -45,6 +46,8 @@ public class ScriptIndexer {
             return;
         }
 
+
+        if(LOGGER.isInfoEnabled()) LOGGER.info("Evaluating StepLoader");
         Object stepLoader = null;
         try {
             stepLoader = scriptEngine.eval(stepLoaderScript);
@@ -53,6 +56,29 @@ public class ScriptIndexer {
             return;
         }
 
+        if(LOGGER.isInfoEnabled()) LOGGER.info("Setting Java Callback");
+        JavaCallback callback = new JavaCallback();
+        Invocable invoke = (Invocable) scriptEngine;
+        try {
+            invoke.invokeMethod(stepLoader, "setJavaCallback", callback);
+        } catch(Exception e) {
+            LOGGER.fatal("Unable to set java callback in Ruby script", e);
+            return;
+        }
+
+        for(String script : scriptList) {
+
+            try {
+                if(LOGGER.isInfoEnabled()) LOGGER.info("Loading steps for:  " + script);
+                invoke.invokeMethod(stepLoader, "loadSteps", script);
+            } catch(Exception e) {
+                LOGGER.error("Unable to load steps for script:  " + script, e);
+            }
+
+
+        }
+
+        
         
 
 
@@ -64,7 +90,7 @@ public class ScriptIndexer {
         StringBuilder script = new StringBuilder();
 
         ClassLoader classLoader = ScriptIndexer.class.getClassLoader();
-        InputStream inputStream = classLoader.getResourceAsStream("Spectacular/StepLoader.rb");
+        InputStream inputStream = classLoader.getResourceAsStream(RUBY_SCRIPT_STEP_LOADER);
         if (inputStream != null) {
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
             String line = reader.readLine();

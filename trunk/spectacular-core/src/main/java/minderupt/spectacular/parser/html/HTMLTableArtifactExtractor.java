@@ -21,11 +21,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by IntelliJ IDEA.
- * User: michaeldowling
- * Date: Oct 11, 2009
- * Time: 1:20:15 PM
- * To change this template use File | Settings | File Templates.
+ *
  */
 public class HTMLTableArtifactExtractor implements ArtifactExtractor {
 

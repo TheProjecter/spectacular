@@ -7,11 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by IntelliJ IDEA.
- * User: michaeldowling
- * Date: Oct 22, 2009
- * Time: 9:59:48 AM
- * To change this template use File | Settings | File Templates.
+ *
  */
 public class StepIndex {
 

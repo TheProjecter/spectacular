@@ -12,11 +12,7 @@ import java.util.LinkedList;
 import java.util.Map;
 
 /**
- * Created by IntelliJ IDEA.
- * User: dowlinmi
- * Date: Nov 13, 2009
- * Time: 8:36:58 AM
- * To change this template use File | Settings | File Templates.
+ *
  */
 public class CompleteHTMLReportBuilder implements ReportBuilder {
 

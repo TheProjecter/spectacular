@@ -14,11 +14,7 @@ import java.util.HashMap;
 import org.apache.log4j.Logger;
 
 /**
- * Created by IntelliJ IDEA.
- * User: michaeldowling
- * Date: Oct 21, 2009
- * Time: 11:41:43 AM
- * To change this template use File | Settings | File Templates.
+ *
  */
 public class HTMLReportBuilder implements ReportBuilder {
 

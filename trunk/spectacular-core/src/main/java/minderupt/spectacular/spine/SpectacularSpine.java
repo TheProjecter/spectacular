@@ -20,11 +20,7 @@ import java.util.List;
 
 
 /**
- * Created by IntelliJ IDEA.
- * User: michaeldowling
- * Date: Oct 20, 2009
- * Time: 6:36:21 PM
- * To change this template use File | Settings | File Templates.
+ *
  */
 public class SpectacularSpine {
 
