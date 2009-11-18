@@ -18,6 +18,7 @@ public class RubyExecutable implements Executable {
 
 
     private static Logger LOGGER = Logger.getLogger(RubyExecutable.class);
+    private Object closure;
 
 
     public void executeRubyClosure(Context context, Object...arguments) {
@@ -29,7 +30,7 @@ public class RubyExecutable implements Executable {
         Invocable invoke = (Invocable) engine;
 
         try {
-            invoke.invokeMethod(getExecutableObject(), "executeBlock", arguments);
+            invoke.invokeMethod(this.closure, "executeBlock", arguments);
         } catch(Exception e) {
             LOGGER.fatal("Error:  ", e);
         }
@@ -44,7 +45,7 @@ public class RubyExecutable implements Executable {
 
         Method execMethod = null;
         try {
-            execMethod = getClass().getMethod("executeRubyClosure", null);
+            execMethod = getClass().getMethod("executeRubyClosure", Context.class, Object[].class);
         } catch(NoSuchMethodException nsme) {
             LOGGER.fatal("Unable to extract method from my own class?", nsme);
         }
@@ -53,14 +54,18 @@ public class RubyExecutable implements Executable {
     }
 
     public void setExecutableMethod(Method executableMethod) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        throw(new UnsupportedOperationException());
     }
 
     public Object getExecutableObject() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return(this);  
     }
 
     public void setExecutableObject(Object executableObject) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        throw(new UnsupportedOperationException());
+    }
+
+    public void setClosure(Object closure) {
+        this.closure = closure;
     }
 }
