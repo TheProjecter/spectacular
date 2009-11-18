@@ -31,7 +31,7 @@ public class RubyExecutableTest {
         RubyExecutable exec = new RubyExecutable();
         Object object = exec.getExecutableObject();
         assertNotNull(object);
-        assertEquals("minderupt.spectacular.executor.euc.script.RubyExecuable", object.getClass().getName());
+        assertEquals("minderupt.spectacular.executor.euc.script.RubyExecutable", object.getClass().getName());
 
     }
 

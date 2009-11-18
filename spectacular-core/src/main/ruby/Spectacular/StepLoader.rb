@@ -49,6 +49,9 @@ module Spectacular
 		end
 		
 		def executeBlock(blockArgs)
+		  
+		  puts "BLOCK EXECUTED"
+		  
 		
 			
 			
