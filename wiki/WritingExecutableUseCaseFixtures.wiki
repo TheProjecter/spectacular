@@ -110,7 +110,7 @@ end
 }}}
 
 
-Maintaining state within the class is *not* advisable, as there are no guarantees that the class which is instantiated for one step will be the same class used to execute the next step.  Also, as your tests grow in size, it would be good practice to separate your flow methods into like classes.  To pass state from one method to another, define a method with a `minderupt.spectacular.executor.euc.Context` object as the first parameter, followed by any other expected variables, like this:
+Maintaining state within the class is *not* advisable, as there are no guarantees that the class which is instantiated for one step will be the same class used to execute the next step.  Also, as your tests grow in size, it would be good practice to separate your flow methods into like classes.  To pass state from one method to another, define a method with a `minderupt.spectacular.executor.euc.Context` object as the first parameter, followed by any other expected variables, like this (*Java*):
 
 || User clicks "login" link || User sees login page requesting credentials || ||
 
@@ -129,9 +129,27 @@ Maintaining state within the class is *not* advisable, as there are no guarantee
 
 }}}
 
+In *Ruby* it looks like this:
+
+{{{
+
+Expectation "User sees ${pageName} page requesting credentials" do | context, pageName |
+
+  some_state = context.get "someStateVar"
+  
+  # value of String linkName will be "login" (without quotes)
+  # do something useful 
+
+  context.put("someOtherState", some_var)
+
+end
+
+
+}}}
+
 Common patterns are to pass around a Selenium variable in the Context.
 
-If flow steps in the use case cannot be matched to any @Flow/@Expectation annotated method, or if the method encounters and error and throws an Exception, the rest of the Use Case will not be executed.
+If flow steps in the use case cannot be matched to any @Flow/@Expectation annotated method (Java) or in a Ruby declaration, or if the method encounters and error and throws an Exception, the rest of the Use Case will not be executed.
 
 Example of an unmatched step:
 
@@ -165,6 +183,7 @@ Possible result values include:
 =Restrictions=
 
   * Not so much a restriction but a warning:  Executable Use Cases are the newest type of automated acceptance test framework out there that I know of; consequently, there may be issues or usability issues.  If you encounter any, please file a bug in the issue list or (even better) submit a patch or new idea for making it better!  :)
+  * Ruby declarations are executed under [http://jruby.org JRuby], and users are under the same restrictions as any other [http://jruby.org JRuby] embedded application.
 
 
 =Reference Material=
@@ -172,3 +191,4 @@ Possible result values include:
   * [http://jbehave.org JBehave]
   * [http://dannorth.net/introducing-bdd Introducing Behaviour Driven Development]
   * [http://alistair.cockburn.us/Use+cases Use Cases by Alistair Cockburn]
+  * [http://jruby.org JRuby]
