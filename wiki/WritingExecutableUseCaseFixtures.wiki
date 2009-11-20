@@ -4,12 +4,14 @@
 
 Spectacular has an engine for parsing a table composed of user action and expectations and finding methods with `Annotations` that match those actions and expectations.  This concept it based on the same behavior in the JBehave library.
 
+(experimental) Alternatively, you can also write fixtures in Ruby, and it's similar (but more flexible) than writing Cucumber tests.
+
 Rather than be restricted to keywords such as Given/When/Then, you can use the english language to whatever limit you choose, in the format of traditional Use Cases.
 
 
 =Details=
 
-Writing Executable Use Cases under Spectacular isn't really very different than with JBehave.  Given a traditional use case table:
+Writing Executable Use Cases under Spectacular isn't really very different than with JBehave (Java) or Cucumber (Ruby - experimental).  Given a traditional use case table:
 
 || User Flow:  Logging In ||
 || *User Action* || *Expectation* || *Comments* ||
@@ -17,10 +19,11 @@ Writing Executable Use Cases under Spectacular isn't really very different than 
 || User clicks "login" link || User sees login page requesting credentials || ||
 || User enters credentials and submits form || User sees personalized page with articles || Alternative Flow: Logging In With Bad Credentials ||
 
-Spectacular will parse the table and read the first two columns from left to right in each row below the headers, starting with `User navigates to home page`, then to `User sees home page with articles`, and so on.  Each step (called "Flow" and "Expectation") is searched for in annotated code.  When it finds a match, it executes that code and passes in any parameters, if applicable.
+Spectacular will parse the table and read the first two columns from left to right in each row below the headers, starting with `User navigates to home page`, then to `User sees home page with articles`, and so on.  Each step (called "Flow" and "Expectation") is searched for in annotated code (Java) or in declarations (Ruby).  When it finds a match, it executes that code and passes in any parameters, if applicable.
 
 For the above example, you may define a class such as the following:
 
+*Java:*
 
 {{{
 
@@ -59,7 +62,31 @@ public class SampleEUCFlows {
   * For each Expectation step in the use case, annotate a method with `@Expectation` with the value being some kind of expression that matches an expectation step in your use case
   * If your @Flow/@Expectation either encounters an error or an expectation is not met, throw a checked or runtime exception - the exception and the value will be printed out in the test results
 
-If you want to pull a value from the use case, you can enter a substitution variable in the @Flow/@Expectation annotation, like this:
+
+In Ruby, your script file would look like this:
+
+*Ruby:*
+
+{{{
+
+Flow "User navigates to home page" do
+
+  # do something useful, like drive a browser
+
+end
+
+Expectation "User sees home page with articles" do
+
+  # Assert user sees page with articles
+
+end
+
+
+}}}
+
+
+
+If you want to pull a value from the use case, you can enter a substitution variable in the @Flow/@Expectation annotation (Java), like this:
 
 || User clicks "login" link || User sees login page requesting credentials || ||
 
@@ -71,6 +98,17 @@ If you want to pull a value from the use case, you can enter a substitution vari
     }
 
 }}}
+
+Or, in your Ruby declaration, like this:
+
+{{{
+
+Flow "User clicks \"${linkName}\" link" do | linkName |
+  # value of linkName will be "login" (without quotes)
+end
+
+}}}
+
 
 Maintaining state within the class is *not* advisable, as there are no guarantees that the class which is instantiated for one step will be the same class used to execute the next step.  Also, as your tests grow in size, it would be good practice to separate your flow methods into like classes.  To pass state from one method to another, define a method with a `minderupt.spectacular.executor.euc.Context` object as the first parameter, followed by any other expected variables, like this:
 
