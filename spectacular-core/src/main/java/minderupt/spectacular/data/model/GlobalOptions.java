@@ -10,6 +10,7 @@ import java.util.List;
 public class GlobalOptions {
 
     private List<String> eucBasePackages = new LinkedList<String>();
+    private String reportLocation;
 
     public List<String> getEUCBasePackages() {
         return(this.eucBasePackages);
@@ -19,5 +20,12 @@ public class GlobalOptions {
     public void addEUCBasePackage(String basePackages) {
         eucBasePackages.add(basePackages);    
     }
-    
+
+    public String getReportLocation() {
+        return reportLocation;
+    }
+
+    public void setReportLocation(String reportLocation) {
+        this.reportLocation = reportLocation;
+    }
 }
