@@ -1,0 +1,39 @@
+<test-spec xmlns:spectacular="some.url.test.spec">
+
+    <spectacular:tests>
+
+        <spectacular:test id="1" type="BDD">
+
+            <table>
+                <tr>
+                    <td>
+                        Scenario: blah
+                        Given
+                        when
+                        Then
+
+                    </td>
+                </tr>
+            </table>
+
+        </spectacular:test>
+
+
+        <spectacular:test id="2" type="EUC">
+
+            <table>
+                <tr>
+                    
+                </tr>
+            </table>
+
+
+        </spectacular:test>
+
+
+    </spectacular:tests>
+
+
+
+
+</test-spec>

@@ -1,0 +1,61 @@
+
+
+General flow:
+
+    read minderupt.spectacular.reader.file
+    parse html
+        get all tables
+
+    for each table found
+        determine type - bdd, fit, use case
+        store core data in data structure
+        store html document with placeholders in data structure as well
+
+    execute tests
+        execute them
+        store results in data structure
+
+    modify tables to include color for results
+
+    write results to output destination
+
+
+Design
+
+
+    DocumentReader
+        May need to implement different types for URL-based loading (i.e. from network, from file, from classpath, etc.)
+        (X) returns data, string?
+
+    ArtifactExtractor -> HTMLArtifactExtractor
+        (X) parses document for common areas where tests belong (tables for first iteration), called Artifact
+        (X) returns Document containing linked list of Artifacts
+        Add begin and end location #s for artifact so we can reinsert results?
+
+    (X) DecisionerAgent -> ChainedDecisionerAgent
+        (X) needs decisioners injected
+        (X) decides on type of test, sets flags in Artifact
+        (X) returns Document
+
+    Decisioner
+        (X) chain of responsibility?
+        (X) decides what type of test an entity is
+        (X) injected into DecisionerAgent, multiple
+
+    TestExecutor?
+        Executes tests
+        (X) encapsulates multiple test styles under a single interface
+        (X) concrete classes define how to execute BDD/JBehave, EUC, FIT
+        Returns results of execution, including raw results and/or updated tables
+
+    Reporting
+        Output Possibilities:
+            in file (same spec)?
+            to console?
+            to external service?
+
+
+
+How to run:
+
+Spectacular[.bat/.sh] -eucBasePackage some.base.package -config /some/spring/file.xml -specLocation /some/location
