@@ -104,8 +104,8 @@ public class ScriptIndexer {
             RubyExecutable rubyExec = new RubyExecutable();
 
             Pattern pattern = PatternUtils.convertToPattern(expect);
-            Object closure = flowBlocks.get(expect);
-            rubyExec.setExecutableObject(closure);
+            Object closure = expectationBlocks.get(expect);
+            rubyExec.setClosure(closure);
 
             expectationMap.put(pattern, rubyExec);
 

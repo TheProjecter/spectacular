@@ -13,7 +13,7 @@ module Spectacular
 		end
 		
 		def Expectation(regexString, &blockProc)
-			
+			                                
 			wrapper = ProcBlockWrapper.new(blockProc)
 			@javaCallbackObject.indexExpectation(regexString, wrapper)
 			
@@ -55,6 +55,7 @@ module Spectacular
 		
 		def executeBlock(blockArgs=nil)
 		  
+		  puts "Calling block with blockArgs=#{blockArgs}"
 		  @blockProc.call blockArgs
           puts "BLOCK EXECUTED"
           		  		  
