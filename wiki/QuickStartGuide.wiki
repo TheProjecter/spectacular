@@ -87,7 +87,7 @@ You can also pass Ruby scripts along with your Java packages (or just Ruby alone
 
 || Other command-line arguments: ||
 || -config _path_ || Path to a separate config file ||
-|| -eucBasePackage _package_ || Base package name to seach for @EUC annotations ||
+|| -eucBasePackage _package_ || Base package name to seach for @EUC annotations or Ruby scripts.  You may specify multiple options by separating each with a comma (,) ||
 || -specLocation _path_ || Path to the specification (file:, http:, https:) ||
 
 
