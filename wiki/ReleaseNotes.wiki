@@ -1,9 +1,28 @@
 #summary Release Notes
 #labels Featured
 
+
+=Release Notes for 0.9.3-beta (2009-Nov-20)=
+
+==New Features/Stories==
+
+  * [http://www.pivotaltracker.com/story/show/1730699 Allow for multiple eucBasePackages to be passed in]
+  * [http://www.pivotaltracker.com/story/show/1724936 Add support for EUC handlers in Ruby] (ALPHA - need community feedback)
+
+
+==Defects Fixed==
+
+  * None
+
+==Other Items==
+
+  * None
+
+
+
 =Release Notes for 0.9.2-beta (2009-Nov-15)=
 
-==New Features/Stories=
+==New Features/Stories==
 
   * [http://www.pivotaltracker.com/story/show/1678557 Create executable for Windows]
   * [http://www.pivotaltracker.com/story/show/1670758 Pull tests from Wiki page]
