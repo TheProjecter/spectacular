@@ -72,6 +72,21 @@ public class EUCArtifactExecutorTest {
 
     }
 
+    @Test
+    public void testIntegratedRubyExecution() throws Exception {
+
+        Artifact a = setupBasicEUCArtifact();
+        GlobalOptions options = new GlobalOptions();
+        options.addEUCBasePackage("ruby:src/test/ruby/IntegratedRubyExecution.rb");
+
+        EUCArtifactExecutor executor = new EUCArtifactExecutor();
+        executor.executeArtifact(options, a);
+
+
+
+
+    }
+
     private Artifact setupBasicEUCArtifact() throws Exception {
 
         Artifact artifact = new Artifact();

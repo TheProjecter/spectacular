@@ -48,10 +48,15 @@ module Spectacular
 			@blockProc = block
 		end
 		
-		def executeBlock(blockArgs)
+		def setContext(context)
+		  puts "Setting context"
+		  @context = context
+	  end
+		
+		def executeBlock(blockArgs=nil)
 		  
 		  puts "BLOCK EXECUTED"
-		  
+		  @blockProc.call blockArgs
 		
 			
 			
