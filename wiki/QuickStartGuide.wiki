@@ -1,4 +1,5 @@
 #summary Get started quickly with using Spectacular
+#labels Featured
 
 =Step 1:  Download Spectacular=
 
