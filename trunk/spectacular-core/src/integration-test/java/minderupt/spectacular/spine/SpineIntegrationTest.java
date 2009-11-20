@@ -26,6 +26,7 @@ public class SpineIntegrationTest {
 
         GlobalOptions options = new GlobalOptions();
         options.addEUCBasePackage("minderupt.spectacular.spine.spectacular.steps");
+        options.setReportLocation("./TestResults.html");
 
         spine.setSpecificationLocation("classpath:integration-spec-test/BasicIntegrationEUCOnly.html");
         spine.setGlobalOptions(options);

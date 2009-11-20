@@ -28,11 +28,18 @@ public class SpectacularRunner {
         GlobalOptions globalOptions = new GlobalOptions();
         String springContextFile = "classpath:default-spring-context/*.xml";
         String specLocation = "";
+        String reportLocation = "./TestResults.html";
 
         try {
             CommandLine cmdLine = cmdLineParse.parse(options, args);
             String basePackages = cmdLine.getOptionValue("eucBasePackage");
             specLocation = cmdLine.getOptionValue("specLocation");
+
+            if(cmdLine.hasOption("reportLocation")) {
+                reportLocation = cmdLine.getOptionValue("reportLocation");
+            }
+            globalOptions.setReportLocation(reportLocation);
+
 
             if(cmdLine.hasOption("config")) {
                 springContextFile = cmdLine.getOptionValue("config");

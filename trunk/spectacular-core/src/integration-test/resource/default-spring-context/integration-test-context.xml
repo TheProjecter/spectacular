@@ -62,9 +62,7 @@
         </property>
     </bean>
 
-    <bean id="reportWriter" class="minderupt.spectacular.reporting.html.FileReportWriter">
-        <property name="basePath" value="." />
-    </bean>
+    <bean id="reportWriter" class="minderupt.spectacular.reporting.html.FileReportWriter" />
 
 
 

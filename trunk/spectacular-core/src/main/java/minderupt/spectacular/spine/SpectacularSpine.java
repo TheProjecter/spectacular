@@ -96,7 +96,7 @@ public class SpectacularSpine {
         System.out.println(report.getReportText());
 
         try {
-            getReportWriter().write(report);
+            getReportWriter().write(globalOptions, report);
         } catch(IOException ioe) {
             LOGGER.fatal("Unable to write report", ioe);
         }
