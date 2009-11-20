@@ -4,6 +4,7 @@ import minderupt.spectacular.data.model.Artifact;
 import minderupt.spectacular.data.model.GlobalOptions;
 import minderupt.spectacular.executor.ArtifactExecutionResults;
 import minderupt.spectacular.executor.ArtifactExecutor;
+import minderupt.spectacular.executor.euc.script.ScriptIndexer;
 import minderupt.spectacular.util.TableContentUtil;
 import org.apache.log4j.Logger;
 
@@ -24,13 +25,15 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
     private static Logger LOGGER = Logger.getLogger(EUCArtifactExecutor.class);
 
     private StepIndex stepIndex;
-    private AnnotationIndexer indexer;
+    private AnnotationIndexer annotationIndexer;
+    private ScriptIndexer scriptIndexer;
 
     public EUCArtifactExecutor() {
 
         // need to initialize the index upon creation
         stepIndex = new StepIndex();
-        indexer = new AnnotationIndexer();
+        annotationIndexer = new AnnotationIndexer();
+        scriptIndexer = new ScriptIndexer();
 
 
     }
@@ -41,8 +44,23 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
         Map<Pattern, Executable> expectationMap = new HashMap<Pattern, Executable>();
 
         for (String packageName : basePackageList) {
+
             if (LOGGER.isInfoEnabled()) LOGGER.info("Indexing package for EUC:  " + packageName);
-            this.indexer.indexPackage(packageName, flowMap, expectationMap);
+            if(packageName.indexOf("ruby:") == 0) {
+
+                // remove ruby: metatag
+                String scriptName = packageName.substring(5);
+                if(LOGGER.isInfoEnabled()) LOGGER.info("Indexing SCRIPT package for EUC:  " + scriptName);
+                List<String> scriptList = new LinkedList<String>();
+                scriptList.add(scriptName);
+                this.scriptIndexer.indexScripts(scriptList, flowMap, expectationMap);
+
+            } else {
+
+                this.annotationIndexer.indexPackage(packageName, flowMap, expectationMap);
+
+            }
+
         }
 
         if (LOGGER.isInfoEnabled()) LOGGER.info("Adding to index.");
@@ -184,8 +202,15 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
 
         }
 
+        // is the exec method *expecting* more arguments than we have?
+        while(invokeArgs.size() < paramTypes.length) {
+            invokeArgs.add(null);            
+        }
+
         try {
-            method.invoke(exec.getExecutableObject(), invokeArgs.toArray());   
+            Object obj = exec.getExecutableObject();
+            Object[] arr = invokeArgs.toArray();
+            method.invoke(obj, arr);   
         } catch(Exception e) {
             LOGGER.error("Unable to invoke method (" + method.getName() + ") in class (" + exec.getExecutableObject().getClass().getName() + ") for flow string (" + specText + ")", e);
             throw(e);            

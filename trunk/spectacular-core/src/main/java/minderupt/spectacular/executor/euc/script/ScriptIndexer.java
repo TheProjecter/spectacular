@@ -91,7 +91,7 @@ public class ScriptIndexer {
 
             Pattern pattern = PatternUtils.convertToPattern(flow);
             Object closure = flowBlocks.get(flow);
-            rubyExec.setExecutableObject(closure);
+            rubyExec.setClosure(closure);
 
             flowMap.put(pattern, rubyExec);
 

@@ -26,10 +26,12 @@ public class RubyExecutable implements Executable {
         // get JRuby up
         ScriptEngineManager manager = new ScriptEngineManager();
         ScriptEngine engine = manager.getEngineByName("jruby");
+        
 
         Invocable invoke = (Invocable) engine;
 
         try {
+            invoke.invokeMethod(this.closure, "setContext", context);
             invoke.invokeMethod(this.closure, "executeBlock", arguments);
         } catch(Exception e) {
             LOGGER.fatal("Error:  ", e);
