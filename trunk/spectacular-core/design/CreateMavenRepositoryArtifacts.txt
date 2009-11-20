@@ -13,3 +13,4 @@ To create Maven Repository Artifact:
 8.  GEN CHECKSUM:  sha1sum maven-metadata.xml >maven-metadata.xml.sha1
 9.  GEN CHECKSUM for artifacts!  md5sum (artifact) >(artifact).md5
                                  sha1sum (artifact) >(artifact).sha1
+10. Edit Wiki page: http://code.google.com/p/spectacular/wiki/QuickStartGuide                            
