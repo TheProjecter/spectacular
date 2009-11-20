@@ -74,6 +74,17 @@ Run Spectacular against your new code!
 
 `> Spectacular -eucBasePackage some.base.pkg -specLocation file:/path/to/spec`
 
+You can pass multiple base packages:
+
+`> Spectacular -eucBasePackage some.base.pkg,some.other.base.pkg -specLocation file:/path/to/spec`
+
+You can also pass Ruby scripts along with your Java packages (or just Ruby alone):
+
+`> Spectacular -eucBasePackage some.base.pkg,ruby:/path/to/declaration/script.rb -specLocation file:/path/to/spec`
+
+`> Spectacular -eucBasePackage /path/to/declaration/script.rb -specLocation file:/path/to/spec`
+
+
 || Other command-line arguments: ||
 || -config _path_ || Path to a separate config file ||
 || -eucBasePackage _package_ || Base package name to seach for @EUC annotations ||
