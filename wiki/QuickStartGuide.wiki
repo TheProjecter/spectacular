@@ -2,7 +2,36 @@
 
 =Step 1:  Download Spectacular=
 
+== Manual Download ==
+
 You can download Spectacular from the [http://code.google.com/p/spectacular/downloads/list Google Code Downloads] tab.  Download the distribution appropriate for your platform.
+
+== Maven 2 Download ==
+
+If you're using Maven2, add the Minderupt repository to your `pom.xml`:
+
+{{{
+
+<repository>
+  <id>com.minderupt.spectacular.release</id>
+  <name>Minderupt Spectacular Repository</name>
+  <url>http://minderupt.com/maven2</url>
+</repository>
+
+}}}
+
+Then add the following dependency:
+
+{{{
+
+<dependency>
+  <groupId>com.minderupt</groupId>
+  <artifactId>spectacular-core</artifactId>
+  <version>0.9.2-beta</version>     
+</dependency>
+
+}}}
+
 
 =Step 2:  Install Spectacular=
 
