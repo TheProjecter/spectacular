@@ -55,9 +55,9 @@ module Spectacular
 		
 		def executeBlock(blockArgs=nil)
 		  
-		  puts "BLOCK EXECUTED"
 		  @blockProc.call blockArgs
-		
+          puts "BLOCK EXECUTED"
+          		  		  
 			
 			
 		end

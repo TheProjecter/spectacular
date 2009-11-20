@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.junit.Before;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import minderupt.spectacular.data.model.Artifact;
 import minderupt.spectacular.data.model.GlobalOptions;
 import minderupt.spectacular.data.model.ArtifactType;
@@ -80,9 +81,12 @@ public class EUCArtifactExecutorTest {
         options.addEUCBasePackage("ruby:src/test/ruby/IntegratedRubyExecution.rb");
 
         EUCArtifactExecutor executor = new EUCArtifactExecutor();
-        executor.executeArtifact(options, a);
-
-
+        ArtifactExecutionResults results = executor.executeArtifact(options, a);
+        assertNotNull(results);
+        assertEquals("User does something basic (SUCCESS)", results.get(1, 0));
+        assertEquals("User sees a basic view (PENDING)", results.get(1, 1));
+        assertEquals("User executes some test button (NOT PERFORMED)", results.get(2, 0));
+        assertEquals("User finds himself executed (NOT PERFORMED)", results.get(2, 1));
 
 
     }
