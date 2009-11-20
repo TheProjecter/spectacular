@@ -9,6 +9,7 @@ import minderupt.spectacular.util.TableContentUtil;
 import org.apache.log4j.Logger;
 
 import java.lang.reflect.Method;
+import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -27,6 +28,7 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
     private StepIndex stepIndex;
     private AnnotationIndexer annotationIndexer;
     private ScriptIndexer scriptIndexer;
+    private static final String MINDERUPT_SPECTACULAR_EXECUTOR_EUC_CONTEXT = "minderupt.spectacular.executor.euc.Context";
 
     public EUCArtifactExecutor() {
 
@@ -191,7 +193,7 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
         // does method expect a context var for the first arg?
         Method method = exec.getExecutableMethod();
         Class[] paramTypes = method.getParameterTypes();
-        if(paramTypes.length > 0 && paramTypes[0].getName().equals("minderupt.spectacular.executor.euc.Context")) {
+        if(paramTypes.length > 0 && paramTypes[0].getName().equals(MINDERUPT_SPECTACULAR_EXECUTOR_EUC_CONTEXT)) {
             invokeArgs.add(context);
         }
 
@@ -210,7 +212,14 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
         try {
             Object obj = exec.getExecutableObject();
             Object[] arr = invokeArgs.toArray();
-            method.invoke(obj, arr);   
+
+            if(method.isVarArgs() && paramTypes.length > 0 && paramTypes[0].getName().equals(MINDERUPT_SPECTACULAR_EXECUTOR_EUC_CONTEXT)) {
+                method.invoke(obj, arr[0], getElementsAfter(arr, 0));    
+            } else if(method.isVarArgs()) {
+                method.invoke(obj, (Object)arr);
+            } else {
+                method.invoke(obj, arr);
+            }
         } catch(Exception e) {
             LOGGER.error("Unable to invoke method (" + method.getName() + ") in class (" + exec.getExecutableObject().getClass().getName() + ") for flow string (" + specText + ")", e);
             throw(e);            
@@ -218,4 +227,17 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
 
 
     }
+
+    private Object[] getElementsAfter(Object[] arr, int start) {
+
+        LinkedList toReturn = new LinkedList();
+        for(int i = start + 1 ; i < arr.length ; i++) {
+            toReturn.add(arr[i]);
+        }
+
+        return(toReturn.toArray());
+
+    }
+
+
 }

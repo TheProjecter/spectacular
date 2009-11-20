@@ -24,6 +24,7 @@ public class RubyExecutable implements Executable {
     public void executeRubyClosure(Context context, Object...arguments) {
 
         // get JRuby up
+        if(LOGGER.isInfoEnabled()) LOGGER.info("Setting up jruby environment for step exec...");
         ScriptEngineManager manager = new ScriptEngineManager();
         ScriptEngine engine = manager.getEngineByName("jruby");
         
