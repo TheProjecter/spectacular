@@ -1,5 +1,4 @@
 #summary An introduction to Spectacular
-#labels Featured
 
 =What is Spectacular?=
 
