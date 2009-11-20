@@ -34,7 +34,8 @@ public class RubyExecutable implements Executable {
             invoke.invokeMethod(this.closure, "setContext", context);
             invoke.invokeMethod(this.closure, "executeBlock", arguments);
         } catch(Exception e) {
-            LOGGER.fatal("Error:  ", e);
+            LOGGER.fatal("Error invoking Ruby", e);
+            throw(new RuntimeException("Error invoking Ruby", e));
         }
 
 
