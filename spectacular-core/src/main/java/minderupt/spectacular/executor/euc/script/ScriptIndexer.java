@@ -30,16 +30,16 @@ public class ScriptIndexer {
 
         String stepLoaderScript = null;
         try {
-            if (LOGGER.isInfoEnabled()) LOGGER.info("Loading StepLoader script");
+            if (LOGGER.isDebugEnabled()) LOGGER.debug("Loading StepLoader script");
             stepLoaderScript = loadStepLoaderScript();
-            if (LOGGER.isInfoEnabled()) LOGGER.info("StepLoader Script:  " + stepLoaderScript);
+            
         } catch (Exception e) {
             LOGGER.fatal("Unable to load StepLoader", e);
             return;
         }
 
         // get StepLoader
-        if (LOGGER.isInfoEnabled()) LOGGER.info("Loading JRUBY environment");
+        if (LOGGER.isDebugEnabled()) LOGGER.debug("Loading JRUBY environment");
         ScriptEngineManager scriptEngineManager = new ScriptEngineManager();
         ScriptEngine scriptEngine = scriptEngineManager.getEngineByName("jruby");
 
@@ -49,7 +49,7 @@ public class ScriptIndexer {
         }
 
 
-        if (LOGGER.isInfoEnabled()) LOGGER.info("Evaluating StepLoader");
+        if (LOGGER.isDebugEnabled()) LOGGER.debug("Evaluating StepLoader");
         Object stepLoader = null;
         try {
             stepLoader = scriptEngine.eval(stepLoaderScript);
@@ -58,7 +58,7 @@ public class ScriptIndexer {
             return;
         }
 
-        if (LOGGER.isInfoEnabled()) LOGGER.info("Setting Java Callback");
+        if (LOGGER.isDebugEnabled()) LOGGER.debug("Setting Java Callback");
         JavaCallback callback = new JavaCallback();
         Invocable invoke = (Invocable) scriptEngine;
         try {
@@ -71,7 +71,7 @@ public class ScriptIndexer {
         for (String script : scriptList) {
 
             try {
-                if (LOGGER.isInfoEnabled()) LOGGER.info("Loading steps for:  " + script);
+                if (LOGGER.isDebugEnabled()) LOGGER.debug("Loading steps for:  " + script);
                 invoke.invokeMethod(stepLoader, "loadSteps", script);
             } catch (Exception e) {
                 LOGGER.error("Unable to load steps for script:  " + script, e);
