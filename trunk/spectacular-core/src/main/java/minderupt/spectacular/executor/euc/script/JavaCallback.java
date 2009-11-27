@@ -42,4 +42,8 @@ public class JavaCallback {
     public void setExpectationBlocks(Map<String, Object> expectationBlocks) {
         this.expectationBlocks = expectationBlocks;
     }
+
+    public String getMessage() {
+        return("MESSAGE");
+    }
 }
