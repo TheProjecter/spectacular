@@ -47,7 +47,7 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
 
         for (String packageName : basePackageList) {
 
-            if (LOGGER.isInfoEnabled()) LOGGER.info("Indexing package for EUC:  " + packageName);
+            if (LOGGER.isDebugEnabled()) LOGGER.debug("Indexing package for EUC:  " + packageName);
             if(packageName.indexOf("ruby:") == 0) {
 
                 // remove ruby: metatag
@@ -65,7 +65,7 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
 
         }
 
-        if (LOGGER.isInfoEnabled()) LOGGER.info("Adding to index.");
+        if (LOGGER.isDebugEnabled()) LOGGER.debug("Adding to index.");
         this.stepIndex.addToFlowIndex(flowMap);
         this.stepIndex.addToExpectationIndex(expectationMap);
 

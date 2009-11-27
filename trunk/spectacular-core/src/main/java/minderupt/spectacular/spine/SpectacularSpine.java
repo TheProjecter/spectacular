@@ -43,10 +43,10 @@ public class SpectacularSpine {
 
     public void run() {
 
-        if (LOGGER.isInfoEnabled()) LOGGER.info("Starting compono spine!");
+        if (LOGGER.isDebugEnabled()) LOGGER.debug("Starting compono spine!");
 
         // read specifications
-        if (LOGGER.isInfoEnabled()) LOGGER.info("Loading specification from " + getSpecificationLocation());
+        if (LOGGER.isDebugEnabled()) LOGGER.debug("Loading specification from " + getSpecificationLocation());
         String specification = null;
         try {
             specification = getDocumentReader().read(getSpecificationLocation());
@@ -56,7 +56,7 @@ public class SpectacularSpine {
         }
 
         // parse into Document + Artifacts
-        if (LOGGER.isInfoEnabled()) LOGGER.info("Parsing specification and extracting artifacts.");
+        if (LOGGER.isDebugEnabled()) LOGGER.debug("Parsing specification and extracting artifacts.");
         Document specDoc = null;
         try {
             specDoc = getArtifactExtractor().parse(specification);
@@ -66,16 +66,16 @@ public class SpectacularSpine {
         }
 
         // decision each artifact (BDD, FIT, EUC)
-        if (LOGGER.isInfoEnabled()) LOGGER.info("Figuring out what types of artifacts we have.");
+        if (LOGGER.isDebugEnabled()) LOGGER.debug("Figuring out what types of artifacts we have.");
         specDoc = getDecisionerAgent().decide(specDoc);
         logArtifactTypes(specDoc);
 
         // execute each artifact
-        if (LOGGER.isInfoEnabled()) LOGGER.info("Executing each artifact.");
+        if (LOGGER.isDebugEnabled()) LOGGER.debug("Executing each artifact.");
         List<ArtifactExecutionResults> resultsList = getArtifactExecutorAgent().executeArtifacts(getGlobalOptions(), specDoc.getArtifacts());
         for (ArtifactExecutionResults result : resultsList) {
 
-            if (LOGGER.isInfoEnabled()) LOGGER.info("Result Row Count:  " + result.getRowCount());
+            if (LOGGER.isDebugEnabled()) LOGGER.debug("Result Row Count:  " + result.getRowCount());
             List<List<String>> table = result.getTabularResults();
 
             for (List<String> row : table) {

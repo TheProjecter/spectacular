@@ -38,7 +38,7 @@ public class AnnotationIndexer {
 
 
                 Class clazz = Class.forName(beanDefinition.getBeanClassName());
-                if (LOGGER.isInfoEnabled()) LOGGER.info("Indexing class methods:  " + clazz.getName());
+                if (LOGGER.isDebugEnabled()) LOGGER.debug("Indexing class methods:  " + clazz.getName());
                 Method[] methodList = clazz.getDeclaredMethods();
                 for (Method method : methodList) {
 

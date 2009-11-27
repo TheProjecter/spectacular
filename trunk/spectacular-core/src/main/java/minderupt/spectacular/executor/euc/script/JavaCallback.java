@@ -17,13 +17,13 @@ public class JavaCallback {
 
 
     public void indexFlow(String expr, Object blockProc) {
-        if (LOGGER.isInfoEnabled()) LOGGER.info("indexFlow:  " + expr);
+        if (LOGGER.isDebugEnabled()) LOGGER.debug("indexFlow:  " + expr);
         flowBlocks.put(expr, blockProc);
     }
 
 
     public void indexExpectation(String expr, Object blockProc) {
-        if (LOGGER.isInfoEnabled()) LOGGER.info("expectationFlow:  " + expr);
+        if (LOGGER.isDebugEnabled()) LOGGER.debug("expectationFlow:  " + expr);
         expectationBlocks.put(expr, blockProc);
     }
 
