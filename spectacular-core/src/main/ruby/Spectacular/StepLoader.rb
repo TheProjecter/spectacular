@@ -1,4 +1,5 @@
 # Loads steps
+require "java"
 module Spectacular
 	
 	
@@ -21,6 +22,9 @@ module Spectacular
 		
 		def loadSteps(stepFilename)
 			
+            # Set the context var within the context of the lambda
+            @context = java.util.HashMap.new()
+
 			# first, get file
 			stepFileContents = ""
 			f = File.open(stepFilename, "r");
@@ -36,6 +40,8 @@ module Spectacular
 		def setJavaCallback(cb)
 			@javaCallbackObject = cb
 		end
+
+		
 				
 		
 		
@@ -48,10 +54,6 @@ module Spectacular
 			@blockProc = block
 		end
 		
-		def setContext(context)
-		  puts "Setting context"
-		  @context = context
-	  end
 		
 		def executeBlock(blockArgs=nil)
 		  

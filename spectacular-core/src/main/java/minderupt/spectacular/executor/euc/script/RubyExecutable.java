@@ -26,14 +26,16 @@ public class RubyExecutable implements Executable {
         // get JRuby up
         if(LOGGER.isInfoEnabled()) LOGGER.info("Setting up jruby environment for step exec...");
         ScriptEngineManager manager = new ScriptEngineManager();
-        ScriptEngine engine = manager.getEngineByName("jruby");
-        
 
-        Invocable invoke = (Invocable) engine;
+
 
         try {
-            invoke.invokeMethod(this.closure, "setContext", context);
+            ScriptEngine engine = manager.getEngineByName("jruby");
+            engine.put("context", context);
+
+            Invocable invoke = (Invocable) engine;
             invoke.invokeMethod(this.closure, "executeBlock", arguments);
+
         } catch(Exception e) {
             LOGGER.fatal("Error invoking Ruby", e);
             throw(new RuntimeException("Error invoking Ruby", e));
