@@ -35,4 +35,7 @@
             <outputDirectory>/opt</outputDirectory>
         </fileSet>
     </fileSets>
+
+    
+
 </assembly>

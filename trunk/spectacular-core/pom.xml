@@ -164,6 +164,7 @@
                 </executions>
 
                 <configuration>
+                    <extraJvmArguments>-Djruby.home=$JRUBY_HOME -Djruby.lib=$JRUBY_HOME/lib -Djruby.script=jruby -Djruby.shell=/bin/sh</extraJvmArguments>
                     <environmentSetupFileName>additionalCPElements</environmentSetupFileName>
                     <programs>
                         <program>
