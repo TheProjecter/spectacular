@@ -6,7 +6,6 @@ import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
-import org.springframework.core.io.FileSystemResource;
 
 /**
  *
@@ -20,9 +19,10 @@ public class SpectacularRunner {
 
         // Options
         Options options = new Options();
-        options.addOption("eucBasePackage", true, "Base Package for Executable Use Case fixtures.");
+        options.addOption("fixtures", true, "Base Package for Executable Use Case fixtures.");
         options.addOption("specLocation", true, "Location of the specification to test.");
         options.addOption("config", true, "Beans file that configures Spectacular and wires the spine together");
+        options.addOption("help", false, "Help Menu");
 
         CommandLineParser cmdLineParse = new PosixParser();
         GlobalOptions globalOptions = new GlobalOptions();
@@ -31,8 +31,20 @@ public class SpectacularRunner {
         String reportLocation = "./TestResults.html";
 
         try {
+
             CommandLine cmdLine = cmdLineParse.parse(options, args);
-            String basePackages = cmdLine.getOptionValue("eucBasePackage");
+
+            if(cmdLine.hasOption("help")) {
+                usage();
+                return;
+            }
+
+            if(!cmdLine.hasOption("specLocation")) {
+                usage();
+                return;
+            }
+
+            String fixtures = cmdLine.getOptionValue("fixtures");
             specLocation = cmdLine.getOptionValue("specLocation");
 
             if(cmdLine.hasOption("reportLocation")) {
@@ -45,16 +57,16 @@ public class SpectacularRunner {
                 springContextFile = cmdLine.getOptionValue("config");
             }
 
-            String[] basePackageList = null;
-            if(basePackages.indexOf(",") > 0) {
-                basePackageList = basePackages.split(",");
+            String[] fixtureList = null;
+            if(fixtures.indexOf(",") > 0) {
+                fixtureList = fixtures.split(",");
             } else {
-                basePackageList = new String[1];
-                basePackageList[0] = basePackages;
+                fixtureList = new String[1];
+                fixtureList[0] = fixtures;
             }
 
-            for(String pkg : basePackageList)
-                globalOptions.addEUCBasePackage(pkg);
+            for(String pkg : fixtureList)
+                globalOptions.addFixture(pkg);
 
         } catch (ParseException e) {
             LOGGER.fatal("Unable to parse command line arguments:  ", e);
@@ -70,6 +82,19 @@ public class SpectacularRunner {
         spine.run();
 
 
+
+    }
+
+    private static void usage() {
+
+        String usageStr = "Command-line arguments: \n" +
+                "\t -specLocation <spec location>   (REQUIRED) Specify the location of the spec to parse for tests\n" +
+                "\t -config <config file>           (optional) Specify the location of a spring config file\n" +
+                "\t -fixtures <fixture location>    (optional) Specify the java package or script that includes your EUC fixtures\n";
+
+        System.out.println(usageStr);
+
+        
 
     }
 

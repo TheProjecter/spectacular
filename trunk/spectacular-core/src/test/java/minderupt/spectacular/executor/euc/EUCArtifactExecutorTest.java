@@ -78,7 +78,7 @@ public class EUCArtifactExecutorTest {
 
         Artifact a = setupBasicEUCArtifact();
         GlobalOptions options = new GlobalOptions();
-        options.addEUCBasePackage("ruby:src/test/ruby/IntegratedRubyExecution.rb");
+        options.addFixture("ruby:src/test/ruby/IntegratedRubyExecution.rb");
 
         EUCArtifactExecutor executor = new EUCArtifactExecutor();
         ArtifactExecutionResults results = executor.executeArtifact(options, a);
@@ -96,7 +96,7 @@ public class EUCArtifactExecutorTest {
 
         Artifact a = setupBasicEUCArtifact();
         GlobalOptions options = new GlobalOptions();
-        options.addEUCBasePackage("ruby:src/test/ruby/IntegratedRubyExecutionWithArguments.rb");
+        options.addFixture("ruby:src/test/ruby/IntegratedRubyExecutionWithArguments.rb");
 
         EUCArtifactExecutor executor = new EUCArtifactExecutor();
         ArtifactExecutionResults results = executor.executeArtifact(options, a);
@@ -115,7 +115,7 @@ public class EUCArtifactExecutorTest {
 
         Artifact a = setupBasicEUCArtifact();
         GlobalOptions options = new GlobalOptions();
-        options.addEUCBasePackage("ruby:src/test/ruby/IntegratedRubyExecutionWithArgumentsWithContext.rb");
+        options.addFixture("ruby:src/test/ruby/IntegratedRubyExecutionWithArgumentsWithContext.rb");
 
         EUCArtifactExecutor executor = new EUCArtifactExecutor();
         ArtifactExecutionResults results = executor.executeArtifact(options, a);
