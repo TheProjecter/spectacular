@@ -9,7 +9,6 @@ import minderupt.spectacular.util.TableContentUtil;
 import org.apache.log4j.Logger;
 
 import java.lang.reflect.Method;
-import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -75,7 +74,7 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
     public ArtifactExecutionResults executeArtifact(final GlobalOptions globalOptions, Artifact artifact) {
 
         // set base packages based on global options
-        List<String> packageList = globalOptions.getEUCBasePackages();
+        List<String> packageList = globalOptions.getFixtures();
         if(packageList != null) setBasePackages(packageList);
 
         // results

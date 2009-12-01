@@ -12,12 +12,12 @@ public class GlobalOptions {
     private List<String> eucBasePackages = new LinkedList<String>();
     private String reportLocation;
 
-    public List<String> getEUCBasePackages() {
+    public List<String> getFixtures() {
         return(this.eucBasePackages);
     }
 
 
-    public void addEUCBasePackage(String basePackages) {
+    public void addFixture(String basePackages) {
         eucBasePackages.add(basePackages);    
     }
 
