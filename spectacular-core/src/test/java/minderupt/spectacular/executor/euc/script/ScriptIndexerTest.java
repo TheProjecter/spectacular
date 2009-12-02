@@ -10,7 +10,6 @@ import java.util.HashMap;
 import java.util.regex.Pattern;
 
 import minderupt.spectacular.executor.euc.Executable;
-import minderupt.spectacular.executor.euc.JavaClassExecutable;
 
 
 public class ScriptIndexerTest {
@@ -26,7 +25,7 @@ public class ScriptIndexerTest {
 
 
         scriptList.add("src/test/ruby/SampleSteps.rb");
-        ScriptIndexer indexer = new ScriptIndexer();
+        RubyIndexer indexer = new RubyIndexer();
         indexer.indexScripts(scriptList, flowMap, expectationMap);
 
         assertTrue(flowMap.size() == 1);

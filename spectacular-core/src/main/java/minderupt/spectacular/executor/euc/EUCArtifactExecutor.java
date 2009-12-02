@@ -4,7 +4,7 @@ import minderupt.spectacular.data.model.Artifact;
 import minderupt.spectacular.data.model.GlobalOptions;
 import minderupt.spectacular.executor.ArtifactExecutionResults;
 import minderupt.spectacular.executor.ArtifactExecutor;
-import minderupt.spectacular.executor.euc.script.ScriptIndexer;
+import minderupt.spectacular.executor.euc.script.RubyIndexer;
 import minderupt.spectacular.util.TableContentUtil;
 import org.apache.log4j.Logger;
 
@@ -26,7 +26,7 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
 
     private StepIndex stepIndex;
     private AnnotationIndexer annotationIndexer;
-    private ScriptIndexer scriptIndexer;
+    private RubyIndexer scriptIndexer;
     private static final String MINDERUPT_SPECTACULAR_EXECUTOR_EUC_CONTEXT = "minderupt.spectacular.executor.euc.Context";
 
     public EUCArtifactExecutor() {
@@ -34,7 +34,7 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
         // need to initialize the index upon creation
         stepIndex = new StepIndex();
         annotationIndexer = new AnnotationIndexer();
-        scriptIndexer = new ScriptIndexer();
+        scriptIndexer = new RubyIndexer();
 
 
     }
