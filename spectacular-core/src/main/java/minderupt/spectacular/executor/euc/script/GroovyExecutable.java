@@ -1,10 +1,12 @@
 package minderupt.spectacular.executor.euc.script;
 
 import minderupt.spectacular.executor.euc.Executable;
+import minderupt.spectacular.executor.euc.Context;
 
 import java.lang.reflect.Method;
 
 import groovy.lang.Closure;
+import org.apache.log4j.Logger;
 
 /**
  * Created by IntelliJ IDEA.
@@ -15,23 +17,47 @@ import groovy.lang.Closure;
  */
 public class GroovyExecutable implements Executable {
 
+    private static Logger LOGGER = Logger.getLogger(GroovyExecutable.class);
     private Closure closure;
 
 
+    public void executeGroovyClosure(Context context, Object...params) {
+
+        try {
+            this.closure.setProperty("context", context);
+            this.closure.call(params);
+        } catch(Exception e) {
+            LOGGER.fatal("Unable to execute groovy closure", e);
+            throw(new RuntimeException("Error invoking Groovy closure.", e));
+        }
+
+
+    }
+
+
+
     public Method getExecutableMethod() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+
+        Method execMethod = null;
+        try {
+            execMethod = getClass().getMethod("executeGroovyClosure", Context.class, Object[].class);
+        } catch(NoSuchMethodException nsme) {
+            LOGGER.fatal("Unable to extract method from my own class?", nsme);
+        }
+
+        return(execMethod);
     }
 
     public void setExecutableMethod(Method executableMethod) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        throw(new UnsupportedOperationException());
     }
 
     public Object getExecutableObject() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return(this);
     }
 
     public void setExecutableObject(Object executableObject) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        throw(new UnsupportedOperationException());
     }
 
     public void setClosure(Closure closure) {
