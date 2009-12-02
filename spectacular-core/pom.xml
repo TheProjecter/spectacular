@@ -27,6 +27,11 @@
             <version>1.4.0</version>
         </dependency>
         <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>com.springsource.org.codehaus.groovy</artifactId>
+            <version>1.6.5</version>
+        </dependency>
+        <dependency>
             <groupId>org.junit</groupId>
             <artifactId>com.springsource.org.junit</artifactId>
             <version>4.7.0</version>
@@ -164,7 +169,9 @@
                 </executions>
 
                 <configuration>
-                    <extraJvmArguments>-Djruby.home=$JRUBY_HOME -Djruby.lib=$JRUBY_HOME/lib -Djruby.script=jruby -Djruby.shell=/bin/sh</extraJvmArguments>
+                    <extraJvmArguments>-Djruby.home=$JRUBY_HOME -Djruby.lib=$JRUBY_HOME/lib -Djruby.script=jruby
+                        -Djruby.shell=/bin/sh
+                    </extraJvmArguments>
                     <environmentSetupFileName>additionalCPElements</environmentSetupFileName>
                     <programs>
                         <program>
