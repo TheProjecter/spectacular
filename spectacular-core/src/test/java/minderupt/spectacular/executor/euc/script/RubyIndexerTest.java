@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 import minderupt.spectacular.executor.euc.Executable;
 
 
-public class ScriptIndexerTest {
+public class RubyIndexerTest {
 
     
 

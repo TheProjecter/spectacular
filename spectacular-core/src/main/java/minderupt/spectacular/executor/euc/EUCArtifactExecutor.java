@@ -5,6 +5,7 @@ import minderupt.spectacular.data.model.GlobalOptions;
 import minderupt.spectacular.executor.ArtifactExecutionResults;
 import minderupt.spectacular.executor.ArtifactExecutor;
 import minderupt.spectacular.executor.euc.script.RubyIndexer;
+import minderupt.spectacular.executor.euc.script.GroovyIndexer;
 import minderupt.spectacular.util.TableContentUtil;
 import org.apache.log4j.Logger;
 
@@ -26,7 +27,8 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
 
     private StepIndex stepIndex;
     private AnnotationIndexer annotationIndexer;
-    private RubyIndexer scriptIndexer;
+    private RubyIndexer rubyIndexer;
+    private GroovyIndexer groovyIndexer;
     private static final String MINDERUPT_SPECTACULAR_EXECUTOR_EUC_CONTEXT = "minderupt.spectacular.executor.euc.Context";
 
     public EUCArtifactExecutor() {
@@ -34,7 +36,8 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
         // need to initialize the index upon creation
         stepIndex = new StepIndex();
         annotationIndexer = new AnnotationIndexer();
-        scriptIndexer = new RubyIndexer();
+        rubyIndexer = new RubyIndexer();
+        groovyIndexer = new GroovyIndexer();
 
 
     }
@@ -54,7 +57,18 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
                 if(LOGGER.isInfoEnabled()) LOGGER.info("Indexing SCRIPT package for EUC:  " + scriptName);
                 List<String> scriptList = new LinkedList<String>();
                 scriptList.add(scriptName);
-                this.scriptIndexer.indexScripts(scriptList, flowMap, expectationMap);
+                this.rubyIndexer.indexScripts(scriptList, flowMap, expectationMap);
+
+            } else if(packageName.indexOf("groovy:") == 0) {
+
+                // remove groovy: string
+                String scriptName = packageName.substring(7);
+                if(LOGGER.isInfoEnabled()) LOGGER.info("Indexing SCRIPT package for EUC:  " + scriptName);
+                List<String> scriptList = new LinkedList<String>();
+                scriptList.add(scriptName);
+                this.groovyIndexer.indexScripts(scriptList, flowMap, expectationMap);
+
+
 
             } else {
 
