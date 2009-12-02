@@ -19,11 +19,11 @@ import minderupt.spectacular.executor.euc.util.PatternUtils;
 /**
  *
  */
-public class ScriptIndexer {
+public class RubyIndexer {
 
 
     private static final String RUBY_SCRIPT_STEP_LOADER = "Spectacular/StepLoader.rb";
-    private static Logger LOGGER = Logger.getLogger(ScriptIndexer.class);
+    private static Logger LOGGER = Logger.getLogger(RubyIndexer.class);
 
 
     public void indexScripts(List<String> scriptList, Map<Pattern, Executable> flowMap, Map<Pattern, Executable> expectationMap) {
@@ -119,7 +119,7 @@ public class ScriptIndexer {
 
         StringBuilder script = new StringBuilder();
 
-        ClassLoader classLoader = ScriptIndexer.class.getClassLoader();
+        ClassLoader classLoader = RubyIndexer.class.getClassLoader();
         InputStream inputStream = classLoader.getResourceAsStream(RUBY_SCRIPT_STEP_LOADER);
         if (inputStream != null) {
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
