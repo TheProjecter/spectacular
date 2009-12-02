@@ -129,6 +129,25 @@ public class EUCArtifactExecutorTest {
 
     }
 
+    @Test
+    public void testIntegratedGroovyExecutionWithArgumentsWithContext() throws Exception {
+
+        Artifact a = setupBasicEUCArtifact();
+        GlobalOptions options = new GlobalOptions();
+        options.addFixture("groovy:src/test/groovy/IntegratedGroovyExecutionWithArgumentsWithContext.groovy");
+
+        EUCArtifactExecutor executor = new EUCArtifactExecutor();
+        ArtifactExecutionResults results = executor.executeArtifact(options, a);
+        assertNotNull(results);
+        assertEquals("User does something basic (SUCCESS)", results.get(1, 0));
+        assertEquals("User sees a basic view (SUCCESS)", results.get(1, 1));
+        assertEquals("User executes some test button (PENDING)", results.get(2, 0));
+        assertEquals("User finds himself executed (NOT PERFORMED)", results.get(2, 1));
+
+
+
+    }
+
 
     private Artifact setupBasicEUCArtifact() throws Exception {
 

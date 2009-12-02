@@ -9,7 +9,7 @@ Flow("This is my simple flow") {
 }
 
 
-Expectation("This is my simple expectation") {
+Expectation("This is my (.*) expectation") { kindOf ->
 
   // something else that's useful
 
