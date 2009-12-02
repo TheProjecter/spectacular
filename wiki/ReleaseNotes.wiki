@@ -2,6 +2,28 @@
 #labels Featured
 
 
+=Release Notes for 0.9.4-beta (2009-Dec-01)=
+
+==New Features/Stories==
+
+  * [http://www.pivotaltracker.com/story/show/1777373 Specify output parameter for reports]
+  * [http://www.pivotaltracker.com/story/show/1844626 Change eucBasePackage to be list of hooks]
+  * [http://www.pivotaltracker.com/story/show/1772356 Add support for EUC handlers in Groovy]
+  * [http://www.pivotaltracker.com/story/show/1673460 Add support for general scripting]
+
+
+==Defects Fixed==
+
+  * ID 8 - NullPointerException when no cmd line options are presented 
+  * ID 10 - NullPointerException when no cmd line option for -specLocation is given
+
+==Other Items==
+
+  * N/A
+
+
+
+
 =Release Notes for 0.9.3-beta (2009-Nov-20)=
 
 ==New Features/Stories==
