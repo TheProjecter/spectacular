@@ -83,7 +83,7 @@ public class HTMLTableArtifactExtractor implements ArtifactExtractor {
                     tableArtifact.setTableContent(data);
 
 
-                } else {
+                } else if(rows.length == 1){
 
                     // its all data
                     List<String> dataList = extractDataColumns(rows[0]);
@@ -91,6 +91,10 @@ public class HTMLTableArtifactExtractor implements ArtifactExtractor {
                     data.add(dataList);
 
                     tableArtifact.setTableContent(data);
+
+                } else {
+
+                    tableArtifact.put(0, 0, null);
 
                 }
 

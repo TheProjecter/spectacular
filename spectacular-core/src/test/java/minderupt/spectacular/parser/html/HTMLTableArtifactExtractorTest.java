@@ -241,6 +241,26 @@ public class HTMLTableArtifactExtractorTest {
 
     }
 
+    @Test
+    public void testGetDocumentTableWithNoRows() throws Exception {
+
+        String doc = "<html><body><table></table></body></html>";
+        HTMLTableArtifactExtractor parser = new HTMLTableArtifactExtractor();
+        Document document = parser.parse(doc);
+
+        assertNotNull(document);
+        assertEquals(1, document.getArtifacts().size());
+
+        Artifact a = document.getArtifacts().get(0);
+        assertNotNull(a);
+        assertNull(a.get(0, 0));
+
+
+
+
+
+    }
+
 
     @Test
     public void testRealWordHTMLDocumentTestExtraction() throws Exception {
