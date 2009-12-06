@@ -1,4 +1,4 @@
-package minderupt.spectacular.preexecutor.agent;
+package minderupt.spectacular.preexecutor;
 
 import minderupt.spectacular.data.model.Document;
 

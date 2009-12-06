@@ -23,6 +23,9 @@ public enum ArtifactType {
     FIT,
 
     // Executable Use Case artifact
-    EUC
+    EUC,
+
+    // Data-driven for any other artifact
+    DATADRIVEN
 
 }

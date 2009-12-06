@@ -21,6 +21,8 @@ public class Artifact implements TabularContentAccessor<String> {
     private int startPosition = 0;
     private int endPosition = 0;
 
+    private Artifact dataDrivenInstances;
+
     private TableContentUtil<String> tableUtil = new TableContentUtil<String>();
 
 
@@ -56,6 +58,14 @@ public class Artifact implements TabularContentAccessor<String> {
 
     public List<String> getHeaders() {
         return(this.headers);
+    }
+
+    public void setDataDrivenInstances(Artifact instance) {
+        this.dataDrivenInstances = instance;
+    }
+
+    public Artifact getDataDrivenInstances() {
+        return(this.dataDrivenInstances);
     }
 
     public void setTableContent(List<List<String>> tableData) {

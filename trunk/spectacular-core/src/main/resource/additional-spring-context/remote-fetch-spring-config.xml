@@ -30,6 +30,19 @@
         </property>
     </bean>
 
+    <!-- Pre-Executors -->
+    <bean id="dataDrivenArrangementPreexecutor" class="minderupt.spectacular.preexecutor.datadriven.DataDrivenArrangementPreexecutor" />
+
+    <!-- Preexecution Agent -->
+    <bean id="preexecutorAgent" class="minderupt.spectacular.preexecutor.agent.LinearPreexecutorAgent">
+        <property name="preexecutors">
+            <list>
+                <ref bean="dataDrivenArrangementPreexecutor" />
+            </list>
+        </property>
+    </bean>
+
+
     <!-- executors -->
     <bean id="bddExecutor" class="minderupt.spectacular.executor.bdd.JBehaveArtifactExecutor"/>
     <bean id="fitExecutor" class="minderupt.spectacular.executor.fit.FITArtifactExecutor"/>
@@ -69,6 +82,7 @@
         <property name="artifactExecutorAgent" ref="artifactExecutorAgent"/>
         <property name="artifactExtractor" ref="artifactExtractor"/>
         <property name="decisionerAgent" ref="decisionerAgent"/>
+        <property name="preexecutorAgent" ref="preexecutorAgent" />
         <property name="documentReader" ref="httpDocumentReader"/>
         <property name="reportBuilder" ref="reportBuilder"/>
         <property name="reportWriter" ref="reportWriter"/>

@@ -32,6 +32,10 @@ public class Document {
         return(this.testArtifactList);
     }
 
+    public void setArtifactList(List<Artifact> artifactList) {
+        this.testArtifactList = artifactList;
+    }
+
     
 
 

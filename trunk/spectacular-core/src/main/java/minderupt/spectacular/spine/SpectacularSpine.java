@@ -12,6 +12,7 @@ import minderupt.spectacular.parser.DocumentParseException;
 import minderupt.spectacular.reader.DocumentReader;
 import minderupt.spectacular.reporting.ReportBuilder;
 import minderupt.spectacular.reporting.ReportWriter;
+import minderupt.spectacular.preexecutor.agent.PreexecutorAgent;
 import org.apache.log4j.Logger;
 
 import java.io.FileNotFoundException;
@@ -36,6 +37,7 @@ public class SpectacularSpine {
     private DocumentReader documentReader;
     private ArtifactExtractor artifactExtractor;
     private DecisionerAgent decisionerAgent;
+    private PreexecutorAgent preexecutorAgent;
     private ArtifactExecutorAgent artifactExecutorAgent;
     private ReportBuilder reportBuilder;
     private ReportWriter reportWriter;
@@ -69,6 +71,15 @@ public class SpectacularSpine {
         if (LOGGER.isDebugEnabled()) LOGGER.debug("Figuring out what types of artifacts we have.");
         specDoc = getDecisionerAgent().decide(specDoc);
         logArtifactTypes(specDoc);
+
+        // preprocess document
+        if(LOGGER.isDebugEnabled()) LOGGER.debug("Preprocessing Document.");
+        try {
+            specDoc = getPreexecutorAgent().preprocessDocument(specDoc);
+        } catch(Exception e) {
+            LOGGER.error("Unable to preprocess document but moving on", e);
+        }
+
 
         // execute each artifact
         if (LOGGER.isDebugEnabled()) LOGGER.debug("Executing each artifact.");
@@ -169,6 +180,14 @@ public class SpectacularSpine {
 
     public ArtifactExecutorAgent getArtifactExecutorAgent() {
         return artifactExecutorAgent;
+    }
+
+    public PreexecutorAgent getPreexecutorAgent() {
+        return preexecutorAgent;
+    }
+
+    public void setPreexecutorAgent(PreexecutorAgent preexecutorAgent) {
+        this.preexecutorAgent = preexecutorAgent;
     }
 
     public void setArtifactExecutorAgent(ArtifactExecutorAgent artifactExecutorAgent) {
