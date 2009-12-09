@@ -10,10 +10,7 @@ import minderupt.spectacular.util.TableContentUtil;
 import org.apache.log4j.Logger;
 
 import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -84,8 +81,99 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
 
     }
 
-
     public ArtifactExecutionResults executeArtifact(final GlobalOptions globalOptions, Artifact artifact) {
+
+        if(artifact.getDataDrivenInstances() == null) {
+            if(LOGGER.isDebugEnabled()) LOGGER.debug("Executing single instance of EUC");
+            return(executeSingleArtifact(globalOptions, artifact));
+        }
+
+        // build map of substitutions - first row has variable names
+        if(LOGGER.isDebugEnabled()) LOGGER.debug("Executing Data-driven EUC Test.");
+        Map<String, String> subMap = new HashMap<String, String>();
+        Artifact data = artifact.getDataDrivenInstances();
+        List<String> subNameList = data.getTableContent().get(0);
+        for(String subName : subNameList) {
+            if(LOGGER.isDebugEnabled()) LOGGER.debug("Variable Substitution:  " + subName);
+            subMap.put(subName, "");
+        }
+
+        // For each row in the data table, create a new artifact and copy
+        // values.
+        ArtifactExecutionResults results = new ArtifactExecutionResults();
+        for(int i = 1 ; i < data.getRowCount() ; i++) {
+
+            List<String> subValueList = data.getTableContent().get(i);
+            for(int c = 0 ; c < subValueList.size() ; c++) {
+
+                String varName = subNameList.get(c);
+                String varValue = subValueList.get(c);
+                if(LOGGER.isDebugEnabled()) LOGGER.debug("Associating var name (" + varName + ") with var value (" + varValue + ")");
+                subMap.put(varName, varValue);
+
+            }
+
+            if(LOGGER.isDebugEnabled()) LOGGER.debug("Creating working data driven artifact copy");
+            Artifact workingArtifact = createWorkingDataDrivenArtifact(artifact, subMap);
+
+            ArtifactExecutionResults workingResults = executeSingleArtifact(globalOptions, workingArtifact);
+
+            int nextRow = results.getRowCount();
+            results.put(nextRow, 0, "Iteration:  " + i);
+            nextRow++;
+
+            for(int workingRow = 1 ; workingRow < workingResults.getRowCount() ; workingRow++) {
+
+                for(int workingCol = 0 ; workingCol < 2 ; workingCol++) {
+                    results.put(nextRow, workingCol, workingResults.get(workingRow, workingCol));
+                }
+
+                nextRow++;
+
+            }
+
+
+        }
+
+        return(results);
+    }
+
+    private Artifact createWorkingDataDrivenArtifact(Artifact artifact, Map<String, String> subMap) {
+
+        Artifact working = new Artifact();
+
+        for(int currentRow = 1 ; currentRow < artifact.getRowCount() ; currentRow++) {
+
+            for(int currentCol = 0 ; currentCol < 2 ; currentCol++) {
+
+                String cell = artifact.get(currentRow, currentCol);
+                if(LOGGER.isDebugEnabled()) LOGGER.debug("Cell PREsub:  " + cell);
+
+                cell = substituteCellData(cell, subMap);
+                if(LOGGER.isDebugEnabled()) LOGGER.debug("Cell POSTsub:  " + cell);
+
+                working.put(currentRow, currentCol, cell);
+
+            }
+
+        }
+
+        return working;
+    }
+
+    private String substituteCellData(String cell, Map<String, String> subMap) {
+
+        Set<String> keySet = subMap.keySet();
+        for(String key : keySet) {
+            cell = cell.replaceAll(("\\" + key), subMap.get(key));
+        }
+
+        return(cell);
+
+    }
+
+
+    private ArtifactExecutionResults executeSingleArtifact(final GlobalOptions globalOptions, Artifact artifact) {
 
         // set base packages based on global options
         List<String> packageList = globalOptions.getFixtures();
@@ -101,7 +189,7 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
         // lives between steps
         Context context = new Context();
 
-
+        
         /**** NEW Flow:  Go through artifact table, execute each */
         for(int currentRow = 1 ; currentRow < artifact.getRowCount() ; currentRow++) {
 

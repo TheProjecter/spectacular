@@ -50,7 +50,6 @@ public class EUCArtifactExecutorTest {
     }
 
 
-
     @Test
     public void testExecuteBasicEUCArtifactAndNotPerformedResults() throws Exception {
 
@@ -61,7 +60,7 @@ public class EUCArtifactExecutorTest {
         executor.setBasePackages(basePackage);
 
         Artifact a = setupBasicEUCArtifact();
-        a.put(1,1, "User sees something that I don't have implemented");
+        a.put(1, 1, "User sees something that I don't have implemented");
 
         ArtifactExecutionResults results = executor.executeArtifact(new GlobalOptions(), a);
         assertNotNull(results);
@@ -126,7 +125,6 @@ public class EUCArtifactExecutorTest {
         assertEquals("User finds himself executed (NOT PERFORMED)", results.get(2, 1));
 
 
-
     }
 
     @Test
@@ -144,6 +142,32 @@ public class EUCArtifactExecutorTest {
         assertEquals("User executes some test button (PENDING)", results.get(2, 0));
         assertEquals("User finds himself executed (NOT PERFORMED)", results.get(2, 1));
 
+
+    }
+
+    @Test
+    public void testExecuteEUCWithDataDrivenTable() throws Exception {
+
+        Artifact a = setupBasicEUCArtifact();
+        Artifact data = setupBasicDataDrivenArtifact();
+
+        a.put(1, 0, "User does $something basic");
+        a.put(1, 1, "User sees $else view");
+        a.put(2, 0, "User executes some $whatever button");
+        a.put(2, 1, "User finds himself $whatever");
+
+        a.setDataDrivenInstances(data);
+
+        GlobalOptions options = new GlobalOptions();
+        options.addFixture("groovy:src/test/groovy/ExecuteEUCWithDataDrivenTable.groovy");
+
+        EUCArtifactExecutor executor = new EUCArtifactExecutor();
+        ArtifactExecutionResults results = executor.executeArtifact(options, a);
+        assertNotNull(results);
+        // assertEquals("User does $something basic (SEE DATA TABLE)", results.get(1, 0));
+        // assertEquals("User sees $else view (SEE DATA TABLE)", results.get(1, 1));
+        // assertEquals("User executes some $whatever button (SEE DATA TABLE)", results.get(2, 0));
+        // assertEquals("User finds himself $whatever (SEE DATA TABLE)", results.get(2, 1));
 
 
     }
@@ -165,11 +189,31 @@ public class EUCArtifactExecutorTest {
 
         artifact.setArtifactType(ArtifactType.EUC);
 
+        return (artifact);
+
+    }
+
+    private Artifact setupBasicDataDrivenArtifact() throws Exception {
+
+        Artifact artifact = new Artifact();
+        artifact.put(0, 0, "$something");
+        artifact.put(0, 1, "$else");
+        artifact.put(0, 2, "$whatever");
+        artifact.put(1, 0, "onezero");
+        artifact.put(1, 1, "oneone");
+        artifact.put(1, 2, "onetwo");
+        artifact.put(2, 0, "twozero");
+        artifact.put(2, 1, "twoone");
+        artifact.put(2, 2, "twotwo");
+        artifact.put(3, 0, "threezero");
+        artifact.put(3, 1, "threeone");
+        artifact.put(3, 2, "threetwo");
+
+        artifact.setArtifactType(ArtifactType.DATADRIVEN);
+
         return(artifact);
 
 
     }
-
-
 
 }
