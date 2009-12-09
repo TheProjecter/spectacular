@@ -45,7 +45,7 @@ public class SpectacularSpine {
 
     public void run() {
 
-        if (LOGGER.isDebugEnabled()) LOGGER.debug("Starting compono spine!");
+        if (LOGGER.isDebugEnabled()) LOGGER.debug("Starting Spectacular spine!");
 
         // read specifications
         if (LOGGER.isDebugEnabled()) LOGGER.debug("Loading specification from " + getSpecificationLocation());
