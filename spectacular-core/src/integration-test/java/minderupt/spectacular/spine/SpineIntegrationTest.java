@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import minderupt.spectacular.data.model.GlobalOptions;
+import minderupt.spectacular.data.model.CommandLineGlobalOptions;
 
 /**
  * Created by IntelliJ IDEA.
@@ -24,7 +25,7 @@ public class SpineIntegrationTest {
         SpectacularSpine spine = (SpectacularSpine) applicationContext.getBean("spine");
         Assert.assertNotNull(spine);
 
-        GlobalOptions options = new GlobalOptions();
+        GlobalOptions options = new CommandLineGlobalOptions();
         options.addFixture("minderupt.spectacular.spine.spectacular.steps");
         options.setReportLocation("./TestResults.html");
 

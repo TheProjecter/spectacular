@@ -17,6 +17,7 @@ import minderupt.spectacular.executor.ArtifactExecutionResults;
 import minderupt.spectacular.data.model.Artifact;
 import minderupt.spectacular.data.model.GlobalOptions;
 import minderupt.spectacular.data.model.ArtifactType;
+import minderupt.spectacular.data.model.CommandLineGlobalOptions;
 
 /**
  * Created by IntelliJ IDEA.
@@ -50,7 +51,7 @@ public class LinearArtifactExecutorAgentTest {
         List<Artifact> artifactList = new LinkedList<Artifact>();
         artifactList.add(a);
 
-        List<ArtifactExecutionResults> checkedResults = agent.executeArtifacts(new GlobalOptions(), artifactList);
+        List<ArtifactExecutionResults> checkedResults = agent.executeArtifacts(new CommandLineGlobalOptions(), artifactList);
 
         assertNotNull(checkedResults);
         assertEquals("TESTRESULTS", checkedResults.get(0).getRawResults());
@@ -78,7 +79,7 @@ public class LinearArtifactExecutorAgentTest {
         List<Artifact> artifactList = new LinkedList<Artifact>();
         artifactList.add(a);
 
-        List<ArtifactExecutionResults> checkedResults = agent.executeArtifacts(new GlobalOptions(), artifactList);
+        List<ArtifactExecutionResults> checkedResults = agent.executeArtifacts(new CommandLineGlobalOptions(), artifactList);
 
         assertNotNull(checkedResults);
         assertFalse(checkedResults.get(0).isPass());

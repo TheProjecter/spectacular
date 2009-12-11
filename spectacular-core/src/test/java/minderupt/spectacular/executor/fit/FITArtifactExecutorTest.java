@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import org.junit.Before;
 import minderupt.spectacular.data.model.Artifact;
-import minderupt.spectacular.data.model.GlobalOptions;
+import minderupt.spectacular.data.model.CommandLineGlobalOptions;
 import minderupt.spectacular.executor.ArtifactExecutionResults;
 
 /**
@@ -50,7 +50,7 @@ public class FITArtifactExecutorTest {
 
         
 
-        ArtifactExecutionResults results = this.fitExecutor.executeArtifact(new GlobalOptions(), this.standardFITArtifact);
+        ArtifactExecutionResults results = this.fitExecutor.executeArtifact(new CommandLineGlobalOptions(), this.standardFITArtifact);
         assertNotNull(results);
 
         
