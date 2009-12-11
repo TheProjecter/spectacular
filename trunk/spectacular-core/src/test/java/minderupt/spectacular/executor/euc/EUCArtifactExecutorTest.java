@@ -8,6 +8,7 @@ import static org.junit.Assert.assertTrue;
 import minderupt.spectacular.data.model.Artifact;
 import minderupt.spectacular.data.model.GlobalOptions;
 import minderupt.spectacular.data.model.ArtifactType;
+import minderupt.spectacular.data.model.CommandLineGlobalOptions;
 import minderupt.spectacular.executor.ArtifactExecutionResults;
 
 import java.util.List;
@@ -39,7 +40,7 @@ public class EUCArtifactExecutorTest {
 
         Artifact a = setupBasicEUCArtifact();
 
-        ArtifactExecutionResults results = executor.executeArtifact(new GlobalOptions(), a);
+        ArtifactExecutionResults results = executor.executeArtifact(new CommandLineGlobalOptions(), a);
         assertNotNull(results);
         assertEquals("User does something basic (SUCCESS)", results.get(1, 0));
         assertEquals("User sees a basic view (SUCCESS)", results.get(1, 1));
@@ -62,7 +63,7 @@ public class EUCArtifactExecutorTest {
         Artifact a = setupBasicEUCArtifact();
         a.put(1, 1, "User sees something that I don't have implemented");
 
-        ArtifactExecutionResults results = executor.executeArtifact(new GlobalOptions(), a);
+        ArtifactExecutionResults results = executor.executeArtifact(new CommandLineGlobalOptions(), a);
         assertNotNull(results);
         assertEquals("User does something basic (SUCCESS)", results.get(1, 0));
         assertEquals("User sees something that I don't have implemented (PENDING)", results.get(1, 1));
@@ -76,7 +77,7 @@ public class EUCArtifactExecutorTest {
     public void testIntegratedRubyExecution() throws Exception {
 
         Artifact a = setupBasicEUCArtifact();
-        GlobalOptions options = new GlobalOptions();
+        GlobalOptions options = new CommandLineGlobalOptions();
         options.addFixture("ruby:src/test/ruby/IntegratedRubyExecution.rb");
 
         EUCArtifactExecutor executor = new EUCArtifactExecutor();
@@ -94,7 +95,7 @@ public class EUCArtifactExecutorTest {
     public void testIntegratedRubyExecutionWithArguments() throws Exception {
 
         Artifact a = setupBasicEUCArtifact();
-        GlobalOptions options = new GlobalOptions();
+        GlobalOptions options = new CommandLineGlobalOptions();
         options.addFixture("ruby:src/test/ruby/IntegratedRubyExecutionWithArguments.rb");
 
         EUCArtifactExecutor executor = new EUCArtifactExecutor();
@@ -113,7 +114,7 @@ public class EUCArtifactExecutorTest {
     public void testIntegratedRubyExecutionWithArgumentsWithContext() throws Exception {
 
         Artifact a = setupBasicEUCArtifact();
-        GlobalOptions options = new GlobalOptions();
+        GlobalOptions options = new CommandLineGlobalOptions();
         options.addFixture("ruby:src/test/ruby/IntegratedRubyExecutionWithArgumentsWithContext.rb");
 
         EUCArtifactExecutor executor = new EUCArtifactExecutor();
@@ -131,7 +132,7 @@ public class EUCArtifactExecutorTest {
     public void testIntegratedGroovyExecutionWithArgumentsWithContext() throws Exception {
 
         Artifact a = setupBasicEUCArtifact();
-        GlobalOptions options = new GlobalOptions();
+        GlobalOptions options = new CommandLineGlobalOptions();
         options.addFixture("groovy:src/test/groovy/IntegratedGroovyExecutionWithArgumentsWithContext.groovy");
 
         EUCArtifactExecutor executor = new EUCArtifactExecutor();
@@ -158,7 +159,7 @@ public class EUCArtifactExecutorTest {
 
         a.setDataDrivenInstances(data);
 
-        GlobalOptions options = new GlobalOptions();
+        GlobalOptions options = new CommandLineGlobalOptions();
         options.addFixture("groovy:src/test/groovy/ExecuteEUCWithDataDrivenTable.groovy");
 
         EUCArtifactExecutor executor = new EUCArtifactExecutor();

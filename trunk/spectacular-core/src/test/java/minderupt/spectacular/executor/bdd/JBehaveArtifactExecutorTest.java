@@ -3,7 +3,7 @@ package minderupt.spectacular.executor.bdd;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import minderupt.spectacular.data.model.Artifact;
-import minderupt.spectacular.data.model.GlobalOptions;
+import minderupt.spectacular.data.model.CommandLineGlobalOptions;
 import minderupt.spectacular.executor.ArtifactExecutionResults;
 
 import java.util.List;
@@ -44,7 +44,7 @@ public class JBehaveArtifactExecutorTest {
         artifact.setTableContent(tableContent);
 
         JBehaveArtifactExecutor executor = new JBehaveArtifactExecutor();
-        ArtifactExecutionResults results = executor.executeArtifact(new GlobalOptions(), artifact);
+        ArtifactExecutionResults results = executor.executeArtifact(new CommandLineGlobalOptions(), artifact);
         assertNotNull(results);
         // assertEquals("Given some kind of setup (SUCCESS)", results.getRawResults());
         // assertEquals("", results.getTabularResults().get(1).get(1));

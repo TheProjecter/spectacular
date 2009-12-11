@@ -1,31 +1,20 @@
 package minderupt.spectacular.data.model;
 
-import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Passed in to most Spectacular modules and who's data is set mainly by
- * command-line parameters.
+ * Created by IntelliJ IDEA.
+ * User: dowlinmi
+ * Date: Dec 11, 2009
+ * Time: 10:53:44 AM
+ * To change this template use File | Settings | File Templates.
  */
-public class GlobalOptions {
+public interface GlobalOptions {
+    List<String> getFixtures();
 
-    private List<String> eucBasePackages = new LinkedList<String>();
-    private String reportLocation;
+    void addFixture(String basePackages);
 
-    public List<String> getFixtures() {
-        return(this.eucBasePackages);
-    }
+    String getReportLocation();
 
-
-    public void addFixture(String basePackages) {
-        eucBasePackages.add(basePackages);    
-    }
-
-    public String getReportLocation() {
-        return reportLocation;
-    }
-
-    public void setReportLocation(String reportLocation) {
-        this.reportLocation = reportLocation;
-    }
+    void setReportLocation(String reportLocation);
 }
