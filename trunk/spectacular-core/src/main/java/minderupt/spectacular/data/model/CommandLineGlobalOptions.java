@@ -24,24 +24,35 @@ public class CommandLineGlobalOptions implements GlobalOptions {
     private final static String ARGS_REPORT_BUILDER = "reportBuilder";
     private final static String ARGS_REPORT_WRITER = "reportWriter";
 
+    private final static String ARGS_EUC_FIXTURES = "fixtures";
+    private final static String ARGS_SPEC_LOCATION = "specLocation";
+    private final static String ARGS_CONFIG = "config";
+    private final static String ARGS_HELP = "help";
+
+
+
+    public CommandLineGlobalOptions() {
+        this(new String[] {});
+    }
+
 
     public CommandLineGlobalOptions(String[] args) {
 
         // Options
         Options options = new Options();
-        options.addOption("fixtures", true, "Base Package for Executable Use Case fixtures.");
-        options.addOption("specLocation", true, "Location of the specification to test.");
-        options.addOption("config", true, "Beans file that configures Spectacular and wires the spine together");
-        options.addOption("help", false, "Help Menu");
+        options.addOption(ARGS_EUC_FIXTURES, true, "Base Package for Executable Use Case fixtures.");
+        options.addOption(ARGS_SPEC_LOCATION, true, "Location of the specification to test.");
+        options.addOption(ARGS_CONFIG, true, "Beans file that configures Spectacular and wires the spine together");
+        options.addOption(ARGS_HELP, false, "Help Menu");
 
         // bean options
-        options.addOption(ARGS_DOCUMENT_READER, true, "Help Menu");
-        options.addOption(ARGS_ARTIFACT_EXTRACTOR, true, "Help Menu");
-        options.addOption(ARGS_DECISIONER_AGENT, true, "Help Menu");
-        options.addOption(ARGS_PREEXECUTOR_AGENT, true, "Help Menu");
-        options.addOption(ARGS_ARTIFACT_EXECUTOR_AGENT, true, "Help Menu");
-        options.addOption(ARGS_REPORT_BUILDER, true, "Help Menu");
-        options.addOption(ARGS_REPORT_WRITER, true, "Help Menu");
+        options.addOption(ARGS_DOCUMENT_READER, true, "Bean name for document reader.");
+        options.addOption(ARGS_ARTIFACT_EXTRACTOR, true, "Bean name for artifact extractor");
+        options.addOption(ARGS_DECISIONER_AGENT, true, "Bean name for Decisioner Agent");
+        options.addOption(ARGS_PREEXECUTOR_AGENT, true, "Bean name for Pre-Executor Agent");
+        options.addOption(ARGS_ARTIFACT_EXECUTOR_AGENT, true, "Bean name for Artifact Executor Agent");
+        options.addOption(ARGS_REPORT_BUILDER, true, "Bean name for Report Builder");
+        options.addOption(ARGS_REPORT_WRITER, true, "Bean name for Report Writer");
 
 
         CommandLineParser cmdLineParse = new PosixParser();
@@ -51,6 +62,14 @@ public class CommandLineGlobalOptions implements GlobalOptions {
         } catch(ParseException pe) {
             LOGGER.fatal("Unable to parse command line options");
             return;
+        }
+
+        if(cmdLine.hasOption(ARGS_EUC_FIXTURES)) {
+
+            String fixtures = cmdLine.getOptionValue(ARGS_EUC_FIXTURES);
+            String[] fixtureArray = fixtures.split(",");
+            for(String fixture : fixtureArray) addFixture(fixture);
+
         }
 
 
