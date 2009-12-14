@@ -30,6 +30,17 @@ public class CommandLineGlobalOptions implements GlobalOptions {
     private final static String ARGS_HELP = "help";
 
 
+    private String documentReaderBeanName;
+    private String artifactExtractorBeanName;
+    private String decisionerAgentBeanName;
+    private String preexecutorAgentBeanName;
+    private String artifactExecutorAgentBeanName;
+    private String reportBuilderBeanName;
+    private String reportWriterBeanName;
+
+
+
+
 
     public CommandLineGlobalOptions() {
         this(new String[] {});
@@ -60,7 +71,7 @@ public class CommandLineGlobalOptions implements GlobalOptions {
         try {
             cmdLine = cmdLineParse.parse(options, args);
         } catch(ParseException pe) {
-            LOGGER.fatal("Unable to parse command line options");
+            LOGGER.fatal("Unable to parse command line options", pe);
             return;
         }
 
@@ -100,5 +111,61 @@ public class CommandLineGlobalOptions implements GlobalOptions {
     public String getConfig() {
 
         return(null);
+    }
+
+    public String getDocumentReaderBeanName() {
+        return documentReaderBeanName;
+    }
+
+    public void setDocumentReaderBeanName(String documentReaderBeanName) {
+        this.documentReaderBeanName = documentReaderBeanName;
+    }
+
+    public String getArtifactExtractorBeanName() {
+        return artifactExtractorBeanName;
+    }
+
+    public void setArtifactExtractorBeanName(String artifactExtractorBeanName) {
+        this.artifactExtractorBeanName = artifactExtractorBeanName;
+    }
+
+    public String getDecisionerAgentBeanName() {
+        return decisionerAgentBeanName;
+    }
+
+    public void setDecisionerAgentBeanName(String decisionerAgentBeanName) {
+        this.decisionerAgentBeanName = decisionerAgentBeanName;
+    }
+
+    public String getPreexecutorAgentBeanName() {
+        return preexecutorAgentBeanName;
+    }
+
+    public void setPreexecutorAgentBeanName(String preexecutorAgentBeanName) {
+        this.preexecutorAgentBeanName = preexecutorAgentBeanName;
+    }
+
+    public String getArtifactExecutorAgentBeanName() {
+        return artifactExecutorAgentBeanName;
+    }
+
+    public void setArtifactExecutorAgentBeanName(String artifactExecutorAgentBeanName) {
+        this.artifactExecutorAgentBeanName = artifactExecutorAgentBeanName;
+    }
+
+    public String getReportBuilderBeanName() {
+        return reportBuilderBeanName;
+    }
+
+    public void setReportBuilderBeanName(String reportBuilderBeanName) {
+        this.reportBuilderBeanName = reportBuilderBeanName;
+    }
+
+    public String getReportWriterBeanName() {
+        return reportWriterBeanName;
+    }
+
+    public void setReportWriterBeanName(String reportWriterBeanName) {
+        this.reportWriterBeanName = reportWriterBeanName;
     }
 }
