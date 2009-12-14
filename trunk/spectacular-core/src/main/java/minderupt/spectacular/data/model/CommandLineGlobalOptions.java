@@ -13,6 +13,9 @@ import java.util.List;
 public class CommandLineGlobalOptions implements GlobalOptions {
 
     private static Logger LOGGER = Logger.getLogger(CommandLineGlobalOptions.class);
+
+    private Options options;
+
     private List<String> eucBasePackages = new LinkedList<String>();
     private String reportLocation;
     private String specLocation;
@@ -40,7 +43,7 @@ public class CommandLineGlobalOptions implements GlobalOptions {
     public CommandLineGlobalOptions(String[] args) {
 
         // Options
-        Options options = new Options();
+        options = new Options();
         options.addOption(new Option(ARGS_EUC_FIXTURES, true, "Base Package for Executable Use Case fixtures."));
         options.addOption(new Option(ARGS_SPEC_LOCATION, true, "Location of the specification to test."));
         options.addOption(new Option(ARGS_CONFIG, true, "Beans file that configures Spectacular and wires the spine together"));
@@ -204,7 +207,7 @@ public class CommandLineGlobalOptions implements GlobalOptions {
     }
 
     @Override
-    public void printUsage(Options options) {
+    public void printUsage() {
 
         HelpFormatter f = new HelpFormatter();
         f.printHelp("Spectacular", options);
