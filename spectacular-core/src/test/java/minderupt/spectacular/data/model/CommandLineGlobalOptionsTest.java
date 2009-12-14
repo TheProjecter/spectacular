@@ -1,16 +1,12 @@
 package minderupt.spectacular.data.model;
 
+import org.apache.commons.cli.*;
 import org.junit.Test;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-/**
- * Created by IntelliJ IDEA.
- * User: dowlinmi
- * Date: Dec 11, 2009
- * Time: 11:18:07 AM
- * To change this template use File | Settings | File Templates.
- */
+
 public class CommandLineGlobalOptionsTest {
 
 
@@ -24,7 +20,7 @@ public class CommandLineGlobalOptionsTest {
 
         CommandLineGlobalOptions options = new CommandLineGlobalOptions(args);
         assertNotNull(options.getFixtures());
-        assertEquals("some.fixture.package", options.getFixtures());
+        assertEquals("some.fixture.package", options.getFixtures().get(0));
 
         assertNotNull(options.getSpecLocation());
         assertEquals("/path/to/spec", options.getSpecLocation());
@@ -38,10 +34,43 @@ public class CommandLineGlobalOptionsTest {
     @Test
     public void testParseBeanNameOptions() throws Exception {
 
-        String[] args = new String[] {"-documentReader", "document reader",
-                                      "-artifactExtractor", "artifact extractor"};
+
+        String[] args = new String[] {"-documentReader", "reader",
+                                    "-artifactExtractor", "extractor",
+                                    "-decisionerAgent", "decisioner",
+                                    "-preexecutorAgent", "preexecutor",
+                                    "-artifactExecutorAgent", "artifactexecutor",
+                                    "-reportBuilder", "builder",
+                                    "-reportWriter", "writer"};
+
+        CommandLineGlobalOptions options = new CommandLineGlobalOptions(args);
+        assertEquals("reader", options.getDocumentReaderBeanName());
+        assertEquals("extractor", options.getArtifactExtractorBeanName());
+        assertEquals("decisioner", options.getDecisionerAgentBeanName());
+        assertEquals("preexecutor", options.getPreexecutorAgentBeanName());
+        assertEquals("artifactexecutor", options.getArtifactExecutorAgentBeanName());
+        assertEquals("builder", options.getReportBuilderBeanName());
+        assertEquals("writer", options.getReportWriterBeanName());
 
 
+
+
+    }
+
+
+    @Test
+    public void testSpikeOnPosixParser() throws Exception {
+
+        Options options = new Options();
+
+        options.addOption(new Option("multichar", true, "Some Multicare Thing"));
+
+        CommandLineParser cmdLineParser = new GnuParser();
+        CommandLine cmdLine = cmdLineParser.parse(options, new String[] {"-multichar", "somevalue"});
+
+        assertNotNull(cmdLine);
+        assertTrue(cmdLine.hasOption("multichar"));
+        assertEquals("somevalue", cmdLine.getOptionValue("multichar"));
 
 
     }
