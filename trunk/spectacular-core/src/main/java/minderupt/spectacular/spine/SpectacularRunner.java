@@ -57,7 +57,7 @@ public class SpectacularRunner {
         if(options.getConfig() == null) {
             userContext = applicationContext;
         } else {
-            userContext = new FileSystemXmlApplicationContext(new String[] {options.getConfig()});
+            userContext = new FileSystemXmlApplicationContext(new String[] {options.getConfig()}, applicationContext);
         }
         
         // wire user-specified beans
