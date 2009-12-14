@@ -17,8 +17,7 @@ public class CommandLineGlobalOptionsTest {
     @Test
     public void testParseCommonOptions() throws Exception {
 
-        String[] args = new String[] {"Spectacular",
-                                      "-specLocation", "/path/to/spec",
+        String[] args = new String[] {"-specLocation", "/path/to/spec",
                                       "-config", "/path/to/config",
                                       "-fixtures", "some.fixture.package"};
 
