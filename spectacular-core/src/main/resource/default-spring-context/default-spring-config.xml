@@ -77,6 +77,7 @@
     <bean id="reportWriter" class="minderupt.spectacular.reporting.html.FileReportWriter" />
 
 
+    <!-- DEFAULT WIRING FOR THE SPINE -->
     <bean id="spine" class="minderupt.spectacular.spine.SpectacularSpine">
         <property name="artifactExecutorAgent" ref="artifactExecutorAgent"/>
         <property name="artifactExtractor" ref="artifactExtractor"/>
