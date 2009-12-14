@@ -67,5 +67,5 @@ public interface GlobalOptions {
 
     void setHelp(boolean help);
 
-    void printUsage(Options options);
+    void printUsage();
 }

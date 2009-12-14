@@ -31,16 +31,10 @@ public class SpectacularRunner {
         GlobalOptions globalOptions = new CommandLineGlobalOptions(args);
 
 
-        String configDefaultPropertiesFile = "classpath:default-spring-context/defaultConfigValues.properties";
-        
-        if (globalOptions.isHelp()) {
-            // globalOptions.printUsage();
+        if (globalOptions.isHelp() || globalOptions.getSpecLocation() == null) {
+            globalOptions.printUsage();
             return;
         }
-
-
-
-
 
         // load spring, set args
         SpectacularSpine spine = configureSpine(globalOptions);
@@ -54,13 +48,18 @@ public class SpectacularRunner {
 
     public static SpectacularSpine configureSpine(GlobalOptions options) {
 
+        LOGGER.info("Configuring Spine");
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext(new String[]{DEFAULT_SPRING_CONTEXT_LOCATION});
         SpectacularSpine spine = (SpectacularSpine) applicationContext.getBean("spine");
 
         // get any user-specified spring bean file
-        if(options.getConfig() == null) return(spine);
-        ApplicationContext userContext = new FileSystemXmlApplicationContext(new String[] {options.getConfig()});
-
+        ApplicationContext userContext = null;
+        if(options.getConfig() == null) {
+            userContext = applicationContext;
+        } else {
+            userContext = new FileSystemXmlApplicationContext(new String[] {options.getConfig()});
+        }
+        
         // wire user-specified beans
         if(userContext.getBean(options.getDocumentReaderBeanName()) != null) {
             LOGGER.info("Setting user-specified Document Reader:  " + options.getDocumentReaderBeanName());
