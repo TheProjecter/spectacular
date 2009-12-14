@@ -19,6 +19,7 @@ public class SpectacularRunner {
     public static void main(String[] args) {
 
 
+
         GlobalOptions globalOptions = new CommandLineGlobalOptions(args);
 
 
