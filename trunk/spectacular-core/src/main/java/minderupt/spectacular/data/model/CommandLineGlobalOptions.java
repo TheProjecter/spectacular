@@ -46,6 +46,7 @@ public class CommandLineGlobalOptions implements GlobalOptions {
         options = new Options();
         options.addOption(new Option(ARGS_EUC_FIXTURES, true, "Base Package for Executable Use Case fixtures."));
         options.addOption(new Option(ARGS_SPEC_LOCATION, true, "Location of the specification to test."));
+        options.addOption(new Option(ARGS_REPORT_LOCATION, true, "Location of the report to write."));
         options.addOption(new Option(ARGS_CONFIG, true, "Beans file that configures Spectacular and wires the spine together"));
         options.addOption(new Option(ARGS_HELP, false, "Help Menu"));
 
@@ -72,6 +73,12 @@ public class CommandLineGlobalOptions implements GlobalOptions {
            String fixtures = cmdLine.getOptionValue(ARGS_EUC_FIXTURES);
             String[] fixtureArray = fixtures.split(",");
             for(String fixture : fixtureArray) addFixture(fixture);
+        }
+
+        if(!cmdLine.hasOption(ARGS_REPORT_LOCATION)) {
+            setReportLocation("TestResults.html");
+        } else {
+            setReportLocation(cmdLine.getOptionValue(ARGS_REPORT_LOCATION));
         }
 
         if(cmdLine.hasOption(ARGS_SPEC_LOCATION)) setSpecLocation(cmdLine.getOptionValue(ARGS_SPEC_LOCATION));

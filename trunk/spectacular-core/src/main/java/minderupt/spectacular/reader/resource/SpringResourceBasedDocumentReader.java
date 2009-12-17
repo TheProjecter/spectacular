@@ -42,7 +42,7 @@ public class SpringResourceBasedDocumentReader implements DocumentReader {
         try {
             fileContents = loadFileContents(fileResource.getFile());
         } catch (Exception e) {
-            LOGGER.error("Unable to load file contents from resource:  " + fileResource.getFilename(), e);
+            LOGGER.error("Unable to load file contents from resource:  " + location, e);
         }
 
 
