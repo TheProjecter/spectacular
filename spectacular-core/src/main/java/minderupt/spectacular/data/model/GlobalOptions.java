@@ -16,6 +16,7 @@ public interface GlobalOptions {
     public static final String ARGS_REPORT_WRITER = "reportWriter";
     public static final String ARGS_EUC_FIXTURES = "fixtures";
     public static final String ARGS_SPEC_LOCATION = "specLocation";
+    public static final String ARGS_REPORT_LOCATION = "reportLocation";
     public static final String ARGS_CONFIG = "config";
     public static final String ARGS_HELP = "help";
 

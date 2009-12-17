@@ -22,7 +22,7 @@ public class EUCHeaderValueDecisioner implements Decisioner {
         if(header == null)
             return(new Decision(ArtifactType.ABSTAIN));
 
-        if(header.size() == 1) {
+        if(header.size() >= 1) {
 
             // flow
             if(header.get(0).toLowerCase().indexOf("flow") >= 0)

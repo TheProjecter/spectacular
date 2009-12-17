@@ -61,43 +61,43 @@ public class SpectacularRunner {
         }
         
         // wire user-specified beans
-        if(userContext.getBean(options.getDocumentReaderBeanName()) != null) {
+        if(options.getDocumentReaderBeanName() != null && userContext.getBean(options.getDocumentReaderBeanName()) != null) {
             LOGGER.info("Setting user-specified Document Reader:  " + options.getDocumentReaderBeanName());
             DocumentReader reader = (DocumentReader) userContext.getBean(options.getDocumentReaderBeanName());
             spine.setDocumentReader(reader);
         }
 
-        if(userContext.getBean(options.getArtifactExtractorBeanName()) != null) {
+        if(options.getArtifactExtractorBeanName() != null && userContext.getBean(options.getArtifactExtractorBeanName()) != null) {
             LOGGER.info("Setting user-specified Artifact Extractor:  " + options.getArtifactExtractorBeanName());
             ArtifactExtractor extractor = (ArtifactExtractor) userContext.getBean(options.getArtifactExtractorBeanName());
             spine.setArtifactExtractor(extractor);
         }
 
-        if(userContext.getBean(options.getDecisionerAgentBeanName()) != null) {
+        if(options.getDecisionerAgentBeanName() != null && userContext.getBean(options.getDecisionerAgentBeanName()) != null) {
             LOGGER.info("Setting user-specified Decisioner Agent:  " + options.getDecisionerAgentBeanName());
             DecisionerAgent dAgent = (DecisionerAgent) userContext.getBean(options.getDecisionerAgentBeanName());
             spine.setDecisionerAgent(dAgent);
         }
 
-        if(userContext.getBean(options.getPreexecutorAgentBeanName()) != null) {
+        if(options.getPreexecutorAgentBeanName() != null && userContext.getBean(options.getPreexecutorAgentBeanName()) != null) {
             LOGGER.info("Setting user-specified PreExecutor Agent:  " + options.getPreexecutorAgentBeanName());
             PreexecutorAgent pAgent = (PreexecutorAgent) userContext.getBean(options.getPreexecutorAgentBeanName());
             spine.setPreexecutorAgent(pAgent);
         }
 
-        if(userContext.getBean(options.getArtifactExecutorAgentBeanName()) != null) {
+        if(options.getArtifactExecutorAgentBeanName() != null && userContext.getBean(options.getArtifactExecutorAgentBeanName()) != null) {
             LOGGER.info("Setting user-specified Artifact Executor Agent:  " + options.getArtifactExecutorAgentBeanName());
             ArtifactExecutorAgent agent = (ArtifactExecutorAgent) userContext.getBean(options.getArtifactExecutorAgentBeanName());
             spine.setArtifactExecutorAgent(agent);
         }
 
-        if(userContext.getBean(options.getReportBuilderBeanName()) != null) {
+        if(options.getReportBuilderBeanName() != null && userContext.getBean(options.getReportBuilderBeanName()) != null) {
             LOGGER.info("Setting user-specified Report Builder:  " + options.getReportBuilderBeanName());
             ReportBuilder builder = (ReportBuilder) userContext.getBean(options.getReportBuilderBeanName());
             spine.setReportBuilder(builder);
         }
 
-        if(userContext.getBean(options.getReportWriterBeanName()) != null) {
+        if(options.getReportWriterBeanName() != null && userContext.getBean(options.getReportWriterBeanName()) != null) {
             LOGGER.info("Setting user-specified Report Writer:  " + options.getReportWriterBeanName());
             ReportWriter writer = (ReportWriter) userContext.getBean(options.getReportWriterBeanName());
             spine.setReportWriter(writer);
