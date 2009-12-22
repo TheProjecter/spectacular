@@ -2,9 +2,11 @@ package minderupt.spectacular.executor.euc;
 
 import org.junit.Test;
 import org.junit.Before;
+
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+
 import minderupt.spectacular.data.model.Artifact;
 import minderupt.spectacular.data.model.GlobalOptions;
 import minderupt.spectacular.data.model.ArtifactType;
@@ -146,6 +148,8 @@ public class EUCArtifactExecutorTest {
 
     }
 
+    
+
     @Test
     public void testExecuteEUCWithDataDrivenTable() throws Exception {
 
@@ -212,7 +216,7 @@ public class EUCArtifactExecutorTest {
 
         artifact.setArtifactType(ArtifactType.DATADRIVEN);
 
-        return(artifact);
+        return (artifact);
 
 
     }
