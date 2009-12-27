@@ -84,28 +84,11 @@ public class SpectacularSpine {
         // execute each artifact
         if (LOGGER.isDebugEnabled()) LOGGER.debug("Executing each artifact.");
         List<ArtifactExecutionResults> resultsList = getArtifactExecutorAgent().executeArtifacts(getGlobalOptions(), specDoc.getArtifacts());
-        for (ArtifactExecutionResults result : resultsList) {
-
-            if (LOGGER.isDebugEnabled()) LOGGER.debug("Result Row Count:  " + result.getRowCount());
-            List<List<String>> table = result.getTabularResults();
-
-            for (List<String> row : table) {
-
-                System.out.println();
-                for (String col : row) {
-                    System.out.print(col);
-                    System.out.print(" | ");
-                }
-
-            }
-
-        }
-
 
         // format reports, write report spec
+        if(LOGGER.isDebugEnabled()) LOGGER.debug("Writing report spec");
         Report report = getReportBuilder().build(specDoc, resultsList);
-        System.out.println(report.getReportText());
-
+        
         try {
             getReportWriter().write(globalOptions, report);
         } catch(IOException ioe) {

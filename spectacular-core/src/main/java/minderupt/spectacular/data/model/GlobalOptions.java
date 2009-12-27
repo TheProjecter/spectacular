@@ -26,6 +26,9 @@ public interface GlobalOptions {
     public static final String ARGS_SELENIUM_RC_STARTUP_COMMAND = "seleniumRCStartupCommand";
     public static final String ARGS_SELENIUM_RC_INITIAL_URL = "seleniumRCInitialUrl";
 
+    // project arguments file
+    public static final String ARGS_PROJECT_FILE = "projectXml";
+
     List<String> getFixtures();
 
     void addFixture(String basePackages);
@@ -85,6 +88,10 @@ public interface GlobalOptions {
     public String getSeleniumRCInitialUrl();
 
     public void setSeleniumRCInitialUrl(String seleniumRCInitialUrl);
+
+    public String getProjectXml();
+
+    public void setProjectXml(String xmlFile);
 
     boolean isHelp();
 

@@ -37,6 +37,8 @@ public class CommandLineGlobalOptions implements GlobalOptions {
     private String seleniumRCStartupCommand;
     private String seleniumRCInitialUrl;
 
+    private String projectXml;
+
 
 
 
@@ -70,6 +72,9 @@ public class CommandLineGlobalOptions implements GlobalOptions {
         options.addOption(new Option(ARGS_SELENIUM_RC_PORT, true, "Port of Remote Control server"));
         options.addOption(new Option(ARGS_SELENIUM_RC_STARTUP_COMMAND, true, "Startup command for Selenium (typically the browser)"));
         options.addOption(new Option(ARGS_SELENIUM_RC_INITIAL_URL, true, "Initial URL for Selenium"));
+
+        // project xml file
+        options.addOption(new Option(ARGS_PROJECT_FILE, true, "Location of XML file for project command line arguments."));
 
 
         CommandLineParser cmdLineParse = new GnuParser();
@@ -112,6 +117,8 @@ public class CommandLineGlobalOptions implements GlobalOptions {
         if(cmdLine.hasOption(ARGS_SELENIUM_RC_STARTUP_COMMAND)) setSeleniumRCStartupCommand(cmdLine.getOptionValue(ARGS_SELENIUM_RC_STARTUP_COMMAND));
         if(cmdLine.hasOption(ARGS_SELENIUM_RC_INITIAL_URL)) setSeleniumRCInitialUrl(cmdLine.getOptionValue(ARGS_SELENIUM_RC_INITIAL_URL));
 
+        // project xml file
+        if(cmdLine.hasOption(ARGS_PROJECT_FILE)) setProjectXml(cmdLine.getOptionValue(ARGS_PROJECT_FILE));
 
 
     }
@@ -254,6 +261,16 @@ public class CommandLineGlobalOptions implements GlobalOptions {
 
     public void setSeleniumRCInitialUrl(String seleniumRCInitialUrl) {
         this.seleniumRCInitialUrl = seleniumRCInitialUrl;
+    }
+
+    @Override
+    public String getProjectXml() {
+        return this.projectXml;
+    }
+
+    @Override
+    public void setProjectXml(String xmlFile) {
+        this.projectXml = xmlFile;
     }
 
     @Override
