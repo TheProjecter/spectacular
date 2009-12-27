@@ -1,0 +1,28 @@
+
+Flow: Some kind of flow step
+
+    open "/"
+    click "xpath://hr/a[@class='what']"
+
+
+
+
+Expectation: Expect the best
+
+    assertSomething "you are what"
+
+
+
+
+Flow: Some OTHER kind of flow
+
+    click "identifier=buttonId"
+    waitForPageToLoad 5000
+
+
+Expectation:  Expect the worst
+
+    assertSomething "This worked OK"
+
+
+

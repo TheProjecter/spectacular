@@ -1,6 +1,6 @@
 package minderupt.spectacular.executor.euc.selenium;
 
-import minderupt.spectacular.executor.euc.script.SeleneseScript;
+import minderupt.spectacular.executor.euc.selenium.SeleneseScript;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

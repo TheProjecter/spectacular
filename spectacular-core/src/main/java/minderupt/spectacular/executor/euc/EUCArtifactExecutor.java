@@ -188,6 +188,7 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
 
         // lives between steps
         Context context = new Context();
+        context.put("GLOBAL_OPTIONS", globalOptions);
 
         
         /**** NEW Flow:  Go through artifact table, execute each */
