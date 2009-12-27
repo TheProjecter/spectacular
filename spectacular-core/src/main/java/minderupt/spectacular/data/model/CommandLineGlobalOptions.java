@@ -31,6 +31,12 @@ public class CommandLineGlobalOptions implements GlobalOptions {
     private String reportBuilderBeanName;
     private String reportWriterBeanName;
 
+   
+    private String seleniumRCHost;
+    private int seleniumRCPort;
+    private String seleniumRCStartupCommand;
+    private String seleniumRCInitialUrl;
+
 
 
 
@@ -58,6 +64,12 @@ public class CommandLineGlobalOptions implements GlobalOptions {
         options.addOption(new Option(ARGS_ARTIFACT_EXECUTOR_AGENT, true, "Bean name for Artifact Executor Agent"));
         options.addOption(new Option(ARGS_REPORT_BUILDER, true, "Bean name for Report Builder"));
         options.addOption(new Option(ARGS_REPORT_WRITER, true, "Bean name for Report Writer"));
+
+        // Selenium options
+        options.addOption(new Option(ARGS_SELENIUM_RC_HOST, true, "Hostname of Remote Control server"));
+        options.addOption(new Option(ARGS_SELENIUM_RC_PORT, true, "Port of Remote Control server"));
+        options.addOption(new Option(ARGS_SELENIUM_RC_STARTUP_COMMAND, true, "Startup command for Selenium (typically the browser)"));
+        options.addOption(new Option(ARGS_SELENIUM_RC_INITIAL_URL, true, "Initial URL for Selenium"));
 
 
         CommandLineParser cmdLineParse = new GnuParser();
@@ -93,6 +105,14 @@ public class CommandLineGlobalOptions implements GlobalOptions {
         if(cmdLine.hasOption(ARGS_ARTIFACT_EXECUTOR_AGENT)) setArtifactExecutorAgentBeanName(cmdLine.getOptionValue(ARGS_ARTIFACT_EXECUTOR_AGENT));
         if(cmdLine.hasOption(ARGS_REPORT_BUILDER)) setReportBuilderBeanName(cmdLine.getOptionValue(ARGS_REPORT_BUILDER));
         if(cmdLine.hasOption(ARGS_REPORT_WRITER)) setReportWriterBeanName(cmdLine.getOptionValue(ARGS_REPORT_WRITER));
+
+        // selenium
+        if(cmdLine.hasOption(ARGS_SELENIUM_RC_HOST)) setSeleniumRCHost(cmdLine.getOptionValue(ARGS_SELENIUM_RC_HOST));
+        if(cmdLine.hasOption(ARGS_SELENIUM_RC_PORT)) setSeleniumRCPort(Integer.parseInt(cmdLine.getOptionValue(ARGS_SELENIUM_RC_PORT)));
+        if(cmdLine.hasOption(ARGS_SELENIUM_RC_STARTUP_COMMAND)) setSeleniumRCStartupCommand(cmdLine.getOptionValue(ARGS_SELENIUM_RC_STARTUP_COMMAND));
+        if(cmdLine.hasOption(ARGS_SELENIUM_RC_INITIAL_URL)) setSeleniumRCInitialUrl(cmdLine.getOptionValue(ARGS_SELENIUM_RC_INITIAL_URL));
+
+
 
     }
 
@@ -201,6 +221,39 @@ public class CommandLineGlobalOptions implements GlobalOptions {
     @Override
     public void setReportWriterBeanName(String reportWriterBeanName) {
         this.reportWriterBeanName = reportWriterBeanName;
+    }
+
+
+    public String getSeleniumRCHost() {
+        return seleniumRCHost;
+    }
+
+    public void setSeleniumRCHost(String seleniumRCHost) {
+        this.seleniumRCHost = seleniumRCHost;
+    }
+
+    public int getSeleniumRCPort() {
+        return seleniumRCPort;
+    }
+
+    public void setSeleniumRCPort(int seleniumRCPort) {
+        this.seleniumRCPort = seleniumRCPort;
+    }
+
+    public String getSeleniumRCStartupCommand() {
+        return seleniumRCStartupCommand;
+    }
+
+    public void setSeleniumRCStartupCommand(String seleniumRCStartupCommand) {
+        this.seleniumRCStartupCommand = seleniumRCStartupCommand;
+    }
+
+    public String getSeleniumRCInitialUrl() {
+        return seleniumRCInitialUrl;
+    }
+
+    public void setSeleniumRCInitialUrl(String seleniumRCInitialUrl) {
+        this.seleniumRCInitialUrl = seleniumRCInitialUrl;
     }
 
     @Override

@@ -1,0 +1,11 @@
+<spectacular>
+
+    <for-spec spec="file:spec_location.html">
+
+        <option name="seleniumRCHost" value="localhost" />
+
+    </for-spec>
+
+
+
+</spectacular>

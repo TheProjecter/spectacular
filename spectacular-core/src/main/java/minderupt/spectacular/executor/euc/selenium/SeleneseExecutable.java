@@ -1,6 +1,7 @@
 package minderupt.spectacular.executor.euc.selenium;
 
 import com.thoughtworks.selenium.Selenium;
+import minderupt.spectacular.data.model.GlobalOptions;
 import minderupt.spectacular.executor.euc.Context;
 import minderupt.spectacular.executor.euc.Executable;
 import minderupt.spectacular.executor.euc.selenium.SelenesePart;
@@ -57,7 +58,10 @@ public class SeleneseExecutable implements Executable {
             return(this.seleniumInstance);
         }
 
-        return(null);
+        GlobalOptions options = (GlobalOptions) context.get(Context.GLOBAL_OPTIONS_KEY);
+        this.seleniumInstance = new SpectacularSelenium(options.getSeleniumRCHost(), options.getSeleniumRCPort(), options.getSeleniumRCStartupCommand(), options.getSeleniumRCInitialUrl());
+
+        return(this.seleniumInstance);
 
     }
 
