@@ -1,4 +1,4 @@
-package minderupt.spectacular.executor.euc.script;
+package minderupt.spectacular.executor.euc.selenium;
 
 import java.util.LinkedList;
 import java.util.List;
