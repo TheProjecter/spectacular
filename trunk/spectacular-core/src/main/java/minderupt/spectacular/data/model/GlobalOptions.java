@@ -20,6 +20,12 @@ public interface GlobalOptions {
     public static final String ARGS_CONFIG = "config";
     public static final String ARGS_HELP = "help";
 
+    // selenium
+    public static final String ARGS_SELENIUM_RC_HOST = "seleniumRCHost";
+    public static final String ARGS_SELENIUM_RC_PORT = "seleniumRCPort";
+    public static final String ARGS_SELENIUM_RC_STARTUP_COMMAND = "seleniumRCStartupCommand";
+    public static final String ARGS_SELENIUM_RC_INITIAL_URL = "seleniumRCInitialUrl";
+
     List<String> getFixtures();
 
     void addFixture(String basePackages);
@@ -63,6 +69,22 @@ public interface GlobalOptions {
     String getReportWriterBeanName();
 
     void setReportWriterBeanName(String reportWriterBeanName);
+
+    public String getSeleniumRCHost();
+
+    public void setSeleniumRCHost(String seleniumRCHost);
+
+    public int getSeleniumRCPort();
+
+    public void setSeleniumRCPort(int seleniumRCPort);
+
+    public String getSeleniumRCStartupCommand();
+
+    public void setSeleniumRCStartupCommand(String seleniumRCStartupCommand);
+
+    public String getSeleniumRCInitialUrl();
+
+    public void setSeleniumRCInitialUrl(String seleniumRCInitialUrl);
 
     boolean isHelp();
 

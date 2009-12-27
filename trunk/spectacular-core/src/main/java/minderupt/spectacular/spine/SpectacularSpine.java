@@ -70,7 +70,7 @@ public class SpectacularSpine {
         // decision each artifact (BDD, FIT, EUC)
         if (LOGGER.isDebugEnabled()) LOGGER.debug("Figuring out what types of artifacts we have.");
         specDoc = getDecisionerAgent().decide(specDoc);
-        logArtifactTypes(specDoc);
+        // logArtifactTypes(specDoc);
 
         // preprocess document
         if(LOGGER.isDebugEnabled()) LOGGER.debug("Preprocessing Document.");
