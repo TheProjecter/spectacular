@@ -1,4 +1,5 @@
 #summary Upcoming features...
 
-=See [http://www.pivotaltracker.com/projects/38811 Pivotal Tracker]=
+=See [http://www.pivotaltracker.com/projects/38811 Pivotal Tracker] for currently scheduled features=
 
+=Have an idea for a new feature?  [http://code.google.com/p/spectacular/issues/entry?template=Backlog%20Request submit it here]!=
