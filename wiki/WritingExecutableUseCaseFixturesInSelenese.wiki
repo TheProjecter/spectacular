@@ -26,3 +26,11 @@ Flow: User clicks "login" link
 
 
 }}}
+
+
+*Couple things to take note:*
+
+  * Selenese scripts follow the pattern of "Flow:" or "Expectation:" followed by the use case text to match.  Subsequent lines are selenium commands in selenese, one per line
+  * Selenese commands are fairly straight forward; they consist of some kind of command name (the first word) followed by up to 2 arguments.  If you want to enclose several words in one command argument, surround the arguments in double-quotes (`"`)
+  * Right now, Spectacular does not support using regex in the use case text to pass to the selenese script;  this will be added in the very next version.  Promise!  :)
+  * More documentation on the available Selenese commands is at the [http://seleniumhq.org/docs/04_selenese_commands.html Selenium HQ] site.
