@@ -26,77 +26,10 @@ For the above example, you may define fixtures such as the following:
 [WritingExecutableUseCaseFixturesInJava Java] | 
 [WritingExecutableUseCaseFixturesInGroovy Groovy] | [WritingExecutableUseCaseFixturesInSelenese Selenese (drive Selenium)] | [WritingExecutableUseCaseFixturesInRuby Ruby]
  
-*Ruby:*
 
 
 
-
-*Groovy:*
-
-
-
-
-
-If you want to pull a value from the use case, you can enter a substitution variable in the @Flow/@Expectation annotation (Java), like this:
-
-|| User clicks "login" link || User sees login page requesting credentials || ||
-
-{{{
-
-    @Flow("User clicks \"${linkName}\" link")
-    public void userClicksLink(String linkName) {
-        // value of String linkName will be "login" (without quotes)
-    }
-
-}}}
-
-Or, in your Ruby declaration, like this:
-
-{{{
-
-Flow "User clicks \"${linkName}\" link" do | linkName |
-  # value of linkName will be "login" (without quotes)
-end
-
-}}}
-
-
-Maintaining state within the class is *not* advisable, as there are no guarantees that the class which is instantiated for one step will be the same class used to execute the next step.  Also, as your tests grow in size, it would be good practice to separate your flow methods into like classes.  To pass state from one method to another, define a method with a `minderupt.spectacular.executor.euc.Context` object as the first parameter, followed by any other expected variables, like this (*Java*):
-
-|| User clicks "login" link || User sees login page requesting credentials || ||
-
-{{{
-
-    @Expectation("User sees ${pageName} page requesting credentials")
-    public void userClicksLink(Context context, String linkName) {
-
-        String someState = (String) context.get("someStateVar");
-        // value of String linkName will be "login" (without quotes)
-        // do something useful
-        
-        context.put("someOtherState", someVar);
-
-    }
-
-}}}
-
-In *Ruby* it looks like this:
-
-{{{
-
-Expectation "User sees ${pageName} page requesting credentials" do | context, pageName |
-
-  some_state = context.get "someStateVar"
-  
-  # value of String linkName will be "login" (without quotes)
-  # do something useful 
-
-  context.put("someOtherState", some_var)
-
-end
-
-
-}}}
+Maintaining state within the class is *not* advisable, as there are no guarantees that the class which is instantiated for one step will be the same class used to execute the next step.  Also, as your tests grow in size, it would be good practice to separate your flow methods into like classes.  In addition, you may have some fixtures written in Java, others in Groovy, some in Selenese and some others in Ruby.  To pass state from one method to another, define a method with a `minderupt.spectacular.executor.euc.Context` object as the first parameter for Java, or use the variable bound in the script called "context".  (@context in Ruby). 
 
 Common patterns are to pass around a Selenium variable in the Context.
 
@@ -117,7 +50,7 @@ Example of an error during an expectation:
 || User Flow:  Logging In ||
 || *User Action* || *Expectation* || *Comments* ||
 || User navigates to home page (SUCCESS)|| User sees home page with articles (SUCCESS)|| ||
-|| User clicks "login" link (SUCCESS)|| User sees login page requesting credentials (FAILURE) minderupt.sample.bdd.SomeException: User did not see login page as expected || ||
+|| User clicks "login" link (SUCCESS)|| User sees login page requesting credentials (FAILURE) minderupt.sample.euc.SomeException: User did not see login page as expected || ||
 || User enters credentials and submits form (NOT PERFORMED)|| User sees personalized page with articles (NOT PERFORMED)|| Alternative Flow: Logging In With Bad Credentials || ||
 
 
@@ -134,7 +67,6 @@ Possible result values include:
 =Restrictions=
 
   * Not so much a restriction but a warning:  Executable Use Cases are the newest type of automated acceptance test framework out there that I know of; consequently, there may be issues or usability issues.  If you encounter any, please file a bug in the issue list or (even better) submit a patch or new idea for making it better!  :)
-  * Ruby declarations are executed under [http://jruby.org JRuby], and users are under the same restrictions as any other [http://jruby.org JRuby] embedded application.
 
 
 =Reference Material=
@@ -143,3 +75,4 @@ Possible result values include:
   * [http://dannorth.net/introducing-bdd Introducing Behaviour Driven Development]
   * [http://alistair.cockburn.us/Use+cases Use Cases by Alistair Cockburn]
   * [http://jruby.org JRuby]
+  * [http://cukes.info/ Cucumber] - Much of the work in Spectacular is based (stolen? :) ) on the amazing work [http://github.com/aslakhellesoy Aslak Hellesoy] did on Cucumber.  
