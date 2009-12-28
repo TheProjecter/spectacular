@@ -62,3 +62,8 @@ Possible result values include:
 || (NOT PERFORMED) || Each step after a (PENDING) or (FAILURE) is ignored and labeled accordingly ||
 
 == FIT Results ==
+
+Here is a screen shot of a FIT test result directly from the source (http://fit.c2.com/):
+
+http://fit.c2.com/files/WelcomeVisitors/example.gif
+
