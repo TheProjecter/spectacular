@@ -53,8 +53,6 @@ Scenario: Logging in with incorrect credentials
 
 Details about how to write Gherkin tests and their results can be found [http://jbehave.org/reference/latest/getting-started.html at the JBehave site]. Results are very similar to Executable Use Cases as above:
 
-Possible result values include:
-
 || *Result Value* || *Definition* ||
 || (PASSED) || The step passed with no errors ||
 || (PENDING) || No matching step method was found, rest of steps ignored ||
@@ -66,4 +64,3 @@ Possible result values include:
 Here is a screen shot of a FIT test result directly from the source (http://fit.c2.com/):
 
 http://fit.c2.com/files/WelcomeVisitors/example.gif
-
