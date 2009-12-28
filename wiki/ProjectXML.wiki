@@ -40,17 +40,8 @@ Yikes!  That's a lot to grok.  And, it's a challenge to make sure other members 
 
 }}}
 
+Executing Spectacular will then look like this:
 
+`> Spectacular -projectXml ./my_tests_project.xml`
 
-
-}}}
-
-
-
-
-= Details =  
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+*Much more concise!*
