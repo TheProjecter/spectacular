@@ -19,6 +19,7 @@
     * [WritingBDDFixturesUsingJBehave Writing BDD Fixtures using JBehave]
     * [WritingFITFixtures Writing FIT Fixtures]
   * [ExecutingTheSpec Executing The Specification]
+  * [ProjectXML Using a Project XML Config File]
   * [ReportingResults View The Results Of The Tests]
   * [ExtendSpectacular Extend Spectacular]
     * [Architecture Spectacular's High-Level Architecture]
