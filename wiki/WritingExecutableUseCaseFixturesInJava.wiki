@@ -27,6 +27,16 @@ public class SampleEUCFlows {
 
     }
 
+    /* Use a regex is the annotation to grab text in the step and pass as an argument */
+    @Flow("User clicks \"(.*)\" link")
+    public void userClicks LinkByName(Context context, String linkName) {
+
+      // do something useful in here too.  Link name is available!
+
+    }
+
+    /* etc etc */
+
 
     
 }
