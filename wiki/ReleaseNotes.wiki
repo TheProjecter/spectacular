@@ -1,6 +1,24 @@
 #summary Release Notes
 #labels Featured
 
+=Release Notes for 1.0 (2009-Dec-27)=
+
+==New Features/Stories==
+
+  * [http://www.pivotaltracker.com/story/show/1684341 Change log4j settings to print stuff out in DEBUG]
+  * [http://www.pivotaltracker.com/story/show/1716900 Data-Driven EUC Tests]
+  * [http://www.pivotaltracker.com/story/show/1844631 Specify bean names in cmd line args]
+  * [http://www.pivotaltracker.com/story/show/1716776 Add support for selenese tests]
+  * [http://www.pivotaltracker.com/story/show/1779099 Create project xml to automatically feed arguments]
+
+==Defects Fixed==
+
+  * ID 9 - Change log output from ComponoSpine to SpectacularSpine!
+  * ID 12 - When a EUC step does not succeed, error message is not helpful
+  * ID 13 - Too much output in INFO logging
+
+
+
 
 =Release Notes for 0.9.4-beta (2009-Dec-01)=
 
