@@ -18,14 +18,26 @@ For Linux/Unix/Mac OS:
 
 Available command line options:
 
- -help                             Help Menu
- -specLocation <arg>               Location of the specification to test.
- -fixtures <arg>                   Base Package for Executable Use Case
-                                   fixtures.
- -config <arg>                     Beans file that configures Spectacular
-                                   and wires the spine together
- -projectXml <arg>                 Location of XML file for project
-                                   command line arguments.
+
+
+|| *Command-Line Option* || *Required?* || *Explanation* ||
+|| -help || No || Prints out a help menu of available command line options ||
+|| -specLocation <uri>|| Yes || Location of the spec to test.  Must be in URI format (for local filesystem, use `file:/path/to/spec`, for specs on the web use `http://host.com/path/to/spec`, etc) ||
+|| -fixtures <package/scripts> || Yes, for EUC.  No for others || If you have any executable use cases, this is the parent Java package that contains all your fixture code; for EUC fixture code in Groovy, prepend with `groovy:` (i.e. `groovy:/path/to/script.groovy`); for Selenese, prepend with `selenese:` (i.e. `selenese:/path/to/script.selenese`); for Ruby, prepend with `ruby:` (i.e. `ruby:/path/to/script.rb`) ||
+|| -config <path to config> || No || Location of a Spring wiring config file if you want to replace any of the beans for any of the Spectacular steps (see [Architecture Spectacular Architecture] for more information).  You generally won't be using this. ||
+|| -projectXml <path to xml> || No || Location of a project-level XML file which can specify all of these command-line parameters for you.  See [ProjectXML Using a Project XML] documentation for more details.||
+|| -reportLocation <path> || No. || Path to the location where you would like the report written. ||
+
+If you are using Selenese test fixtures, the following must be supplied to the command line (or in the [ProjectXML Project XML file]:
+
+|| *Command-Line Option* || *Required?* || *Explanation* ||
+|| -seleniumRCHost <hostname> || Yes, for Selenese tests.  No otherwise. || If you're using Selenese scripts, this is the hostname of the Selenium Remote Control Server. ||
+|| -seleniumRCPort <port number> || Yes, for Selenese tests.  No otherwise. || If you're using Selenese scripts, this is the port number the Selenium Remote Control Server is listening on. ||
+|| -seleniumRCStartupCommand <command> || Yes, for Selenese tests.  No otherwise. || If you're using Selenese scripts, this is [http://seleniumhq.org/docs/05_selenium_rc.html#specifying-the-path-to-a-specific-browser the startup command to selenium].  i.e. *firefox or *safari or *iehta ||
+|| -seleniumRCInitialUrl <url> || Yes, for Selenese tests.  No otherwise. || If you're using Selenese scripts, this is the base URL of the system under test. ||
+
+If you are _extending_ Spectacular with your own custom phase handlers (see [Architecture Spectacular Architecture]), you can specify which handler should be used with the following command-line arguments (not commonly used unless you're extending Spectacular or using a different plugin):
+
  -artifactExecutorAgent <arg>      Bean name for Artifact Executor Agent
  -artifactExtractor <arg>          Bean name for artifact extractor
  -decisionerAgent <arg>            Bean name for Decisioner Agent
@@ -35,21 +47,6 @@ Available command line options:
  -reportLocation <arg>             Location of the report to write.
  -reportWriter <arg>               Bean name for Report Writer
 
- -seleniumRCHost <arg>             Hostname of Remote Control server
- -seleniumRCInitialUrl <arg>       Initial URL for Selenium
- -seleniumRCPort <arg>             Port of Remote Control server
- -seleniumRCStartupCommand <arg>   Startup command for Selenium (typically
-                                   the browser)
-
 
 
 || *Command-Line Option* || *Required?* || *Explanation* ||
-|| -help || No || Prints out a help menu of available command line options ||
-|| -specLocation <uri>|| Yes || Location of the spec to test.  Must be in URI format (for local filesystem, use `file:/path/to/spec`, for specs on the web use `http://host.com/path/to/spec`, etc) ||
-|| -fixtures <package/scripts> || Yes, for EUC.  No for others || If you have any executable use cases, this is the parent Java package that contains all your fixture code; for EUC fixture code in Groovy, prepend with `groovy:` (i.e. `groovy:/path/to/script.groovy`); for Selenese, prepend with `selenese:` (i.e. `selenese:/path/to/script.selenese`); for Ruby, prepend with `ruby:` (i.e. `ruby:/path/to/script.rb`) ||
-|| -config <path to config> || No || Location of a Spring wiring config file if you want to replace any of the beans for any of the Spectacular steps (see [Architecture Spectacular Architecture] for more information).  You generally won't be using this. ||
-|| -projectXml <path to xml> || No || Location of a project-level XML file which can specify all of these command-line parameters for you.  See [ProjectXML Using a Project XML] documentation for more details.||
-|| -seleniumRCHost <hostname> || Yes, for Selenese tests.  No otherwise. || If you're using Selenese scripts, this is the hostname of the Selenium Remote Control Server. ||
-|| -seleniumRCPort <port number> || Yes, for Selenese tests.  No otherwise. || If you're using Selenese scripts, this is the port number the Selenium Remote Control Server is listening on. ||
-|| -seleniumRCStartupCommand <command> || Yes, for Selenese tests.  No otherwise. || If you're using Selenese scripts, this is [http://seleniumhq.org/docs/05_selenium_rc.html#specifying-the-path-to-a-specific-browser the startup command to selenium].  i.e. *firefox or *safari or *iehta ||
-|| -seleniumRCInitialUrl <url> || Yes, for Selenese tests.  No otherwise. || If you're using Selenese scripts, this is the base URL of the system under test. ||
