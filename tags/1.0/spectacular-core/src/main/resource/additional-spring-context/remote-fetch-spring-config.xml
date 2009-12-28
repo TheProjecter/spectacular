@@ -1,0 +1,93 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+    <bean id="fileDocumentReader" class="minderupt.spectacular.reader.resource.SpringResourceBasedDocumentReader">
+
+    </bean>
+    <bean id="httpDocumentReader" class="minderupt.spectacular.reader.remote.WebBasedDocumentReader">
+
+    </bean>
+
+    <bean id="artifactExtractor" class="minderupt.spectacular.parser.html.HTMLTableArtifactExtractor">
+
+    </bean>
+
+    <!-- Decisioners -->
+    <bean id="bddJbehaveDecisioner" class="minderupt.spectacular.decisioner.bdd.JBehaveBDDKeywordDecisioner"/>
+    <bean id="eucHeaderValueDecisioner" class="minderupt.spectacular.decisioner.euc.EUCHeaderValueDecisioner"/>
+    <bean id="fitHeaderClassIsFixtureDecisioner"
+          class="minderupt.spectacular.decisioner.fit.FITHeaderClassIsFixtureDecisioner"/>
+
+    <bean id="decisionerAgent" class="minderupt.spectacular.decisioner.ChainedDecisionerAgent">
+        <property name="decisioners">
+            <list>
+                <ref bean="bddJbehaveDecisioner"/>
+                <ref bean="eucHeaderValueDecisioner"/>
+                <ref bean="fitHeaderClassIsFixtureDecisioner"/>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Pre-Executors -->
+    <bean id="dataDrivenArrangementPreexecutor" class="minderupt.spectacular.preexecutor.datadriven.DataDrivenArrangementPreexecutor" />
+
+    <!-- Preexecution Agent -->
+    <bean id="preexecutorAgent" class="minderupt.spectacular.preexecutor.agent.LinearPreexecutorAgent">
+        <property name="preexecutors">
+            <list>
+                <ref bean="dataDrivenArrangementPreexecutor" />
+            </list>
+        </property>
+    </bean>
+
+
+    <!-- executors -->
+    <bean id="bddExecutor" class="minderupt.spectacular.executor.bdd.JBehaveArtifactExecutor"/>
+    <bean id="fitExecutor" class="minderupt.spectacular.executor.fit.FITArtifactExecutor"/>
+    <bean id="eucExecutor" class="minderupt.spectacular.executor.euc.EUCArtifactExecutor"/>
+
+    <bean id="artifactExecutorAgent" class="minderupt.spectacular.executor.agent.LinearArtifactExecutorAgent">
+        <property name="executors">
+            <map>
+                <entry key="BDD" value-ref="bddExecutor"/>
+                <entry key="FIT" value-ref="fitExecutor"/>
+                <entry key="EUC" value-ref="eucExecutor"/>
+            </map>
+        </property>
+
+    </bean>
+
+
+    <!-- report builders & writers -->
+    <bean id="bddReportBuilder" class="minderupt.spectacular.reporting.html.bdd.JBehaveArtifactReportBuilderHTML"/>
+    <bean id="fitReportBuilder" class="minderupt.spectacular.reporting.html.fit.FITArtifactReportBuilderHTML"/>
+    <bean id="eucReportBuilder" class="minderupt.spectacular.reporting.html.euc.EUCArtifactReportBuilderHTML"/>
+
+    <bean id="reportBuilder" class="minderupt.spectacular.reporting.html.CompleteHTMLReportBuilder">
+        <property name="reportBuilders">
+            <map>
+                <entry key="BDD" value-ref="bddReportBuilder"/>
+                <entry key="FIT" value-ref="fitReportBuilder"/>
+                <entry key="EUC" value-ref="eucReportBuilder"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="reportWriter" class="minderupt.spectacular.reporting.html.FileReportWriter" />
+
+
+    <bean id="spine" class="minderupt.spectacular.spine.SpectacularSpine">
+        <property name="artifactExecutorAgent" ref="artifactExecutorAgent"/>
+        <property name="artifactExtractor" ref="artifactExtractor"/>
+        <property name="decisionerAgent" ref="decisionerAgent"/>
+        <property name="preexecutorAgent" ref="preexecutorAgent" />
+        <property name="documentReader" ref="httpDocumentReader"/>
+        <property name="reportBuilder" ref="reportBuilder"/>
+        <property name="reportWriter" ref="reportWriter"/>
+        <!-- more -->
+    </bean>
+
+
+</beans>

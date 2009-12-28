@@ -1,0 +1,6 @@
+
+Flow: Some kind of flow step
+
+    open "/"
+    click "xpath://hr/a[@class='what']"
+
