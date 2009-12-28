@@ -2,4 +2,4 @@
 
 = Writing Executable Use Case Fixtures in Selenese =
 
-_This creates a Selenium browser automatically and drives the browser through script_
+_(this creates a Selenium browser automatically and drives the browser through script)_
