@@ -1,3 +1,5 @@
 #summary Writing Executable Use Case Fixtures in Ruby
 
-= Writing Executable Use Case Fixtures in Ruby (using JRuby) =
+= Writing Executable Use Case Fixtures in Ruby =
+
+_(experimental; uses JRuby as the Script Engine)_
