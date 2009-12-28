@@ -1,3 +1,19 @@
 #summary Results of test
 
-TODO
+= Test Results =
+
+Tests are currently output in HTML with the same content as the input spec HTML.  The tables where your tests are located are altered a bit to show the results of execution.
+
+
+== Executable Use Case Results ==
+
+|| User Flow:  Logging In ||
+|| *User Action* || *Expectation* || *Comments* ||
+|| User navigates to home page (SUCCESS) || User sees home page with articles (SUCCESS) || ||
+|| User clicks "login" link (SUCCESS) || User sees login page requesting credentials (FAIL) InvocationException: Caused by: Assertion failed; did not see login page || ||
+|| User enters credentials and submits form (NOT PERFORMED) || User sees personalized page with articles (NOT PERFORMED) || Alternative Flow: Logging In With Bad Credentials ||
+
+== BDD/Gherkin Results ==
+
+
+== FIT Results ==
