@@ -72,17 +72,17 @@ Unless you've already written your implementation code - and if you did, you are
 
 Run Spectacular against your new code!
 
-`> Spectacular -eucBasePackage some.base.pkg -specLocation file:/path/to/spec`
+`> Spectacular -fixtures some.base.package -specLocation file:/path/to/spec`
 
-You can pass multiple base packages:
+You can pass multiple base packages (for Java-written fixtures) by delineating them with a comma (","):
 
-`> Spectacular -eucBasePackage some.base.pkg,some.other.base.pkg -specLocation file:/path/to/spec`
+`> Spectacular -fixtures some.base.pkg,some.other.base.pkg -specLocation file:/path/to/spec`
 
-You can also pass Ruby scripts along with your Java packages (or just Ruby alone):
+You can also pass Ruby/Groovy/Selenese scripts along with your Java packages (or just the scripts alone):
 
-`> Spectacular -eucBasePackage some.base.pkg,ruby:/path/to/declaration/script.rb -specLocation file:/path/to/spec`
+`> Spectacular -fixtures some.base.pkg,ruby:/path/to/declaration/script.rb,groovy:/path/to/script.groovy,selenese:/path/to/selenium.selenese -specLocation file:/path/to/spec`
 
-`> Spectacular -eucBasePackage /path/to/declaration/script.rb -specLocation file:/path/to/spec`
+`> Spectacular -fixtures selenese:/path/to/declaration/script.selenese -specLocation file:/path/to/spec`
 
 
 || Other command-line arguments: ||
