@@ -28,7 +28,7 @@ Available command line options:
 || -projectXml <path to xml> || No || Location of a project-level XML file which can specify all of these command-line parameters for you.  See [ProjectXML Using a Project XML] documentation for more details.||
 || -reportLocation <path> || No. || Path to the location where you would like the report written. ||
 
-If you are using Selenese test fixtures, the following must be supplied to the command line (or in the [ProjectXML Project XML file]:
+If you are using [WritingExecutableUseCaseFixturesInSelenese Selenese] test fixtures, the following must be supplied to the command line (or in the [ProjectXML Project XML file]):
 
 || *Command-Line Option* || *Required?* || *Explanation* ||
 || -seleniumRCHost <hostname> || Yes, for Selenese tests.  No otherwise. || If you're using Selenese scripts, this is the hostname of the Selenium Remote Control Server. ||
@@ -38,15 +38,12 @@ If you are using Selenese test fixtures, the following must be supplied to the c
 
 If you are _extending_ Spectacular with your own custom phase handlers (see [Architecture Spectacular Architecture]), you can specify which handler should be used with the following command-line arguments (not commonly used unless you're extending Spectacular or using a different plugin):
 
- -artifactExecutorAgent <arg>      Bean name for Artifact Executor Agent
- -artifactExtractor <arg>          Bean name for artifact extractor
- -decisionerAgent <arg>            Bean name for Decisioner Agent
- -documentReader <arg>             Bean name for document reader.
- -preexecutorAgent <arg>           Bean name for Pre-Executor Agent
- -reportBuilder <arg>              Bean name for Report Builder
- -reportLocation <arg>             Location of the report to write.
- -reportWriter <arg>               Bean name for Report Writer
-
-
 
 || *Command-Line Option* || *Required?* || *Explanation* ||
+|| -documentReader <arg> || No, unless you're _extending_ Spectacular || Bean name for document reader. ||
+|| -artifactExtractor <arg> || No, unless you're _extending_ Spectacular || Bean name for artifact extractor ||
+|| -decisionerAgent <arg> || No, unless you're _extending_ Spectacular || Bean name for Decisioner Agent ||
+|| -preexecutorAgent <arg> || No, unless you're _extending_ Spectacular || Bean name for Pre-Executor Agent ||
+|| -artifactExecutorAgent <arg> ||  No, unless you're _extending_ Spectacular || Bean name for Artifact Executor Agent ||
+|| -reportBuilder <arg> ||  No, unless you're _extending_ Spectacular || Bean name for Report Builder ||
+|| -reportWriter <arg> ||  No, unless you're _extending_ Spectacular || Bean name for Report Writer ||
