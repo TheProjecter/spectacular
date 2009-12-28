@@ -28,6 +28,7 @@ end
 
 }}}
 
-*Note*
+*Couple things to take note:*
 
   * In Ruby scripts, a Context variable has already been set in the scope of your closure as `@context`.  Use as above.
+  * Ruby declarations are executed under JRuby, and users are under the same restrictions as any other JRuby embedded application. 
