@@ -5,7 +5,7 @@
     <groupId>com.minderupt</groupId>
     <artifactId>spectacular-core</artifactId>
     <packaging>jar</packaging>
-    <version>0.9.5-beta</version>
+    <version>1.0</version>
 
 
     <!-- Dependencies -->
