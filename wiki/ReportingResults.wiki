@@ -13,7 +13,52 @@ Tests are currently output in HTML with the same content as the input spec HTML.
 || User clicks "login" link (SUCCESS) || User sees login page requesting credentials (FAIL) InvocationException: Caused by: Assertion failed; did not see login page || ||
 || User enters credentials and submits form (NOT PERFORMED) || User sees personalized page with articles (NOT PERFORMED) || Alternative Flow: Logging In With Bad Credentials ||
 
+
+Possible result values include:
+
+|| *Result Value* || *Definition* ||
+|| (SUCCESS) || The use case flow/expectation was successful, no errors ||
+|| (PENDING) || No matching flow/expectation executable method was found, rest of use case ignored ||
+|| (FAILURE) || Method threw an exception during this step, rest of use case ignored ||
+|| (NOT PERFORMED) || Each step after a (PENDING) or (FAILURE) is ignored and labeled accordingly ||
+
+
+
 == BDD/Gherkin Results ==
 
+<table border="1">
+<tr><td>minderupt.tests.steps.SampleLoginSteps</td></tr>
+<tr>
+<td>
+{{{
+
+Scenario: Logging in with correct credentials
+
+  Given a user with username "bdduser" and password "bddpassword" (PASSED)
+    And is an active user in the system (PASSED)
+  When a visitor logs in with username "bdduser" and password "bddpassword" (PASSED)
+  Then the visitor is logged in as a "User" (PASSED)
+
+
+Scenario: Logging in with incorrect credentials
+
+  Given no user exists with the username "bddbaduser" (PENDING)
+  When a visitor logs in with username "bddbaduser" and password "bddbadpassword" (NOT PERFORMED)
+  Then the visitor is not logged in (NOT PERFORMED)
+
+}}}
+</td>
+</tr>
+</table>
+
+Details about how to write Gherkin tests and their results can be found [http://jbehave.org/reference/latest/getting-started.html at the JBehave site]. Results are very similar to Executable Use Cases as above:
+
+Possible result values include:
+
+|| *Result Value* || *Definition* ||
+|| (PASSED) || The step passed with no errors ||
+|| (PENDING) || No matching step method was found, rest of steps ignored ||
+|| (FAILURE) || Method threw an exception during this step, rest of steps ignored ||
+|| (NOT PERFORMED) || Each step after a (PENDING) or (FAILURE) is ignored and labeled accordingly ||
 
 == FIT Results ==
