@@ -89,7 +89,7 @@ You can also pass Ruby/Groovy/Selenese scripts along with your Java packages (or
 
 `> Spectacular -help`
 
-{{{
+<pre>
 
  -artifactExecutorAgent <arg>      Bean name for Artifact Executor Agent
  -artifactExtractor <arg>          Bean name for artifact extractor
@@ -113,8 +113,7 @@ You can also pass Ruby/Groovy/Selenese scripts along with your Java packages (or
                                    the browser)
  -specLocation <arg>               Location of the specification to test.
 
-
-}}}
+</pre>
 
 
 =Step 8:  View Results=
