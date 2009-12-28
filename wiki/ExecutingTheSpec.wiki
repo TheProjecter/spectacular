@@ -18,12 +18,12 @@ For Linux/Unix/Mac OS:
 
 Available command line options:
 
- -config <arg>                     Beans file that configures Spectacular
-                                   and wires the spine together
  -help                             Help Menu
  -specLocation <arg>               Location of the specification to test.
  -fixtures <arg>                   Base Package for Executable Use Case
                                    fixtures.
+ -config <arg>                     Beans file that configures Spectacular
+                                   and wires the spine together
  -projectXml <arg>                 Location of XML file for project
                                    command line arguments.
  -artifactExecutorAgent <arg>      Bean name for Artifact Executor Agent
@@ -45,7 +45,6 @@ Available command line options:
 
 || *Command-Line Option* || *Required?* || *Explanation* ||
 || -help || No || Prints out a help menu of available command line options ||
-|| -specLocation <uri>|| Yes || Location of the spec to test.  Must be in URI format (for local filesystem, use `*file:*/path/to/spec`, for specs on the web use `*http:*//host.com/path/to/spec`, etc) ||
-|| -fixtures <package/scripts> || Yes, for EUC.  No for others || If you have any executable use cases, this is the parent Java package that contains all your fixture code; for EUC fixture code in Groovy, prepend with groovy: (i.e. groovy:/path/to/script.groovy); for Selenese, prepend with selenese: (i.e. selenese:/path/to/script.selenese); for Ruby, prepend with ruby: (i.e. ruby:/path/to/script.rb) ||
-|| -specLocation _path to spec_ || Yes || Location of your spec, using classpath:, file:, or http:/https:||
-|| -config _path to config_ || No || Location of an alternate Spring wiring config file ||
+|| -specLocation <uri>|| Yes || Location of the spec to test.  Must be in URI format (for local filesystem, use `file:/path/to/spec`, for specs on the web use `http://host.com/path/to/spec`, etc) ||
+|| -fixtures <package/scripts> || Yes, for EUC.  No for others || If you have any executable use cases, this is the parent Java package that contains all your fixture code; for EUC fixture code in Groovy, prepend with `groovy:` (i.e. `groovy:/path/to/script.groovy`); for Selenese, prepend with `selenese:` (i.e. `selenese:/path/to/script.selenese`); for Ruby, prepend with `ruby:` (i.e. `ruby:/path/to/script.rb`) ||
+|| -config <path to config> || No || Location of a Spring wiring config file if you want to replace any of the beans for any of the Spectacular steps (see Spectacular Architecture for more information).  You generally won't be using this. ||
