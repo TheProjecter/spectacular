@@ -91,27 +91,31 @@ You can also pass Ruby/Groovy/Selenese scripts along with your Java packages (or
 
 <pre>
 
- -artifactExecutorAgent <arg>      Bean name for Artifact Executor Agent
- -artifactExtractor <arg>          Bean name for artifact extractor
- -config <arg>                     Beans file that configures Spectacular
-                                   and wires the spine together
- -decisionerAgent <arg>            Bean name for Decisioner Agent
- -documentReader <arg>             Bean name for document reader.
- -fixtures <arg>                   Base Package for Executable Use Case
+-help                             Help Menu
+
+-fixtures <arg>                   Base Package for Executable Use Case
                                    fixtures.
- -help                             Help Menu
- -preexecutorAgent <arg>           Bean name for Pre-Executor Agent
- -projectXml <arg>                 Location of XML file for project
+-projectXml <arg>                 Location of XML file for project
                                    command line arguments.
- -reportBuilder <arg>              Bean name for Report Builder
- -reportLocation <arg>             Location of the report to write.
- -reportWriter <arg>               Bean name for Report Writer
- -seleniumRCHost <arg>             Hostname of Remote Control server
- -seleniumRCInitialUrl <arg>       Initial URL for Selenium
- -seleniumRCPort <arg>             Port of Remote Control server
- -seleniumRCStartupCommand <arg>   Startup command for Selenium (typically
+-specLocation <arg>               Location of the specification to test.
+
+-config <arg>                     Beans file that configures Spectacular
+                                   and wires the spine together
+
+-artifactExecutorAgent <arg>      Bean name for Artifact Executor Agent
+-artifactExtractor <arg>          Bean name for artifact extractor
+-decisionerAgent <arg>            Bean name for Decisioner Agent
+-documentReader <arg>             Bean name for document reader.
+-preexecutorAgent <arg>           Bean name for Pre-Executor Agent
+-reportBuilder <arg>              Bean name for Report Builder
+-reportLocation <arg>             Location of the report to write.
+-reportWriter <arg>               Bean name for Report Writer
+
+-seleniumRCHost <arg>             Hostname of Remote Control server
+-seleniumRCInitialUrl <arg>       Initial URL for Selenium
+-seleniumRCPort <arg>             Port of Remote Control server
+-seleniumRCStartupCommand <arg>   Startup command for Selenium (typically
                                    the browser)
- -specLocation <arg>               Location of the specification to test.
 
 </pre>
 
