@@ -3,3 +3,26 @@
 = Writing Executable Use Case Fixtures in Selenese =
 
 _(this creates a Selenium browser automatically and drives the browser through script)_
+
+Spectacular supports writing Executable Use Case fixtures in [http://seleniumhq.org/docs/04_selenese_commands.html Selenese] within plain text documents (wikis to be supported soon).  The format is simple and is similar to the Groovy and Ruby way of doing things:
+
+{{{
+
+Flow: User navigates to home page
+
+  open /Home
+  waitForPageToLoad 5000
+
+Expectation: User sees home page with articles
+
+  verifyText "xpath=//div[@class='featured today']/h2" "Articles for Today"
+
+Flow: User clicks "login" link
+
+  click "id=login"
+
+# ETC
+
+
+
+}}}
