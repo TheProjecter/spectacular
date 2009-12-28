@@ -36,7 +36,7 @@ If you are using [WritingExecutableUseCaseFixturesInSelenese Selenese] test fixt
 || -seleniumRCStartupCommand <command> || Yes, for Selenese tests.  No otherwise. || If you're using Selenese scripts, this is [http://seleniumhq.org/docs/05_selenium_rc.html#specifying-the-path-to-a-specific-browser the startup command to selenium].  i.e. *firefox or *safari or *iehta ||
 || -seleniumRCInitialUrl <url> || Yes, for Selenese tests.  No otherwise. || If you're using Selenese scripts, this is the base URL of the system under test. ||
 
-If you are _extending_ Spectacular with your own custom phase handlers (see [Architecture Spectacular Architecture]), you can specify which handler should be used with the following command-line arguments (not commonly used unless you're extending Spectacular or using a different plugin):
+If you are [ExtendSpectacular extending] Spectacular with your own custom phase handlers (see [Architecture Spectacular Architecture]), you can specify which handler should be used with the following command-line arguments (not commonly used unless you're extending Spectacular or using a different plugin):
 
 
 || *Command-Line Option* || *Required?* || *Explanation* ||
