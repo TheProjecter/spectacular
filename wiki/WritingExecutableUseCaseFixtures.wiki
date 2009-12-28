@@ -28,26 +28,7 @@ For the above example, you may define fixtures such as the following:
  
 *Ruby:*
 
-{{{
 
-Flow "User navigates to home page" do
-
-  # do something useful, like drive a browser
-
-end
-
-Expectation "User sees home page with articles" do
-
-  # Assert user sees page with articles
-
-end
-
-
-}}}
-
-*Note*
-
-  * In Ruby scripts, a Context variable has already been set in the scope of your closure as `@context`.  Use as above.
 
 
 *Groovy:*
