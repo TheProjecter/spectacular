@@ -18,6 +18,15 @@ Expectation("User sees home page with articles") {
     
 }
 
+// use regex to get values from the step text
+Flow("User clicks \"(.*)\" link") { linkName ->
+
+  // do something useful in this closure
+
+}
+
+/* etc etc */
+
 
 }}}
 
