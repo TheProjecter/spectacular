@@ -27,7 +27,13 @@ Yikes!  That's a lot to grok.  And, it's a challenge to make sure other members 
 	</for-spec>
 
         <for-spec spec="http://intranet.com/path/to/Spec.html">
-                <!-- For every for-spec element, Spectacular is run once. You can have as many for-spec elements as you like, as each Spec may have different requirements -->
+                <!-- 
+                For every for-spec element, Spectacular is run once. 
+                You can have as many for-spec elements as you like, as 
+                each Spec may have different requirements 
+                -->
+		<option name="fixtures" value="some.java.package" />
+		<option name="reportLocation" value="./OtherSpec.html" />
         </for-spec>
 	
 </spectacular>
