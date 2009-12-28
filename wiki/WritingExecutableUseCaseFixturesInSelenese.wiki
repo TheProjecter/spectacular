@@ -1,0 +1,5 @@
+#summary Writing Executable Use Case Fixtures in Selenese
+
+= Writing Executable Use Case Fixtures in Selenese =
+
+_This creates a Selenium browser automatically and drives the browser through script_
