@@ -21,49 +21,9 @@ Writing Executable Use Cases under Spectacular isn't really very different than 
 
 Spectacular will parse the table and read the first two columns from left to right in each row below the headers, starting with `User navigates to home page`, then to `User sees home page with articles`, and so on.  Each step (called "Flow" and "Expectation") is searched for in annotated code (Java) or in declarations (Ruby).  When it finds a match, it executes that code and passes in any parameters, if applicable.
 
-For the above example, you may define a class such as the following:
+For the above example, you may define fixtures such as the following:
 
-*Java:*
-
-{{{
-
-package minderupt.sample.euc;
-
-import minderupt.spectacular.executor.euc.Context;
-
-@EUC
-public class SampleEUCFlows {
-
-    @Flow("User navigates to home page")
-    public void userNavigatesToHomePage() {
-    
-        // do something useful, like drive a browser
-
-    }
-
-    @Expectation("User sees home page with articles")
-    public void userSeesPageWithArticles(Context context) {
-        
-       // Assert user sees page with articles
-
-    }
-
-
-    
-}
-
-
-}}}
-
-*Couple things to take note:*
-
-  * If you want your class methods to be searched when walking through a Use Case, annotate the class with `@EUC` (a marker annotation)
-  * For each Flow step in the use case, annotate a method with `@Flow` with the value being some kind of expression that matches a flow step in your use case
-  * For each Expectation step in the use case, annotate a method with `@Expectation` with the value being some kind of expression that matches an expectation step in your use case
-  * If your @Flow/@Expectation either encounters an error or an expectation is not met, throw a checked or runtime exception - the exception and the value will be printed out in the test results
-  * The same object that runs each step in the use case is *not guaranteed* to be the same one in each step.  Therefore, if you would like to pass around state between steps, put a `Context context` as the first parameter to your step handler.  It's basically a `HashMap<String, Object>` passed between steps.
-
-
+[WritingExecutableUseCaseFixturesInJava Java] | 
 
 *Ruby:*
 
