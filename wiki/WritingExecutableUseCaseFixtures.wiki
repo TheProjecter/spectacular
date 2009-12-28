@@ -11,7 +11,7 @@ Rather than be restricted to keywords such as Given/When/Then, you can use the e
 
 =Details=
 
-Writing Executable Use Cases under Spectacular isn't really very different than with JBehave (Java) or Cucumber (Ruby - experimental).  Given a traditional use case table:
+Writing Executable Use Cases under Spectacular isn't really very different than with JBehave (Java) or Cucumber (Ruby - experimental).  Given a Spectacular use case table:
 
 || User Flow:  Logging In ||
 || *User Action* || *Expectation* || *Comments* ||
@@ -61,9 +61,9 @@ public class SampleEUCFlows {
   * For each Flow step in the use case, annotate a method with `@Flow` with the value being some kind of expression that matches a flow step in your use case
   * For each Expectation step in the use case, annotate a method with `@Expectation` with the value being some kind of expression that matches an expectation step in your use case
   * If your @Flow/@Expectation either encounters an error or an expectation is not met, throw a checked or runtime exception - the exception and the value will be printed out in the test results
+  * The same object that runs each step in the use case is *not guaranteed* to be the same one in each step.  Therefore, if you would like to pass around state between steps, put a `Context context` as the first parameter to your step handler.  It's basically a `HashMap<String, Object>` passed between steps.
 
 
-In Ruby, your script file would look like this:
 
 *Ruby:*
 
@@ -83,6 +83,15 @@ end
 
 
 }}}
+
+*Note*
+
+  * In Ruby scripts, a Context variable has already been set in the scope of your closure as `@context`.  Use as above.
+
+
+*Groovy:*
+
+
 
 
 
