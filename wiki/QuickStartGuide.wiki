@@ -85,12 +85,32 @@ You can also pass Ruby/Groovy/Selenese scripts along with your Java packages (or
 `> Spectacular -fixtures selenese:/path/to/declaration/script.selenese -specLocation file:/path/to/spec`
 
 
-|| Other command-line arguments: ||
-|| -config _path_ || Path to a separate config file ||
-|| -eucBasePackage _package_ || Base package name to seach for @EUC annotations or Ruby scripts.  You may specify multiple options by separating each with a comma (,) ||
-|| -specLocation _path_ || Path to the specification (file:, http:, https:) ||
+*Other command-line arguments:*
+
+`> Spectacular -help`
 
 
+ -artifactExecutorAgent <arg>      Bean name for Artifact Executor Agent
+ -artifactExtractor <arg>          Bean name for artifact extractor
+ -config <arg>                     Beans file that configures Spectacular
+                                   and wires the spine together
+ -decisionerAgent <arg>            Bean name for Decisioner Agent
+ -documentReader <arg>             Bean name for document reader.
+ -fixtures <arg>                   Base Package for Executable Use Case
+                                   fixtures.
+ -help                             Help Menu
+ -preexecutorAgent <arg>           Bean name for Pre-Executor Agent
+ -projectXml <arg>                 Location of XML file for project
+                                   command line arguments.
+ -reportBuilder <arg>              Bean name for Report Builder
+ -reportLocation <arg>             Location of the report to write.
+ -reportWriter <arg>               Bean name for Report Writer
+ -seleniumRCHost <arg>             Hostname of Remote Control server
+ -seleniumRCInitialUrl <arg>       Initial URL for Selenium
+ -seleniumRCPort <arg>             Port of Remote Control server
+ -seleniumRCStartupCommand <arg>   Startup command for Selenium (typically
+                                   the browser)
+ -specLocation <arg>               Location of the specification to test.
 
 
 
