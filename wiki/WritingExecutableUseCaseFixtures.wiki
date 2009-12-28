@@ -24,7 +24,8 @@ Spectacular will parse the table and read the first two columns from left to rig
 For the above example, you may define fixtures such as the following:
 
 [WritingExecutableUseCaseFixturesInJava Java] | 
-
+[WritingExecutableUseCaseFixturesInGroovy Groovy] | [WritingExecutableUseCaseFixturesInSelenese Selenese (drive Selenium)] | [WritingExecutableUseCaseFixturesInRuby Ruby]
+ 
 *Ruby:*
 
 {{{
