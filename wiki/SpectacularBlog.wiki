@@ -1,8 +1,8 @@
 #summary Spectacular Blog Entries
 
-= Introduction =
+= Spectacular Blog =
 
-Add your content here.
+Recent entries from [http://blog.minderupt.com/category/spectacular/ Spectacular Blog at Minderupt]
 
 
 
