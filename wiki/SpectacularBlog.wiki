@@ -6,7 +6,4 @@ Add your content here.
 
 
 
-<wiki:gadget url="http://google-code-feed-gadget.googlecode.com/svn/trunk/gadget.xml"
- up_feeds="http://blog.minderupt.com/category/spectacular/feed"
- width="780"  height="340" border="0"
- up_showaddbutton="0"/>
+<wiki:gadget url="http://google-code-feed-gadget.googlecode.com/svn/trunk/gadget.xml" up_feeds="http://blog.minderupt.com/category/spectacular/feed" width="780"  height="340" border="0" up_showaddbutton="0"/>
