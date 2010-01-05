@@ -9,7 +9,11 @@ import org.apache.commons.lang.ArrayUtils;
 import org.apache.log4j.Logger;
 
 import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -33,6 +37,9 @@ public class SeleneseExecutable implements Executable {
             context.put(SELENIUM_KEY, selenium);
         }
 
+        substituteCommandVariables(selenesePart, params);
+
+
         for(List<String> command : selenesePart.getCommands()) {
 
 
@@ -44,10 +51,52 @@ public class SeleneseExecutable implements Executable {
             String commandName = commandArr[0];
             String[] commandParams = (String[]) ArrayUtils.subarray(commandArr, 1, commandArr.length);
 
+
             if(LOGGER.isDebugEnabled()) LOGGER.debug("Executing command:  " + commandName + " " + ArrayUtils.toString(commandParams));
             selenium.executeSeleneseCommand(commandName, commandParams);
 
         }
+
+
+    }
+
+    /**
+     * Substitutes the $0, $1 variables in the command params with vars grabbed during regex
+     * @param part Selenese part
+     * @param params Values from the regex
+     */
+    private void substituteCommandVariables(SelenesePart part, Object[] params) {
+
+
+        Pattern varNamePattern = Pattern.compile("\\$\\d");
+
+        // build map of var name to params
+        int varId = 0;
+        Map<Integer, String> varMap = new HashMap<Integer, String>();
+        for(Object obj : params) {
+
+            String str = (String) obj;
+            varMap.put(varId, str);
+            varId++;
+
+        }
+
+
+        List<List<String>> commands = selenesePart.getCommands();
+        List<List<String>> subCommands = new LinkedList<List<String>>();
+        for(List<String> command : commands) {
+
+            List<String> singleCommand = new LinkedList<String>();
+
+            for(String commandPart : command) {
+
+
+
+            }
+
+        }
+
+
 
 
     }
