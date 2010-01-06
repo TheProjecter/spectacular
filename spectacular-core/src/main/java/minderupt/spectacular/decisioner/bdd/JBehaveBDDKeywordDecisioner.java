@@ -20,7 +20,10 @@ public class JBehaveBDDKeywordDecisioner implements Decisioner {
 
         // check for keywords in the data
         List<List<String>> data = artifact.getTableContent();
+        if(data == null) return(new Decision(ArtifactType.ABSTAIN));
         String text = data.get(0).get(0);  // first row, first cell
+
+        if(text == null) return(new Decision(ArtifactType.ABSTAIN));
         if(text.indexOf("Given") >= 0) weight++;
         if(text.indexOf("When") >= 0) weight++;
         if(text.indexOf("Then") >= 0) weight++;

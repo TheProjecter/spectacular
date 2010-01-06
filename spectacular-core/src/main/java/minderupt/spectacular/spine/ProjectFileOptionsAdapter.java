@@ -25,6 +25,7 @@ public class ProjectFileOptionsAdapter {
 
         List<GlobalOptions> options = new LinkedList<GlobalOptions>();
 
+        if(LOGGER.isInfoEnabled()) LOGGER.info("Parsing project XML");
         Node spectacularNode = null;
         try {
 
@@ -39,7 +40,9 @@ public class ProjectFileOptionsAdapter {
             return(options);
         }
 
+
         NodeList nodes = spectacularNode.getChildNodes();
+        if(LOGGER.isInfoEnabled()) LOGGER.info("# of specs:  " + nodes.getLength());
         for(int i = 0 ; i < nodes.getLength() ; i++) {
 
             try {
@@ -73,6 +76,7 @@ public class ProjectFileOptionsAdapter {
                 GlobalOptions globalOptions = new CommandLineGlobalOptions(cmdLineArr);
                 options.add(globalOptions);
 
+                if(LOGGER.isInfoEnabled()) LOGGER.info("Options loaded for spec:  " + globalOptions.getSpecLocation());
 
             } catch(Exception e) {
                 LOGGER.error("Unable to parse out for-spec nodes in document.", e);

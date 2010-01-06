@@ -36,6 +36,7 @@ public class SpectacularRunner {
 
         List<GlobalOptions> optionsList = new LinkedList<GlobalOptions>();
         if (globalOptions.getProjectXml() != null) {
+            LOGGER.info("Loading Project XML: " + globalOptions.getProjectXml());
             ProjectFileOptionsAdapter adapter = new ProjectFileOptionsAdapter();
             optionsList = adapter.getSpecOptions(loadProjectXml(globalOptions.getProjectXml()));
         } else {
@@ -43,6 +44,7 @@ public class SpectacularRunner {
         }
 
 
+        LOGGER.info("Iterating through options...");
         for (GlobalOptions glop : optionsList) {
 
             if (glop.isHelp() || glop.getSpecLocation() == null) {

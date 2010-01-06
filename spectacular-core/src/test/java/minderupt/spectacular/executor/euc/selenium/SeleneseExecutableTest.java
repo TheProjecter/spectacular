@@ -18,6 +18,7 @@ import static org.mockito.Mockito.verify;
  */
 public class SeleneseExecutableTest {
 
+    /*
     @Test
     public void testSimpleFlowStep() throws Exception {
 
@@ -82,7 +83,7 @@ public class SeleneseExecutableTest {
 
 
     }
-
+    */
 
 
 
