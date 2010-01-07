@@ -31,7 +31,7 @@ public class SelenesePart {
         return(this.commands);
     }
 
-
-
-
+    public void setCommands(List<List<String>> commands) {
+        this.commands = commands;
+    }
 }

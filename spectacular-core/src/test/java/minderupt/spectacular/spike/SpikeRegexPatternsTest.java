@@ -36,5 +36,19 @@ public class SpikeRegexPatternsTest {
 
     }
 
+    @Test
+    public void testEscapedDollarSigns() throws Exception {
+
+        String str = "do something $1 in some kind of way";
+        Pattern p = Pattern.compile("\\$\\d");
+        Matcher m = p.matcher(str);
+
+        String replaced = m.replaceAll("useful");
+        assertNotNull(replaced);
+        assertEquals("do something useful in some kind of way", replaced);
+
+
+    }
+
 
 }
