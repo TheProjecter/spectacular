@@ -9,10 +9,8 @@ import org.apache.commons.lang.ArrayUtils;
 import org.apache.log4j.Logger;
 
 import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -22,6 +20,8 @@ public class SeleneseExecutable implements Executable {
 
     private static Logger LOGGER = Logger.getLogger(SeleneseExecutable.class);
     private static final String SELENIUM_KEY = "selenium";
+    private static Pattern varNamePattern = Pattern.compile("\\$\\d");
+
     private SelenesePart selenesePart = null;
     private SpectacularSelenium seleniumInstance;
 
@@ -67,8 +67,8 @@ public class SeleneseExecutable implements Executable {
      */
     private void substituteCommandVariables(SelenesePart part, Object[] params) {
 
+        if(params == null) return;
 
-        Pattern varNamePattern = Pattern.compile("\\$\\d");
 
         // build map of var name to params
         int varId = 0;
@@ -82,22 +82,36 @@ public class SeleneseExecutable implements Executable {
         }
 
 
-        List<List<String>> commands = selenesePart.getCommands();
+        List<List<String>> commands = part.getCommands();
         List<List<String>> subCommands = new LinkedList<List<String>>();
         for(List<String> command : commands) {
 
-            List<String> singleCommand = new LinkedList<String>();
+           List<String> singleCommand = new LinkedList<String>();
+           for(String commandPart : command) {
 
-            for(String commandPart : command) {
-
-
+               // do replace
+               String newCommandPart = replaceParameters(commandPart, varMap);
+               singleCommand.add(newCommandPart);
 
             }
 
+            subCommands.add(singleCommand);
+
         }
 
+        part.setCommands(subCommands);
 
+    }
 
+    private String replaceParameters(String commandPart, Map<Integer, String> varMap) {
+
+        Set<Integer> keys = varMap.keySet();
+        for(Integer varNum : keys) {
+            String replaceString = "$" + varNum.intValue();
+            commandPart = commandPart.replaceAll(varMap.get(varNum), replaceString);
+        }
+
+        return(commandPart);
 
     }
 

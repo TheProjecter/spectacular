@@ -18,7 +18,7 @@ import static org.mockito.Mockito.verify;
  */
 public class SeleneseExecutableTest {
 
-    /*
+    
     @Test
     public void testSimpleFlowStep() throws Exception {
 
@@ -76,14 +76,14 @@ public class SeleneseExecutableTest {
         List<String> args = new LinkedList<String>();
         args.add("argButtonName"); // as if the step said "User wants to do argButtonName useful"
 
-        exec.executeSelenese(new Context(), args);
+        exec.executeSelenese(new Context(), args.toArray());
 
         verify(selenium).executeSeleneseCommand("open", new String[]{"/some/url"});
         verify(selenium).executeSeleneseCommand("click", new String[]{"id=argButtonName"});
 
 
     }
-    */
+
 
 
 
