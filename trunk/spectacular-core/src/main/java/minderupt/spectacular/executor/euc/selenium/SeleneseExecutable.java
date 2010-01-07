@@ -107,8 +107,8 @@ public class SeleneseExecutable implements Executable {
 
         Set<Integer> keys = varMap.keySet();
         for(Integer varNum : keys) {
-            String replaceString = "$" + varNum.intValue();
-            commandPart = commandPart.replaceAll(varMap.get(varNum), replaceString);
+            String replaceString = "\\$" + varNum.intValue();
+            commandPart = commandPart.replaceAll(replaceString, varMap.get(varNum));
         }
 
         return(commandPart);
