@@ -1,0 +1,16 @@
+log4j.rootLogger=WARN
+log4j.appender.FILE=org.apache.log4j.RollingFileAppender
+log4j.appender.FILE.layout=org.apache.log4j.PatternLayout
+
+# Print the date in ISO 8601 format
+log4j.appender.FILE.layout.ConversionPattern=%d{HH:mm:ss} %5p [%t] (%F:%L) - %m%n
+log4j.appender.FILE.File=spectacular.log
+
+log4j.appender.FILE.MaxFileSize=100KB
+# Keep one backup file
+log4j.appender.FILE.MaxBackupIndex=2
+
+
+
+# Print only messages of level INFO or above in the package com.foo.
+log4j.logger.minderupt.spectacular=INFO, FILE

@@ -21,6 +21,7 @@ import java.util.regex.Pattern;
  */
 public class EUCArtifactExecutor implements ArtifactExecutor {
 
+
     private static Logger LOGGER = Logger.getLogger(EUCArtifactExecutor.class);
 
     private StepIndex stepIndex;
