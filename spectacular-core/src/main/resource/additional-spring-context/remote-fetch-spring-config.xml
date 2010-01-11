@@ -64,10 +64,10 @@
     <bean id="bddReportBuilder" class="minderupt.spectacular.reporting.html.bdd.JBehaveArtifactReportBuilderHTML"/>
     <bean id="fitReportBuilder" class="minderupt.spectacular.reporting.html.fit.FITArtifactReportBuilderHTML"/>
     <bean id="eucReportBuilder" class="minderupt.spectacular.reporting.html.euc.EUCArtifactReportBuilderHTML">
-        <property name="passedTestColor" value="#00FF00" /> <!-- Green --->
+        <property name="passedTestColor" value="#00FF00" /> <!-- Green -->
         <property name="failedTestColor" value="#CC0000" /> <!-- Red -->
         <property name="pendingTestColor" value="#FFFF00" /> <!-- Yellow -->
-        <property name="notPerformedTestColor" value="#000000" /> <!-- white -->
+        <property name="notPerformedTestColor" value="#FFFFFF" /> <!-- white -->
     </bean>        
 
     <bean id="reportBuilder" class="minderupt.spectacular.reporting.html.CompleteHTMLReportBuilder">
