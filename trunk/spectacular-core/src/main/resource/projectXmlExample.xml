@@ -1,0 +1,28 @@
+<!-- spectacular is the root node -->
+<spectacular>
+
+    <for-spec spec="file:/some/path/to/file.html">
+        <option name="someOption" value="someValue" />
+        <option name="someOption" value="someValue" />
+        <option name="someOption" value="someValue" />
+        <option name="someOption" value="someValue" />
+        <option name="someOption" value="someValue" />
+    </for-spec>
+
+    <for-spec spec="http://blah.com/some/path/to/file.html">
+        <option name="someOption" value="someValue" />
+        <option name="someOption" value="someValue" />
+        <option name="someOption" value="someValue" />
+        <option name="someOption" value="someValue" />       
+        <option name="someOption" value="someValue" />
+    </for-spec>
+
+    <for-spec spec="file:/some/path/to/file.html">
+        <option name="someOption" value="someValue" />
+        <option name="someOption" value="someValue" />
+        <option name="someOption" value="someValue" />
+        <option name="someOption" value="someValue" />
+        <option name="someOption" value="someValue" />
+    </for-spec>
+
+</spectacular>
