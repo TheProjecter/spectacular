@@ -77,4 +77,10 @@ public class ArtifactExecutionResults implements TabularContentAccessor<String> 
     public void setPass(boolean pass) {
         this.pass = pass;
     }
+
+    public void printTableContents() {
+        this.tableUtil.printTableContents(this.tabularResults);
+    }
+
+
 }

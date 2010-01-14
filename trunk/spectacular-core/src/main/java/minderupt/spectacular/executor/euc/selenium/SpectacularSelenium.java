@@ -29,7 +29,8 @@ public class SpectacularSelenium extends DefaultSelenium {
     }
 
     public void executeSeleneseCommand(String commandName, String[] args) {
-        this.commandProcessor.doCommand(commandName, args);
+
+         this.commandProcessor.doCommand(commandName, args);
     }
 
 }
