@@ -6,7 +6,9 @@ import minderupt.spectacular.executor.ArtifactExecutionResults;
 import minderupt.spectacular.executor.ArtifactExecutor;
 import minderupt.spectacular.executor.euc.script.RubyIndexer;
 import minderupt.spectacular.executor.euc.script.GroovyIndexer;
+import minderupt.spectacular.executor.euc.selenium.SeleneseExecutable;
 import minderupt.spectacular.executor.euc.selenium.SeleneseIndexer;
+import minderupt.spectacular.executor.euc.selenium.SpectacularSelenium;
 import minderupt.spectacular.util.TableContentUtil;
 import org.apache.log4j.Logger;
 
@@ -226,6 +228,7 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
                     results.put(currentRow, currentColumn, step + " (PENDING)");
                     markFutureStepsNotPerformed(results, currentRow, currentColumn);
 
+                    cleanup(context);
                     return (results);
 
                 }
@@ -240,6 +243,7 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
                     results.put(currentRow, currentColumn, step + " (FAIL) " + e + " Cause: " + e.getCause());
                     markFutureStepsNotPerformed(results, currentRow, currentColumn);
 
+                    cleanup(context);
                     return (results);
 
                 }
@@ -250,8 +254,28 @@ public class EUCArtifactExecutor implements ArtifactExecutor {
         }
 
         // are we here?
+        cleanup(context);
         results.setPass(true);
         return (results);
+
+
+    }
+
+    //! Needs refactoring - needs more modular pluggable way to do this.
+    private void cleanup(Context context) {
+
+        // shut down selenium
+        try {
+
+            if(context.get(SeleneseExecutable.SELENIUM_KEY) != null) {
+                SpectacularSelenium selenium = (SpectacularSelenium)context.get(SeleneseExecutable.SELENIUM_KEY);
+                selenium.close();
+                selenium.stop();
+            }
+
+        } catch (Exception e) {
+            LOGGER.error("Unable to shut down selenium:  ", e);
+        }
 
 
     }

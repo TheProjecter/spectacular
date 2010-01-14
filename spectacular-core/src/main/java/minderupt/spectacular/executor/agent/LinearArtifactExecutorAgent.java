@@ -52,6 +52,7 @@ public class LinearArtifactExecutorAgent implements ArtifactExecutorAgent {
             results.setOriginalArtifact(artifact);
             resultsList.add(results);
 
+            
 
         }
 

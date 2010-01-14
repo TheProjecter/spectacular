@@ -38,7 +38,11 @@ public class JBehaveArtifactExecutor implements ArtifactExecutor {
             steps = (CandidateSteps) Class.forName(stepClass).newInstance();
         } catch(Exception e) {
             LOGGER.error("Unable to load step class: " + stepClass, e);
-            return null;
+            results.put(0, 0, "Unable to load step class:  " + stepClass + " " + ArtifactExecutor.RESULT_FAIL);
+            results.put(1, 0, artifact.getRawArtifact());
+            results.setPass(false);
+            results.printTableContents();
+            return results;
         }
 
         // parse story

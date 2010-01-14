@@ -12,6 +12,10 @@ public class JBehaveArtifactReportBuilderHTML implements ArtifactReportBuilder {
 
         // get results
         String bddResults = results.get(1,0);
+
+        if(bddResults == null) return results.getOriginalArtifact().getRawArtifact();
+
+        bddResults = bddResults.replaceAll("\n", "<br />");
         bddResults = bddResults.replaceAll("\n", "<br />");
 
         StringBuilder bddTable = new StringBuilder();

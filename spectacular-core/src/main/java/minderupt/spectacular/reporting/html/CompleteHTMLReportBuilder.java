@@ -6,6 +6,7 @@ import minderupt.spectacular.data.model.Report;
 import minderupt.spectacular.data.model.Document;
 import minderupt.spectacular.data.model.ArtifactType;
 import minderupt.spectacular.executor.ArtifactExecutionResults;
+import org.apache.log4j.Logger;
 
 import java.util.List;
 import java.util.LinkedList;
@@ -15,6 +16,8 @@ import java.util.Map;
  *
  */
 public class CompleteHTMLReportBuilder implements ReportBuilder {
+
+    private Logger LOGGER = Logger.getLogger(CompleteHTMLReportBuilder.class);
 
     private Map<ArtifactType, ArtifactReportBuilder> reportBuilders;
 
@@ -27,6 +30,7 @@ public class CompleteHTMLReportBuilder implements ReportBuilder {
         int previousEndPosition = 0;
         for (ArtifactExecutionResults result : results) {
 
+            
             // should be in order
             // get the start position
             int startPosition = result.getOriginalArtifact().getStartPosition();
@@ -44,7 +48,12 @@ public class CompleteHTMLReportBuilder implements ReportBuilder {
                 continue;
             }
 
-            String report = builder.build(result);
+            String report = "<p>NO REPORT AVAILABLE</p>";
+            try {
+                report = builder.build(result);
+            } catch(Exception e) {
+                LOGGER.error("Unable to build an HTML report for result", e);
+            }
             reportSegments.add(report);
 
             previousStartPosition = startPosition;

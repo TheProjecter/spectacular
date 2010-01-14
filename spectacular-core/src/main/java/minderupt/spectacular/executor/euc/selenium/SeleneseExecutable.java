@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 public class SeleneseExecutable implements Executable {
 
     private static Logger LOGGER = Logger.getLogger(SeleneseExecutable.class);
-    private static final String SELENIUM_KEY = "selenium";
+    public static final String SELENIUM_KEY = "selenium";
     private static Pattern varNamePattern = Pattern.compile("\\$\\d");
 
     private SelenesePart selenesePart = null;
