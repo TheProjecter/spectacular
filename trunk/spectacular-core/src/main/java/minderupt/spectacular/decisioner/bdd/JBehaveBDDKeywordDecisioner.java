@@ -28,6 +28,7 @@ public class JBehaveBDDKeywordDecisioner implements Decisioner {
         if(text.indexOf("When") >= 0) weight++;
         if(text.indexOf("Then") >= 0) weight++;
 
+
         decision.setVote(ArtifactType.BDD);
         decision.setWeight(weight);
 
