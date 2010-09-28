@@ -241,6 +241,19 @@ public class HTMLTableArtifactExtractorTest {
 
     }
 
+
+    @Test
+    public void testUseCaseNameIsPreservedInEUCTests() throws Exception {
+
+        String doc = "<html><body><table><tr><td>Primary Flow:</td><td>This is my Use Case Name</td></tr><tr><td>R1C1</td><td>R1C2</td></tr><tr><td>R2C1</td><td>R2C2</td></tr><tr><td>R3C1</td><td>R3C2</td></tr></table></body></html>";
+
+
+
+
+    }
+
+
+
     @Test
     public void testGetDocumentTableWithNoRows() throws Exception {
 

@@ -29,4 +29,6 @@ public class EUCTableStructureDecisionerTest extends AbstractDecisionerTest {
     }
 
 
+
+
 }
