@@ -1,0 +1,1 @@
+<wiki:gadget url="http://google-code-feed-gadget.googlecode.com/svn/trunk/gadget.xml" up\_feeds="http://blog.minderupt.com/category/spectacular/feed/" width="500px" height="340px" border="0"/>
